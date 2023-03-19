@@ -2,6 +2,7 @@ import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/presentation/pages/popular_movies_page.dart';
 import 'package:ditonton/presentation/provider/popular_movies_notifier.dart';
+import 'package:ditonton/presentation/widgets/movie_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
@@ -40,16 +41,48 @@ void main() {
     expect(progressBarFinder, findsOneWidget);
   });
 
-  testWidgets('Page should display ListView when data is loaded',
-      (WidgetTester tester) async {
-    when(mockNotifier.state).thenReturn(RequestState.Loaded);
-    when(mockNotifier.movies).thenReturn(<Movie>[]);
+  group('when data is loaded', () {
 
-    final listViewFinder = find.byType(ListView);
+    testWidgets('Page should display ListView when data is loaded',
+        (WidgetTester tester) async {
+      when(mockNotifier.state).thenReturn(RequestState.Loaded);
+      when(mockNotifier.movies).thenReturn(<Movie>[]);
 
-    await tester.pumpWidget(_makeTestableWidget(PopularMoviesPage()));
+      final listViewFinder = find.byType(ListView);
 
-    expect(listViewFinder, findsOneWidget);
+      await tester.pumpWidget(_makeTestableWidget(PopularMoviesPage()));
+
+      expect(listViewFinder, findsOneWidget);
+    });
+
+    testWidgets('Page should display item when loaded',
+        (WidgetTester tester) async {
+      when(mockNotifier.state).thenReturn(RequestState.Loaded);
+      when(mockNotifier.movies).thenReturn(<Movie>[
+        Movie(
+            adult: false,
+            backdropPath: "backdropPath",
+            genreIds: [],
+            id: 1,
+            originalTitle: "originalTitle",
+            overview: "overview",
+            popularity: 3,
+            posterPath: "posterPath",
+            releaseDate: "2022-09-09",
+            title: "title",
+            video: false,
+            voteAverage: 3,
+            voteCount: 3)
+      ]);
+
+      final itemFinder = find.byType(MovieCard);
+
+      await tester.pumpWidget(_makeTestableWidget(PopularMoviesPage()));
+
+      expect(itemFinder, findsOneWidget);
+    });
+
+    
   });
 
   testWidgets('Page should display text with message when Error',
