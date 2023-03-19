@@ -97,6 +97,7 @@ class DetailContent extends StatelessWidget {
                     Container(
                       margin: const EdgeInsets.only(top: 16),
                       child: SingleChildScrollView(
+                        key: ValueKey("detail_scrollview"),
                         controller: scrollController,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -183,6 +184,7 @@ class DetailContent extends StatelessWidget {
                             SizedBox(height: 16),
                             Text(
                               'Recommendations',
+                              key: ValueKey("__detail_recommendation_text__"),
                               style: kHeading6,
                             ),
                             Consumer<MovieDetailNotifier>(
@@ -190,11 +192,14 @@ class DetailContent extends StatelessWidget {
                                 if (data.recommendationState ==
                                     RequestState.Loading) {
                                   return Center(
-                                    child: CircularProgressIndicator(),
+                                    child: CircularProgressIndicator(
+                                      key: ValueKey(
+                                          "__recommendation_loading__"),
+                                    ),
                                   );
                                 } else if (data.recommendationState ==
                                     RequestState.Error) {
-                                  return Text(data.message);
+                                  return Text(data.message, key: ValueKey("__recommendation_error__"));
                                 } else if (data.recommendationState ==
                                     RequestState.Loaded) {
                                   return Container(
@@ -206,6 +211,7 @@ class DetailContent extends StatelessWidget {
                                         return Padding(
                                           padding: const EdgeInsets.all(4.0),
                                           child: InkWell(
+                                            key: ValueKey("__recommendation_inkwell__"),
                                             onTap: () {
                                               Navigator.pushReplacementNamed(
                                                 context,
@@ -237,7 +243,7 @@ class DetailContent extends StatelessWidget {
                                     ),
                                   );
                                 } else {
-                                  return Container();
+                                  return Container(key: ValueKey("__recommendation_empty__"),);
                                 }
                               },
                             ),
