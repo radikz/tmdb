@@ -33,7 +33,7 @@ void main() {
   group('fromJson', () {
     test('return valid JSON', () async {
       final Map<String, dynamic> map =
-          json.decode(readJson('dummy_data/tv_popular.json'));
+          json.decode(readJson('dummy_data/dummy_tv_list.json'));
 
       final result = TvResponse.fromJson(map);
 

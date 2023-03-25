@@ -2,6 +2,9 @@ import 'package:ditonton/data/models/movie_table.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
+import 'package:ditonton/domain/entities/season.dart';
+import 'package:ditonton/domain/entities/tv_detail.dart';
+import 'package:ditonton/domain/entities/tv_episode.dart';
 
 final testMovie = Movie(
   adult: false,
@@ -57,3 +60,51 @@ final testMovieMap = {
   'posterPath': 'posterPath',
   'title': 'title',
 };
+
+final testTvEpisode = TvEpisode(
+    id: 1,
+    name: "name",
+    overview: "overview",
+    voteAverage: 9,
+    voteCount: 9,
+    airDate: DateTime(2023, 2, 2),
+    episodeNumber: 3,
+    productionCode: "productionCode",
+    seasonNumber: 9,
+    stillPath: "stillPath");
+
+final season = Season(
+    airDate: DateTime(2023, 2, 2),
+    episodeCount: 3,
+    id: 3,
+    name: "name",
+    overview: "overview",
+    posterPath: "posterPath",
+    seasonNumber: 3);
+
+final testTvDetail = TvDetail(
+    backdropPath: "backdropPath",
+    episodeRunTime: [],
+    firstAirDate: DateTime(2023, 2, 2),
+    genres: [],
+    homepage: "homepage",
+    id: 1,
+    inProduction: false,
+    languages: [],
+    lastAirDate: DateTime(2023, 2, 2),
+    lastEpisodeToAir: testTvEpisode,
+    name: "name",
+    numberOfEpisodes: 9,
+    numberOfSeasons: 9,
+    originCountry: [],
+    originalLanguage: "",
+    originalName: "originalName",
+    overview: "overview",
+    popularity: 9,
+    posterPath: "posterPath",
+    seasons: [season],
+    status: "status",
+    tagline: "",
+    type: "type",
+    voteAverage: 9,
+    voteCount: 90);
