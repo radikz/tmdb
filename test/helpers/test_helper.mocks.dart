@@ -4,8 +4,8 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i9;
-import 'dart:convert' as _i28;
-import 'dart:typed_data' as _i29;
+import 'dart:convert' as _i29;
+import 'dart:typed_data' as _i30;
 
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:ditonton/common/failure.dart' as _i10;
@@ -14,6 +14,7 @@ import 'package:ditonton/data/datasources/db/database_helper_tv.dart' as _i19;
 import 'package:ditonton/data/datasources/movie_local_data_source.dart' as _i15;
 import 'package:ditonton/data/datasources/movie_remote_data_source.dart'
     as _i13;
+import 'package:ditonton/data/datasources/tv_local_data_source.dart' as _i28;
 import 'package:ditonton/data/datasources/tv_remote_data_source.dart' as _i26;
 import 'package:ditonton/data/models/detail_season_model.dart' as _i5;
 import 'package:ditonton/data/models/movie_detail_model.dart' as _i3;
@@ -854,6 +855,50 @@ class MockTvRemoteDataSource extends _i1.Mock
       ) as _i9.Future<List<_i27.TvModel>>);
 }
 
+/// A class which mocks [TvLocalDataSource].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockTvLocalDataSource extends _i1.Mock implements _i28.TvLocalDataSource {
+  MockTvLocalDataSource() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i9.Future<String> insertWatchlist(_i20.TvTable? movie) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #insertWatchlist,
+          [movie],
+        ),
+        returnValue: _i9.Future<String>.value(''),
+      ) as _i9.Future<String>);
+  @override
+  _i9.Future<String> removeWatchlist(_i20.TvTable? movie) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #removeWatchlist,
+          [movie],
+        ),
+        returnValue: _i9.Future<String>.value(''),
+      ) as _i9.Future<String>);
+  @override
+  _i9.Future<_i20.TvTable?> getTvById(int? id) => (super.noSuchMethod(
+        Invocation.method(
+          #getTvById,
+          [id],
+        ),
+        returnValue: _i9.Future<_i20.TvTable?>.value(),
+      ) as _i9.Future<_i20.TvTable?>);
+  @override
+  _i9.Future<List<_i20.TvTable>> getWatchlistTvs() => (super.noSuchMethod(
+        Invocation.method(
+          #getWatchlistTvs,
+          [],
+        ),
+        returnValue: _i9.Future<List<_i20.TvTable>>.value(<_i20.TvTable>[]),
+      ) as _i9.Future<List<_i20.TvTable>>);
+}
+
 /// A class which mocks [Client].
 ///
 /// See the documentation for Mockito's code generation for more information.
@@ -907,7 +952,7 @@ class MockHttpClient extends _i1.Mock implements _i7.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i28.Encoding? encoding,
+    _i29.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -937,7 +982,7 @@ class MockHttpClient extends _i1.Mock implements _i7.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i28.Encoding? encoding,
+    _i29.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -967,7 +1012,7 @@ class MockHttpClient extends _i1.Mock implements _i7.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i28.Encoding? encoding,
+    _i29.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -997,7 +1042,7 @@ class MockHttpClient extends _i1.Mock implements _i7.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i28.Encoding? encoding,
+    _i29.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -1036,7 +1081,7 @@ class MockHttpClient extends _i1.Mock implements _i7.Client {
         returnValue: _i9.Future<String>.value(''),
       ) as _i9.Future<String>);
   @override
-  _i9.Future<_i29.Uint8List> readBytes(
+  _i9.Future<_i30.Uint8List> readBytes(
     Uri? url, {
     Map<String, String>? headers,
   }) =>
@@ -1046,8 +1091,8 @@ class MockHttpClient extends _i1.Mock implements _i7.Client {
           [url],
           {#headers: headers},
         ),
-        returnValue: _i9.Future<_i29.Uint8List>.value(_i29.Uint8List(0)),
-      ) as _i9.Future<_i29.Uint8List>);
+        returnValue: _i9.Future<_i30.Uint8List>.value(_i30.Uint8List(0)),
+      ) as _i9.Future<_i30.Uint8List>);
   @override
   _i9.Future<_i7.StreamedResponse> send(_i7.BaseRequest? request) =>
       (super.noSuchMethod(
