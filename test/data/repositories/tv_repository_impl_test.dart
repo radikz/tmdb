@@ -24,8 +24,8 @@ void main() {
         localDataSource: localDataSource, remoteDataSource: remoteDataSource);
   });
 
-  final tTvModelList = <TvModel>[testTvModelList];
-  final tTvList = <Tv>[testTvList];
+  final tTvModelList = <TvModel>[testTvModel];
+  final tTvList = <Tv>[testTv];
 
   group('Get Airing Now Tv', () {
     test(

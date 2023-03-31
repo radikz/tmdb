@@ -89,7 +89,7 @@ final testTvMap = {
   'name': 'name',
 };
 
-final testTvList = Tv(
+final testTv = Tv(
     firstAirDate: DateTime(2023, 2, 2).toIso8601String(),
     genreIds: [],
     id: 1,
@@ -102,7 +102,7 @@ final testTvList = Tv(
     voteAverage: 9,
     voteCount: 9);
 
-final testTvModelList = TvModel(
+final testTvModel = TvModel(
     firstAirDate: DateTime(2023, 2, 2).toIso8601String(),
     genreIds: [],
     id: 1,
