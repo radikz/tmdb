@@ -47,6 +47,7 @@ class TvListNotifier extends ChangeNotifier {
       _message = failure.message;
       notifyListeners();
     }, (data) {
+      print("tada ${data.first.posterPath}");
       _airingTodayTvState = RequestState.Loaded;
       _airingTodayTvs = data;
       notifyListeners();
@@ -73,7 +74,7 @@ class TvListNotifier extends ChangeNotifier {
     _topRatedTvState = RequestState.Loading;
     notifyListeners();
 
-    final result = await getTopRatedTvs .execute();
+    final result = await getTopRatedTvs.execute();
     result.fold((failure) {
       _topRatedTvState = RequestState.Error;
       _message = failure.message;

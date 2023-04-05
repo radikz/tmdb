@@ -67,6 +67,7 @@ class TvModel extends Equatable {
   Tv toEntity() => Tv(
       firstAirDate: firstAirDate,
       genreIds: genreIds,
+      posterPath: posterPath,
       id: id,
       name: name,
       originCountry: originCountry,
@@ -75,7 +76,8 @@ class TvModel extends Equatable {
       overview: overview,
       popularity: popularity,
       voteAverage: voteAverage,
-      voteCount: voteCount);
+      voteCount: voteCount,
+      backdropPath: backdropPath);
 
   @override
   List<Object?> get props => [

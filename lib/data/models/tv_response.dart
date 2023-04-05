@@ -22,5 +22,4 @@ class TvResponse extends Equatable {
 
   Map<String, dynamic> toJson() =>
       {"results": List<dynamic>.from(tvList.map((e) => e.toJson()))};
-
 }
