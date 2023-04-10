@@ -9,7 +9,7 @@ class GetTvDetailSeason {
 
   GetTvDetailSeason(this.repository);
 
-  Future<Either<Failure, DetailSeason>> execute(int, tvId, int seasonNumber) {
+  Future<Either<Failure, DetailSeason>> execute(int tvId, int seasonNumber) {
     return repository.getTvDetailSeason(tvId, seasonNumber);
   }
 }
