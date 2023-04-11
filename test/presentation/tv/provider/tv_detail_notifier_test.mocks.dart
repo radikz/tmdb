@@ -15,7 +15,7 @@ import 'package:ditonton/domain/usecases/tv/get_tv_watchlist_status.dart'
     as _i10;
 import 'package:ditonton/domain/usecases/tv/get_tvs_recommendation.dart' as _i8;
 import 'package:ditonton/domain/usecases/tv/remove_watchlist_tv.dart' as _i12;
-import 'package:ditonton/domain/usecases/tv/save_watchlist.dart' as _i11;
+import 'package:ditonton/domain/usecases/tv/save_watchlist_tv.dart' as _i11;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
