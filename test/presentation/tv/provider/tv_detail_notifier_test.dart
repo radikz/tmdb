@@ -10,7 +10,7 @@ import 'package:ditonton/domain/usecases/save_watchlist.dart';
 import 'package:ditonton/domain/usecases/tv/get_tv_detail.dart';
 import 'package:ditonton/domain/usecases/tv/get_tv_watchlist_status.dart';
 import 'package:ditonton/domain/usecases/tv/get_tvs_recommendation.dart';
-import 'package:ditonton/domain/usecases/tv/remove_watchlist.dart';
+import 'package:ditonton/domain/usecases/tv/remove_watchlist_tv.dart';
 import 'package:ditonton/domain/usecases/tv/save_watchlist.dart';
 import 'package:ditonton/presentation/provider/movie_detail_notifier.dart';
 import 'package:ditonton/common/state_enum.dart';
