@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton/domain/entities/tv.dart';
 import 'package:ditonton/presentation/tv/pages/airing_now_tvs_page.dart';
 import 'package:ditonton/presentation/tv/pages/popular_tvs_page.dart';
+import 'package:ditonton/presentation/tv/pages/top_rated_tvs_page.dart';
 import 'package:ditonton/presentation/tv/pages/tv_detail_page.dart';
 import 'package:ditonton/presentation/tv/provider/tv_list_notifier.dart';
 import 'package:flutter/material.dart';
@@ -49,10 +50,11 @@ class _HomeTvPageState extends State<HomeTvPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildSubHeading(title: 'Airing Now',
-                  onTap: () =>
-                      Navigator.pushNamed(context, AiringNowTvsPage.ROUTE_NAME),
-                  ),
+              _buildSubHeading(
+                title: 'Airing Now',
+                onTap: () =>
+                    Navigator.pushNamed(context, AiringNowTvsPage.ROUTE_NAME),
+              ),
               Consumer<TvListNotifier>(builder: (context, data, child) {
                 final state = data.airingTodayTvState;
                 if (state == RequestState.Loading) {
@@ -66,10 +68,11 @@ class _HomeTvPageState extends State<HomeTvPage> {
                   return Text('Failed');
                 }
               }),
-              _buildSubHeading(title: 'Popular',
-                  onTap: () =>
-                      Navigator.pushNamed(context, PopularTvsPage.ROUTE_NAME),
-                  ),
+              _buildSubHeading(
+                title: 'Popular',
+                onTap: () =>
+                    Navigator.pushNamed(context, PopularTvsPage.ROUTE_NAME),
+              ),
               Consumer<TvListNotifier>(builder: (context, data, child) {
                 final state = data.popularTvState;
                 if (state == RequestState.Loading) {
@@ -82,10 +85,11 @@ class _HomeTvPageState extends State<HomeTvPage> {
                   return Text('Failed');
                 }
               }),
-              _buildSubHeading(title: 'Top Rated', onTap: () {}
-                  // onTap: () =>
-                  //     Navigator.pushNamed(context, TopRatedMoviesPage.ROUTE_NAME),
-                  ),
+              _buildSubHeading(
+                title: 'Top Rated',
+                onTap: () =>
+                    Navigator.pushNamed(context, TopRatedTvsPage.ROUTE_NAME),
+              ),
               Consumer<TvListNotifier>(builder: (context, data, child) {
                 final state = data.topRatedTvState;
                 if (state == RequestState.Loading) {
