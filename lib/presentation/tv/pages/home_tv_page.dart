@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton/domain/entities/tv.dart';
 import 'package:ditonton/presentation/tv/pages/airing_now_tvs_page.dart';
+import 'package:ditonton/presentation/tv/pages/popular_tvs_page.dart';
 import 'package:ditonton/presentation/tv/pages/tv_detail_page.dart';
 import 'package:ditonton/presentation/tv/provider/tv_list_notifier.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Ditonton'),
+        title: Text('Ditonton Tv'),
         actions: [
           IconButton(
             onPressed: () {
@@ -65,9 +66,9 @@ class _HomeTvPageState extends State<HomeTvPage> {
                   return Text('Failed');
                 }
               }),
-              _buildSubHeading(title: 'Popular', onTap: () {}
-                  // onTap: () =>
-                  //     Navigator.pushNamed(context, PopularMoviesPage.ROUTE_NAME),
+              _buildSubHeading(title: 'Popular',
+                  onTap: () =>
+                      Navigator.pushNamed(context, PopularTvsPage.ROUTE_NAME),
                   ),
               Consumer<TvListNotifier>(builder: (context, data, child) {
                 final state = data.popularTvState;
