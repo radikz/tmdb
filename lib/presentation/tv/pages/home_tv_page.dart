@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton/domain/entities/tv.dart';
+import 'package:ditonton/presentation/tv/pages/airing_now_tvs_page.dart';
 import 'package:ditonton/presentation/tv/pages/tv_detail_page.dart';
 import 'package:ditonton/presentation/tv/provider/tv_list_notifier.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
         actions: [
           IconButton(
             onPressed: () {
-              //Navigator.pushNamed(context, SearchPage.ROUTE_NAME);
+              // Navigator.pushNamed(context, AiringNowTvsPage.ROUTE_NAME);
             },
             icon: Icon(Icons.search),
           )
@@ -47,10 +48,10 @@ class _HomeTvPageState extends State<HomeTvPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Now Playing',
-                style: kHeading6,
-              ),
+              _buildSubHeading(title: 'Popular',
+                  onTap: () =>
+                      Navigator.pushNamed(context, AiringNowTvsPage.ROUTE_NAME),
+                  ),
               Consumer<TvListNotifier>(builder: (context, data, child) {
                 final state = data.airingTodayTvState;
                 if (state == RequestState.Loading) {
