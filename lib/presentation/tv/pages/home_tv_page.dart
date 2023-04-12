@@ -48,7 +48,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildSubHeading(title: 'Popular',
+              _buildSubHeading(title: 'Airing Now',
                   onTap: () =>
                       Navigator.pushNamed(context, AiringNowTvsPage.ROUTE_NAME),
                   ),
