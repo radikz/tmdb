@@ -26,7 +26,7 @@ class TvEpisodeModel extends Equatable {
   int episodeNumber;
   String productionCode;
   int seasonNumber;
-  String stillPath;
+  String? stillPath;
 
   factory TvEpisodeModel.fromJson(Map<String, dynamic> json) => TvEpisodeModel(
         id: json["id"],
@@ -68,7 +68,7 @@ class TvEpisodeModel extends Equatable {
       stillPath: stillPath);
 
   @override
-  List<Object> get props {
+  List<Object?> get props {
     return [
       id,
       name,

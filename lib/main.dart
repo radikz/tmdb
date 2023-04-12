@@ -14,6 +14,7 @@ import 'package:ditonton/presentation/provider/popular_movies_notifier.dart';
 import 'package:ditonton/presentation/provider/top_rated_movies_notifier.dart';
 import 'package:ditonton/presentation/provider/watchlist_movie_notifier.dart';
 import 'package:ditonton/presentation/tv/pages/home_tv_page.dart';
+import 'package:ditonton/presentation/tv/pages/tv_detail_page.dart';
 import 'package:ditonton/presentation/tv/provider/airing_now_tvs_notifier.dart';
 import 'package:ditonton/presentation/tv/provider/popular_tvs_notifier.dart';
 import 'package:ditonton/presentation/tv/provider/top_rated_tvs_notifier.dart';
@@ -100,6 +101,12 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(builder: (_) => AboutPage());
               case HomeTvPage.ROUTE_NAME:
               return MaterialPageRoute(builder: (_) => HomeTvPage());
+              case TvDetailPage.ROUTE_NAME:
+              final id = settings.arguments as int;
+              return MaterialPageRoute(
+                builder: (_) => TvDetailPage(id: id),
+                settings: settings,
+              );
             default:
               return MaterialPageRoute(builder: (_) {
                 return Scaffold(

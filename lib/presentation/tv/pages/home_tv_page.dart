@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton/domain/entities/tv.dart';
+import 'package:ditonton/presentation/tv/pages/tv_detail_page.dart';
 import 'package:ditonton/presentation/tv/provider/tv_list_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -141,11 +142,11 @@ class TvList extends StatelessWidget {
             padding: const EdgeInsets.all(8),
             child: InkWell(
               onTap: () {
-                // Navigator.pushNamed(
-                //   context,
-                //   MovieDetailPage.ROUTE_NAME,
-                //   arguments: movie.id,
-                // );
+                Navigator.pushNamed(
+                  context,
+                  TvDetailPage.ROUTE_NAME,
+                  arguments: movie.id,
+                );
                 print('$BASE_IMAGE_URL${movie.posterPath}');
               },
               child: ClipRRect(
