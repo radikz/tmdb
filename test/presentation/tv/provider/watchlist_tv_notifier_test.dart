@@ -13,13 +13,13 @@ import 'watchlist_tv_notifier_test.mocks.dart';
 
 @GenerateMocks([GetWatchlistTvs])
 void main() {
-  late MockGetWatchlistTvs mockSearchTvs;
+  late MockGetWatchlistTvs mockGetWatchlistTvs;
   late WatchlistTvNotifier notifier;
   late int listenerCallCount;
 
   setUp(() {
-    mockSearchTvs = MockGetWatchlistTvs();
-    notifier = WatchlistTvNotifier(mockSearchTvs)
+    mockGetWatchlistTvs = MockGetWatchlistTvs();
+    notifier = WatchlistTvNotifier(mockGetWatchlistTvs)
       ..addListener(() {
         listenerCallCount++;
       });
@@ -29,7 +29,7 @@ void main() {
   final testListTv = <Tv>[testTv];
 
   test('loading data', () {
-    when(mockSearchTvs.execute())
+    when(mockGetWatchlistTvs.execute())
         .thenAnswer((_) async => Right(testListTv));
 
     notifier.fetchWatchlistTvs();
@@ -39,7 +39,7 @@ void main() {
   });
 
   test('data loaded', () async {
-    when(mockSearchTvs.execute())
+    when(mockGetWatchlistTvs.execute())
         .thenAnswer((_) async => Right(testListTv));
 
     await notifier.fetchWatchlistTvs();
@@ -50,7 +50,7 @@ void main() {
   });
 
   test('should return error when data is unsuccessful', () async {
-    when(mockSearchTvs.execute())
+    when(mockGetWatchlistTvs.execute())
         .thenAnswer((_) async => Left(ServerFailure("Server Failure")));
 
     await notifier.fetchWatchlistTvs();
