@@ -68,7 +68,7 @@ void main() {
         .thenAnswer((_) async => Right(listTv));
   }
 
-  group('Get Movie Detail', () {
+  group('Get Tv Detail', () {
     test('should get data from the usecase', () async {
       // arrange
       _arrangeUsecase();
@@ -89,7 +89,7 @@ void main() {
       expect(listenerCallCount, 1);
     });
 
-    test('should change movie when data is gotten successfully', () async {
+    test('should change tv when data is gotten successfully', () async {
       // arrange
       _arrangeUsecase();
       // act
@@ -112,7 +112,7 @@ void main() {
     });
   });
 
-  group('Get Movie Recommendations', () {
+  group('Get Tv Recommendations', () {
     test('should get data from the usecase', () async {
       // arrange
       _arrangeUsecase();

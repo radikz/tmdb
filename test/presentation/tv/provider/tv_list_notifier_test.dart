@@ -59,7 +59,7 @@ void main() {
       expect(provider.airingTodayTvState, RequestState.Loading);
     });
 
-    test('should change movies when data is gotten successfully', () async {
+    test('should change tvs when data is gotten successfully', () async {
       // arrange
       when(mockGetNowAiringTvs.execute())
           .thenAnswer((_) async => Right(<Tv>[testTv]));
@@ -108,7 +108,7 @@ void main() {
       expect(provider.popularTvState, RequestState.Loading);
     });
 
-    test('should change movies when data is gotten successfully', () async {
+    test('should change tvs when data is gotten successfully', () async {
       // arrange
       when(mockGetPopularTvs.execute())
           .thenAnswer((_) async => Right(<Tv>[testTv]));
@@ -157,7 +157,7 @@ void main() {
       expect(provider.topRatedTvState, RequestState.Loading);
     });
 
-    test('should change movies when data is gotten successfully', () async {
+    test('should change tvs when data is gotten successfully', () async {
       // arrange
       when(mockGetTopRatedTvs.execute())
           .thenAnswer((_) async => Right(<Tv>[testTv]));
