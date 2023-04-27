@@ -182,6 +182,19 @@ void main() {
       verify(mockRemoveWatchlist.execute(testTvDetail));
     });
 
+    test('failed remove watchlist', () async {
+      // arrange
+      when(mockRemoveWatchlist.execute(testTvDetail))
+          .thenAnswer((_) async => Left(DatabaseFailure('Failed')));
+      when(mockGetWatchlistStatus.execute(testTvDetail.id))
+          .thenAnswer((_) async => false);
+      // act
+      await provider.removeFromWatchlist(testTvDetail);
+      // assert
+      expect(provider.watchlistMessage, "Failed");
+      expect(listenerCallCount, 1);
+    });
+
     test('should update watchlist status when add watchlist success', () async {
       // arrange
       when(mockSaveWatchlist.execute(testTvDetail))
