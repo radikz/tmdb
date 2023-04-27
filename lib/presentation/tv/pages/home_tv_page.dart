@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton/domain/entities/tv.dart';
 import 'package:ditonton/presentation/tv/pages/airing_now_tvs_page.dart';
 import 'package:ditonton/presentation/tv/pages/popular_tvs_page.dart';
+import 'package:ditonton/presentation/tv/pages/search_tv_page.dart';
 import 'package:ditonton/presentation/tv/pages/top_rated_tvs_page.dart';
 import 'package:ditonton/presentation/tv/pages/tv_detail_page.dart';
 import 'package:ditonton/presentation/tv/provider/tv_list_notifier.dart';
@@ -38,7 +39,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
         actions: [
           IconButton(
             onPressed: () {
-              // Navigator.pushNamed(context, AiringNowTvsPage.ROUTE_NAME);
+              Navigator.pushNamed(context, SearchTvPage.ROUTE_NAME);
             },
             icon: Icon(Icons.search),
           )
