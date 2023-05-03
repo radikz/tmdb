@@ -48,9 +48,10 @@ class TvDetailNotifier extends ChangeNotifier {
 
   Future<void> fetchTvDetail(int id) async {
     _tvState = RequestState.Loading;
+    _recommendationState = RequestState.Loading;
     notifyListeners();
     final detailResult = await getTvDetail.execute(id);
-    final recommendationResult = await getTvsRecommendation.execute(id);
+    final recommendationResult = await getTvsRecommendation.execute(id);  
     detailResult.fold(
       (failure) {
         _tvState = RequestState.Error;
@@ -58,7 +59,6 @@ class TvDetailNotifier extends ChangeNotifier {
         notifyListeners();
       },
       (detail) {
-        _recommendationState = RequestState.Loading;
         _tvDetail = detail;
         notifyListeners();
         recommendationResult.fold(

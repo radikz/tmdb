@@ -112,21 +112,19 @@ class DetailContent extends StatelessWidget {
                             ElevatedButton(
                               onPressed: () async {
                                 if (!isAddedWatchlist) {
-                                  await Provider.of<TvDetailNotifier>(
-                                          context,
+                                  await Provider.of<TvDetailNotifier>(context,
                                           listen: false)
                                       .addWatchlist(movie);
                                 } else {
-                                  await Provider.of<TvDetailNotifier>(
-                                          context,
+                                  await Provider.of<TvDetailNotifier>(context,
                                           listen: false)
                                       .removeFromWatchlist(movie);
                                 }
 
-                                final message =
-                                    Provider.of<TvDetailNotifier>(context,
-                                            listen: false)
-                                        .watchlistMessage;
+                                final message = Provider.of<TvDetailNotifier>(
+                                        context,
+                                        listen: false)
+                                    .watchlistMessage;
 
                                 if (message ==
                                         TvDetailNotifier
@@ -202,7 +200,9 @@ class DetailContent extends StatelessWidget {
                                   );
                                 } else if (data.recommendationState ==
                                     RequestState.Error) {
-                                  return Text(data.message, key: ValueKey("__recommendation_error__tv"));
+                                  return Text(data.message,
+                                      key: ValueKey(
+                                          "__recommendation_error__tv"));
                                 } else if (data.recommendationState ==
                                     RequestState.Loaded) {
                                   return Container(
@@ -214,7 +214,8 @@ class DetailContent extends StatelessWidget {
                                         return Padding(
                                           padding: const EdgeInsets.all(4.0),
                                           child: InkWell(
-                                            key: ValueKey("__recommendation_inkwell__tv"),
+                                            key: ValueKey(
+                                                "__recommendation_inkwell__tv"),
                                             onTap: () {
                                               Navigator.pushReplacementNamed(
                                                 context,
@@ -246,9 +247,120 @@ class DetailContent extends StatelessWidget {
                                     ),
                                   );
                                 } else {
-                                  return Container(key: ValueKey("__recommendation_empty__tv"),);
+                                  return Container(
+                                    key: ValueKey("__recommendation_empty__tv"),
+                                  );
                                 }
                               },
+                            ),
+                            SizedBox(height: 16),
+                            Text(
+                              'Season',
+                              key: ValueKey("__detail_season_text__tv"),
+                              style: kHeading6,
+                            ),
+                            Container(
+                              height: 150,
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, index) {
+                                  final season = movie.seasons[index];
+                                  return Padding(
+                                    padding: const EdgeInsets.all(4.0),
+                                    child: InkWell(
+                                      key: ValueKey("__season_inkwell__tv"),
+                                      onTap: () {
+                                        // Navigator.pushReplacementNamed(
+                                        //   context,
+                                        //   TvDetailPage.ROUTE_NAME,
+                                        //   arguments: movie.id,
+                                        // );
+                                      },
+                                      child: Visibility(
+                                        visible: season.posterPath != null,
+                                        replacement: Container(
+                                            width: 100,
+                                            color: Colors.grey,
+                                            child: Center(
+                                              child: Icon(
+                                                Icons.movie,
+                                                color: Colors.black,
+                                              ),
+                                            )),
+                                        child: ClipRRect(
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(8),
+                                          ),
+                                          child: CachedNetworkImage(
+                                            imageUrl:
+                                                'https://image.tmdb.org/t/p/w500${season.posterPath}',
+                                            placeholder: (context, url) =>
+                                                Center(
+                                              child:
+                                                  CircularProgressIndicator(),
+                                            ),
+                                            errorWidget:
+                                                (context, url, error) =>
+                                                    Icon(Icons.error),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                                itemCount: movie.seasons.length,
+                              ),
+                            ),
+                            SizedBox(height: 16),
+                            Text(
+                              'Episode',
+                              key: ValueKey("__detail_episode_text__tv"),
+                              style: kHeading6,
+                            ),
+                            Container(
+                              height: 150,
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: InkWell(
+                                  key: ValueKey("__episode_inkwell__tv"),
+                                  onTap: () {
+                                    // Navigator.pushReplacementNamed(
+                                    //   context,
+                                    //   TvDetailPage.ROUTE_NAME,
+                                    //   arguments: movie.id,
+                                    // );
+                                    print(
+                                        "${movie.lastEpisodeToAir.stillPath}");
+                                  },
+                                  child: Visibility(
+                                    visible: movie.lastEpisodeToAir.stillPath !=
+                                        null,
+                                    replacement: Container(
+                                        width: 100,
+                                        color: Colors.grey,
+                                        child: Center(
+                                          child: Icon(
+                                            Icons.movie,
+                                            color: Colors.black,
+                                          ),
+                                        )),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(8),
+                                      ),
+                                      child: CachedNetworkImage(
+                                        imageUrl:
+                                            'https://image.tmdb.org/t/p/w500${movie.lastEpisodeToAir.stillPath}',
+                                        placeholder: (context, url) => Center(
+                                          child: CircularProgressIndicator(),
+                                        ),
+                                        errorWidget: (context, url, error) =>
+                                            Icon(Icons.error),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
                           ],
                         ),

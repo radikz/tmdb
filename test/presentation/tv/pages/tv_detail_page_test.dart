@@ -11,7 +11,6 @@ import 'package:provider/provider.dart';
 import '../../../dummy_data/dummy_objects.dart';
 import 'tv_detail_page_test.mocks.dart';
 
-
 @GenerateMocks([TvDetailNotifier])
 void main() {
   late MockTvDetailNotifier mockNotifier;
@@ -102,12 +101,27 @@ void main() {
         when(mockNotifier.tvRecommendations).thenReturn(<Tv>[testTv]);
         when(mockNotifier.recommendationState).thenReturn(RequestState.Loaded);
         when(mockNotifier.isAddedToWatchlist).thenReturn(true);
-        
+
         final inkWell = find.byKey(ValueKey("__recommendation_inkwell__tv"));
 
         await tester.pumpWidget(_makeTestableWidget(TvDetailPage(id: 1)));
 
         expect(inkWell, findsOneWidget);
+      });
+
+      testWidgets("display seasons", (tester) async {
+        when(mockNotifier.tvState).thenReturn(RequestState.Loaded);
+        when(mockNotifier.tvDetail).thenReturn(testTvDetail);
+        when(mockNotifier.tvRecommendations).thenReturn(<Tv>[testTv]);
+        when(mockNotifier.recommendationState).thenReturn(RequestState.Loaded);
+        when(mockNotifier.isAddedToWatchlist).thenReturn(true);
+
+        final inkwell = find.byKey(ValueKey("__season_inkwell__tv"));
+        final text = find.byKey(ValueKey("__detail_season_text__tv"));
+
+        await tester.pumpWidget(_makeTestableWidget(TvDetailPage(id: 1)));
+
+        expect(inkwell, findsOneWidget);
       });
 
       testWidgets(

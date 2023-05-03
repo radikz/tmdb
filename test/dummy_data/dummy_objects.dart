@@ -1,5 +1,6 @@
 import 'package:ditonton/data/models/detail_season_model.dart';
 import 'package:ditonton/data/models/movie_table.dart';
+import 'package:ditonton/data/models/season_model.dart';
 import 'package:ditonton/data/models/tv_detail_model.dart';
 import 'package:ditonton/data/models/tv_episode_model.dart';
 import 'package:ditonton/data/models/tv_model.dart';
@@ -148,6 +149,15 @@ final testSeason = Season(
     posterPath: "posterPath",
     seasonNumber: 1);
 
+    final testSeasonModel = SeasonModel(
+    airDate: DateTime(2023, 2, 2),
+    episodeCount: 3,
+    id: 1,
+    name: "name",
+    overview: "overview",
+    posterPath: "posterPath",
+    seasonNumber: 1);
+
 final testDetailSeason = DetailSeason(
     airDate: DateTime(2023, 2, 2),
     episodes: [testTvEpisode],
@@ -186,7 +196,7 @@ final testTvDetail = TvDetail(
     overview: "overview",
     popularity: 9,
     posterPath: "posterPath",
-    seasons: [],
+    seasons: [testSeason],
     status: "status",
     tagline: "",
     type: "type",
@@ -213,7 +223,7 @@ final testTvDetail = TvDetail(
     overview: "overview",
     popularity: 9,
     posterPath: "posterPath",
-    seasons: [],
+    seasons: [testSeasonModel],
     status: "status",
     tagline: "",
     type: "type",
