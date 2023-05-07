@@ -18,8 +18,10 @@ import 'package:ditonton/presentation/tv/pages/home_tv_page.dart';
 import 'package:ditonton/presentation/tv/pages/popular_tvs_page.dart';
 import 'package:ditonton/presentation/tv/pages/search_tv_page.dart';
 import 'package:ditonton/presentation/tv/pages/top_rated_tvs_page.dart';
+import 'package:ditonton/presentation/tv/pages/tv_detail_episode_page.dart';
 import 'package:ditonton/presentation/tv/pages/tv_detail_page.dart';
 import 'package:ditonton/presentation/tv/provider/airing_now_tvs_notifier.dart';
+import 'package:ditonton/presentation/tv/provider/episode_detail_tv_notifier.dart';
 import 'package:ditonton/presentation/tv/provider/popular_tvs_notifier.dart';
 import 'package:ditonton/presentation/tv/provider/top_rated_tvs_notifier.dart';
 import 'package:ditonton/presentation/tv/provider/tv_detail_notifier.dart';
@@ -76,6 +78,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => di.locator<TvSearchNotifier>(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => di.locator<EpisodeDetailTvNotifier>(),
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -113,7 +118,7 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(builder: (_) => AiringNowTvsPage());
             case PopularTvsPage.ROUTE_NAME:
               return MaterialPageRoute(builder: (_) => PopularTvsPage());
-              case TopRatedTvsPage.ROUTE_NAME:
+            case TopRatedTvsPage.ROUTE_NAME:
               return MaterialPageRoute(builder: (_) => TopRatedTvsPage());
             case TvDetailPage.ROUTE_NAME:
               final id = settings.arguments as int;
@@ -121,7 +126,13 @@ class MyApp extends StatelessWidget {
                 builder: (_) => TvDetailPage(id: id),
                 settings: settings,
               );
-              case SearchTvPage.ROUTE_NAME:
+              case TvDetailEpisodePage.ROUTE_NAME:
+              final arg = settings.arguments as TvDetailEpisodeArg;
+              return MaterialPageRoute(
+                builder: (_) => TvDetailEpisodePage(arg: arg),
+                settings: settings,
+              );
+            case SearchTvPage.ROUTE_NAME:
               return CupertinoPageRoute(builder: (_) => SearchTvPage());
             default:
               return MaterialPageRoute(builder: (_) {
