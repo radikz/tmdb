@@ -9,7 +9,7 @@ class TvSearchNotifier extends ChangeNotifier {
 
   TvSearchNotifier(this.searchTvs);
 
-  RequestState _state = RequestState.Empty;
+  RequestState _state = RequestState.Initial;
   RequestState get state => _state;
 
   List<Tv> _tvs = [];
@@ -29,8 +29,12 @@ class TvSearchNotifier extends ChangeNotifier {
       _state = RequestState.Error;
       notifyListeners();
     }, (data) {
-      _tvs = data;
+      if (data.isEmpty) {
+        _state = RequestState.Empty;
+      } else {
+        _tvs = data;
       _state = RequestState.Loaded;
+      }
       notifyListeners();
     });
   }
