@@ -34,31 +34,31 @@ class TvDetailModel extends Equatable {
     required this.voteCount,
   });
 
-  String? backdropPath;
-  List<int> episodeRunTime;
-  DateTime firstAirDate;
-  List<GenreModel> genres;
-  String homepage;
-  int id;
-  bool inProduction;
-  List<String> languages;
-  DateTime lastAirDate;
-  TvEpisodeModel lastEpisodeToAir;
-  String name;
-  int numberOfEpisodes;
-  int numberOfSeasons;
-  List<String> originCountry;
-  String originalLanguage;
-  String originalName;
-  String overview;
-  double popularity;
-  String posterPath;
-  List<SeasonModel> seasons;
-  String status;
-  String tagline;
-  String type;
-  double voteAverage;
-  int voteCount;
+  final String? backdropPath;
+  final List<int> episodeRunTime;
+  final DateTime firstAirDate;
+  final List<GenreModel> genres;
+  final String homepage;
+  final int id;
+  final bool inProduction;
+  final List<String> languages;
+  final DateTime lastAirDate;
+  final TvEpisodeModel lastEpisodeToAir;
+  final String name;
+  final int numberOfEpisodes;
+  final int numberOfSeasons;
+  final List<String> originCountry;
+  final String originalLanguage;
+  final String originalName;
+  final String overview;
+  final double popularity;
+  final String posterPath;
+  final List<SeasonModel> seasons;
+  final String status;
+  final String tagline;
+  final String type;
+  final double voteAverage;
+  final int voteCount;
 
   factory TvDetailModel.fromJson(Map<String, dynamic> json) => TvDetailModel(
         

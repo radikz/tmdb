@@ -6,60 +6,59 @@ import 'package:ditonton/domain/entities/tv_episode.dart';
 import 'genre.dart';
 
 class TvDetail extends Equatable {
-    
-TvDetail({
-        required this.backdropPath,
-        required this.episodeRunTime,
-        required this.firstAirDate,
-        required this.genres,
-        required this.homepage,
-        required this.id,
-        required this.inProduction,
-        required this.languages,
-        required this.lastAirDate,
-        required this.lastEpisodeToAir,
-        required this.name,
-        required this.numberOfEpisodes,
-        required this.numberOfSeasons,
-        required this.originCountry,
-        required this.originalLanguage,
-        required this.originalName,
-        required this.overview,
-        required this.popularity,
-        required this.posterPath,
-        required this.seasons,
-        required this.status,
-        required this.tagline,
-        required this.type,
-        required this.voteAverage,
-        required this.voteCount,
-    });
+  TvDetail({
+    required this.backdropPath,
+    required this.episodeRunTime,
+    required this.firstAirDate,
+    required this.genres,
+    required this.homepage,
+    required this.id,
+    required this.inProduction,
+    required this.languages,
+    required this.lastAirDate,
+    required this.lastEpisodeToAir,
+    required this.name,
+    required this.numberOfEpisodes,
+    required this.numberOfSeasons,
+    required this.originCountry,
+    required this.originalLanguage,
+    required this.originalName,
+    required this.overview,
+    required this.popularity,
+    required this.posterPath,
+    required this.seasons,
+    required this.status,
+    required this.tagline,
+    required this.type,
+    required this.voteAverage,
+    required this.voteCount,
+  });
 
-    String? backdropPath;
-    List<int> episodeRunTime;
-    DateTime firstAirDate;
-    List<Genre> genres;
-    String homepage;
-    int id;
-    bool inProduction;
-    List<String> languages;
-    DateTime lastAirDate;
-    TvEpisode lastEpisodeToAir;
-    String name;
-    int numberOfEpisodes;
-    int numberOfSeasons;
-    List<String> originCountry;
-    String originalLanguage;
-    String originalName;
-    String overview;
-    double popularity;
-    String? posterPath;
-    List<Season> seasons;
-    String status;
-    String tagline;
-    String type;
-    double voteAverage;
-    int voteCount;
+  final String? backdropPath;
+  final List<int> episodeRunTime;
+  final DateTime firstAirDate;
+  final List<Genre> genres;
+  final String homepage;
+  final int id;
+  final bool inProduction;
+  final List<String> languages;
+  final DateTime lastAirDate;
+  final TvEpisode lastEpisodeToAir;
+  final String name;
+  final int numberOfEpisodes;
+  final int numberOfSeasons;
+  final List<String> originCountry;
+  final String originalLanguage;
+  final String originalName;
+  final String overview;
+  final double popularity;
+  final String? posterPath;
+  final List<Season> seasons;
+  final String status;
+  final String tagline;
+  final String type;
+  final double voteAverage;
+  final int voteCount;
 
   @override
   List<Object?> get props {
@@ -92,7 +91,3 @@ TvDetail({
     ];
   }
 }
-
-
-
-

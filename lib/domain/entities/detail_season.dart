@@ -12,13 +12,13 @@ class DetailSeason extends Equatable {
     required this.seasonNumber,
   });
 
-  DateTime airDate;
-  int id;
-  String name;
-  List<TvEpisode> episodes;
-  String overview;
-  String? posterPath;
-  int seasonNumber;
+  final DateTime airDate;
+  final int id;
+  final String name;
+  final List<TvEpisode> episodes;
+  final String overview;
+  final String? posterPath;
+  final int seasonNumber;
 
   @override
   List<Object?> get props {

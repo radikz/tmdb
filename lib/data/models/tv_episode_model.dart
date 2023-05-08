@@ -16,16 +16,16 @@ class TvEpisodeModel extends Equatable {
     required this.stillPath,
   });
 
-  int id;
-  String name;
-  String overview;
-  num voteAverage;
-  int voteCount;
-  DateTime? airDate;
-  int episodeNumber;
-  String productionCode;
-  int seasonNumber;
-  String? stillPath;
+  final int id;
+  final String name;
+  final String overview;
+  final num voteAverage;
+  final int voteCount;
+  final DateTime? airDate;
+  final int episodeNumber;
+  final String productionCode;
+  final int seasonNumber;
+  final String? stillPath;
 
   factory TvEpisodeModel.fromJson(Map<String, dynamic> json) => TvEpisodeModel(
         id: json["id"],
@@ -33,7 +33,8 @@ class TvEpisodeModel extends Equatable {
         overview: json["overview"],
         voteAverage: json["vote_average"],
         voteCount: json["vote_count"],
-        airDate:  json["air_date"] != null ? DateTime.parse(json["air_date"]) : null,
+        airDate:
+            json["air_date"] != null ? DateTime.parse(json["air_date"]) : null,
         episodeNumber: json["episode_number"],
         productionCode: json["production_code"],
         seasonNumber: json["season_number"],

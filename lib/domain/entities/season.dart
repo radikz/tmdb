@@ -1,24 +1,23 @@
 import 'package:equatable/equatable.dart';
 
 class Season extends Equatable {
-    
-Season({
-        required this.airDate,
-        required this.episodeCount,
-        required this.id,
-        required this.name,
-        required this.overview,
-        required this.posterPath,
-        required this.seasonNumber,
-    });
+  Season({
+    required this.airDate,
+    required this.episodeCount,
+    required this.id,
+    required this.name,
+    required this.overview,
+    required this.posterPath,
+    required this.seasonNumber,
+  });
 
-    DateTime? airDate;
-    int episodeCount;
-    int id;
-    String name;
-    String overview;
-    String? posterPath;
-    int seasonNumber;
+  final DateTime? airDate;
+  final int episodeCount;
+  final int id;
+  final String name;
+  final String overview;
+  final String? posterPath;
+  final int seasonNumber;
 
   @override
   List<Object?> get props {

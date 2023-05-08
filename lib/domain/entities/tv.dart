@@ -22,21 +22,29 @@ class Tv extends Equatable {
     required this.overview,
     required this.posterPath,
     required this.name,
-  });
+  }) : backdropPath = null,
+     firstAirDate = null,
+     genreIds = null,
+     originCountry = null,
+     originalLanguage = null,
+     originalName = null,
+     popularity = null,
+     voteAverage = null,
+     voteCount = null;
 
-  String? backdropPath;
-  String? firstAirDate;
-  List<int> ?genreIds;
-  int id;
-  String? name;
-  List<String>? originCountry;
-  String? originalLanguage;
-  String? originalName;
-  String? overview;
-  double? popularity;
-  String? posterPath;
-  double? voteAverage;
-  int? voteCount;
+  final String? backdropPath;
+  final String? firstAirDate;
+  final List<int>? genreIds;
+  final int id;
+  final String? name;
+  final List<String>? originCountry;
+  final String? originalLanguage;
+  final String? originalName;
+  final String? overview;
+  final double? popularity;
+  final String? posterPath;
+  final double? voteAverage;
+  final int? voteCount;
 
   @override
   List<Object?> get props => [
