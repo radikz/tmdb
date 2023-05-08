@@ -16,7 +16,8 @@ void main() {
   });
 
   test('remove watchlist tv', () async {
-    when(repository.removeWatchlist(testTvDetail)).thenAnswer((_) async => Right("Removed from watchlist"));
+    when(repository.removeWatchlist(testTvDetail))
+        .thenAnswer((_) async => Right("Removed from watchlist"));
 
     final result = await removeWatchlistTv.execute(testTvDetail);
 

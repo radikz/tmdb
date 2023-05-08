@@ -17,7 +17,8 @@ void main() {
   });
   final listTv = <Tv>[testTv];
   test('get list of tv', () async {
-    when(repository.getTvsRecommendation(1)).thenAnswer((_) async => Right(listTv));
+    when(repository.getTvsRecommendation(1))
+        .thenAnswer((_) async => Right(listTv));
 
     final result = await getTvsRecommendation.execute(1);
 

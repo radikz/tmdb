@@ -39,7 +39,10 @@ class _TvDetailEpisodePageState extends State<TvSeasonPage> {
           print("data ${provider.season.name}");
           return ListView.builder(
             itemBuilder: (context, index) {
-              return SeasonContent(episode: provider.season.episodes[index], tvId: widget.arg.tvId,);
+              return SeasonContent(
+                episode: provider.season.episodes[index],
+                tvId: widget.arg.tvId,
+              );
             },
             itemCount: provider.season.episodes.length,
           );

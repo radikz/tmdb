@@ -22,15 +22,15 @@ class Tv extends Equatable {
     required this.overview,
     required this.posterPath,
     required this.name,
-  }) : backdropPath = null,
-     firstAirDate = null,
-     genreIds = null,
-     originCountry = null,
-     originalLanguage = null,
-     originalName = null,
-     popularity = null,
-     voteAverage = null,
-     voteCount = null;
+  })  : backdropPath = null,
+        firstAirDate = null,
+        genreIds = null,
+        originCountry = null,
+        originalLanguage = null,
+        originalName = null,
+        popularity = null,
+        voteAverage = null,
+        voteCount = null;
 
   final String? backdropPath;
   final String? firstAirDate;

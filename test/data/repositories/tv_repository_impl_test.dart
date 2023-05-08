@@ -31,14 +31,13 @@ void main() {
     test(
         'should return remote data when the call to remote data source is successful',
         () async {
-      
       when(remoteDataSource.getNowAiringTvs())
           .thenAnswer((_) async => tTvModelList);
-      
+
       final result = await repository.getNowAiringTvs();
-      
+
       verify(remoteDataSource.getNowAiringTvs());
-      
+
       final resultList = result.getOrElse(() => []);
       expect(resultList, tTvList);
     });
@@ -46,12 +45,10 @@ void main() {
     test(
         'should return server failure when the call to remote data source is unsuccessful',
         () async {
-      
-      when(remoteDataSource.getNowAiringTvs())
-          .thenThrow(ServerException());
-      
+      when(remoteDataSource.getNowAiringTvs()).thenThrow(ServerException());
+
       final result = await repository.getNowAiringTvs();
-      
+
       verify(remoteDataSource.getNowAiringTvs());
       expect(result, equals(Left(ServerFailure(''))));
     });
@@ -59,12 +56,11 @@ void main() {
     test(
         'should return connection failure when the device is not connected to internet',
         () async {
-      
       when(remoteDataSource.getNowAiringTvs())
           .thenThrow(SocketException('Failed to connect to the network'));
-      
+
       final result = await repository.getNowAiringTvs();
-      
+
       verify(remoteDataSource.getNowAiringTvs());
       expect(result,
           equals(Left(ConnectionFailure('Failed to connect to the network'))));
@@ -75,14 +71,13 @@ void main() {
     test(
         'should return remote data when the call to remote data source is successful',
         () async {
-      
       when(remoteDataSource.getTopRatedTvs())
           .thenAnswer((_) async => tTvModelList);
-      
+
       final result = await repository.getTopRatedTvs();
-      
+
       verify(remoteDataSource.getTopRatedTvs());
-      
+
       final resultList = result.getOrElse(() => []);
       expect(resultList, tTvList);
     });
@@ -90,12 +85,10 @@ void main() {
     test(
         'should return server failure when the call to remote data source is unsuccessful',
         () async {
-      
-      when(remoteDataSource.getTopRatedTvs())
-          .thenThrow(ServerException());
-      
+      when(remoteDataSource.getTopRatedTvs()).thenThrow(ServerException());
+
       final result = await repository.getTopRatedTvs();
-      
+
       verify(remoteDataSource.getTopRatedTvs());
       expect(result, equals(Left(ServerFailure(''))));
     });
@@ -103,12 +96,11 @@ void main() {
     test(
         'should return connection failure when the device is not connected to internet',
         () async {
-      
       when(remoteDataSource.getTopRatedTvs())
           .thenThrow(SocketException('Failed to connect to the network'));
-      
+
       final result = await repository.getTopRatedTvs();
-      
+
       verify(remoteDataSource.getTopRatedTvs());
       expect(result,
           equals(Left(ConnectionFailure('Failed to connect to the network'))));
@@ -119,14 +111,13 @@ void main() {
     test(
         'should return remote data when the call to remote data source is successful',
         () async {
-      
       when(remoteDataSource.getPopularTvs())
           .thenAnswer((_) async => tTvModelList);
-      
+
       final result = await repository.getPopularTvs();
-      
+
       verify(remoteDataSource.getPopularTvs());
-      
+
       final resultList = result.getOrElse(() => []);
       expect(resultList, tTvList);
     });
@@ -134,12 +125,10 @@ void main() {
     test(
         'should return server failure when the call to remote data source is unsuccessful',
         () async {
-      
-      when(remoteDataSource.getPopularTvs())
-          .thenThrow(ServerException());
-      
+      when(remoteDataSource.getPopularTvs()).thenThrow(ServerException());
+
       final result = await repository.getPopularTvs();
-      
+
       verify(remoteDataSource.getPopularTvs());
       expect(result, equals(Left(ServerFailure(''))));
     });
@@ -147,12 +136,11 @@ void main() {
     test(
         'should return connection failure when the device is not connected to internet',
         () async {
-      
       when(remoteDataSource.getPopularTvs())
           .thenThrow(SocketException('Failed to connect to the network'));
-      
+
       final result = await repository.getPopularTvs();
-      
+
       verify(remoteDataSource.getPopularTvs());
       expect(result,
           equals(Left(ConnectionFailure('Failed to connect to the network'))));
@@ -179,8 +167,7 @@ void main() {
         'should return Server Failure when the call to remote data source is unsuccessful',
         () async {
       // arrange
-      when(remoteDataSource.getTvDetail(tId))
-          .thenThrow(ServerException());
+      when(remoteDataSource.getTvDetail(tId)).thenThrow(ServerException());
       // act
       final result = await repository.getTvDetail(tId);
       // assert
@@ -203,7 +190,7 @@ void main() {
     });
   });
 
-   group('Get Tv Episode Detail', () {
+  group('Get Tv Episode Detail', () {
     final tId = 1;
 
     test(
@@ -247,7 +234,7 @@ void main() {
     });
   });
 
-   group('Get Tv Season Detail', () {
+  group('Get Tv Season Detail', () {
     final tId = 1;
 
     test(
@@ -296,13 +283,12 @@ void main() {
     test(
         'should return remote data when the call to remote data source is successful',
         () async {
-      
       when(remoteDataSource.getTvsRecommendation(tId))
           .thenAnswer((_) async => tTvModelList);
-      
+
       final result = await repository.getTvsRecommendation(tId);
-      
-      verify(remoteDataSource.getTvsRecommendation(tId));      
+
+      verify(remoteDataSource.getTvsRecommendation(tId));
       final resultList = result.getOrElse(() => []);
       expect(resultList, tTvList);
     });
@@ -310,12 +296,11 @@ void main() {
     test(
         'should return server failure when the call to remote data source is unsuccessful',
         () async {
-      
       when(remoteDataSource.getTvsRecommendation(tId))
           .thenThrow(ServerException());
-      
+
       final result = await repository.getTvsRecommendation(tId);
-      
+
       verify(remoteDataSource.getTvsRecommendation(tId));
       expect(result, equals(Left(ServerFailure(''))));
     });
@@ -323,30 +308,28 @@ void main() {
     test(
         'should return connection failure when the device is not connected to internet',
         () async {
-      
       when(remoteDataSource.getTvsRecommendation(tId))
           .thenThrow(SocketException('Failed to connect to the network'));
-      
+
       final result = await repository.getTvsRecommendation(tId);
-      
+
       verify(remoteDataSource.getTvsRecommendation(tId));
       expect(result,
           equals(Left(ConnectionFailure('Failed to connect to the network'))));
     });
   });
 
-   group('Search TV', () {
+  group('Search TV', () {
     final keyword = "test";
     test(
         'should return remote data when the call to remote data source is successful',
         () async {
-      
       when(remoteDataSource.searchTvs(keyword))
           .thenAnswer((_) async => tTvModelList);
-      
+
       final result = await repository.searchTvs(keyword);
-      
-      verify(remoteDataSource.searchTvs(keyword));      
+
+      verify(remoteDataSource.searchTvs(keyword));
       final resultList = result.getOrElse(() => []);
       expect(resultList, tTvList);
     });
@@ -354,12 +337,10 @@ void main() {
     test(
         'should return server failure when the call to remote data source is unsuccessful',
         () async {
-      
-      when(remoteDataSource.searchTvs(keyword))
-          .thenThrow(ServerException());
-      
+      when(remoteDataSource.searchTvs(keyword)).thenThrow(ServerException());
+
       final result = await repository.searchTvs(keyword);
-      
+
       verify(remoteDataSource.searchTvs(keyword));
       expect(result, equals(Left(ServerFailure(''))));
     });
@@ -367,12 +348,11 @@ void main() {
     test(
         'should return connection failure when the device is not connected to internet',
         () async {
-      
       when(remoteDataSource.searchTvs(keyword))
           .thenThrow(SocketException('Failed to connect to the network'));
-      
+
       final result = await repository.searchTvs(keyword);
-      
+
       verify(remoteDataSource.searchTvs(keyword));
       expect(result,
           equals(Left(ConnectionFailure('Failed to connect to the network'))));

@@ -44,7 +44,10 @@ class _TvDetailEpisodePageState extends State<TvDetailEpisodePage> {
             child: CircularProgressIndicator(),
           );
         }
-        return Text(provider.message, key: ValueKey("__episode_error__tv"),);
+        return Text(
+          provider.message,
+          key: ValueKey("__episode_error__tv"),
+        );
       })),
     );
   }

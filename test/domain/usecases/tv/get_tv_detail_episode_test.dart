@@ -16,7 +16,8 @@ void main() {
   });
 
   test('get tv episode', () async {
-    when(repository.getTvDetailEpisode(1, 1, 1)).thenAnswer((_) async => Right(testTvEpisode));
+    when(repository.getTvDetailEpisode(1, 1, 1))
+        .thenAnswer((_) async => Right(testTvEpisode));
 
     final result = await getTvDetailEpisode.execute(1, 1, 1);
 

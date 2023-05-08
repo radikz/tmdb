@@ -16,15 +16,16 @@ void main() {
   late MockGetPopularTvs mockGetPopularTvs;
   late PopularTvsNotifier notifier;
   late int listenerCallCount;
-  
+
   setUp(() {
     listenerCallCount = 0;
     mockGetPopularTvs = MockGetPopularTvs();
-    notifier = new PopularTvsNotifier(mockGetPopularTvs)..addListener(() {
-      listenerCallCount++;
-    });
+    notifier = new PopularTvsNotifier(mockGetPopularTvs)
+      ..addListener(() {
+        listenerCallCount++;
+      });
   });
-  
+
   final testTvList = <Tv>[testTv];
 
   test('should change state to loading when usecase is called', () async {

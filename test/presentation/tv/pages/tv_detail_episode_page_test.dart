@@ -32,7 +32,9 @@ void main() {
       when(mockNotifier.state).thenReturn(RequestState.Loading);
       final loadingWidget = find.byType(CircularProgressIndicator);
 
-      await tester.pumpWidget(_makeTestableWidget(TvDetailEpisodePage(arg: TvDetailEpisodeArg(tvId: 1, seasonNumber: 1, episodeNumber: 1),)));
+      await tester.pumpWidget(_makeTestableWidget(TvDetailEpisodePage(
+        arg: TvDetailEpisodeArg(tvId: 1, seasonNumber: 1, episodeNumber: 1),
+      )));
 
       expect(loadingWidget, findsOneWidget);
     });
@@ -42,7 +44,9 @@ void main() {
       when(mockNotifier.message).thenReturn("error");
       final errorWidget = find.byKey(ValueKey("__episode_error__tv"));
 
-      await tester.pumpWidget(_makeTestableWidget(TvDetailEpisodePage(arg: TvDetailEpisodeArg(tvId: 1, seasonNumber: 1, episodeNumber: 1),)));
+      await tester.pumpWidget(_makeTestableWidget(TvDetailEpisodePage(
+        arg: TvDetailEpisodeArg(tvId: 1, seasonNumber: 1, episodeNumber: 1),
+      )));
 
       expect(errorWidget, findsOneWidget);
     });
@@ -52,7 +56,9 @@ void main() {
       when(mockNotifier.episodes).thenReturn(testTvEpisode);
       final content = find.byType(DetailContentEpisode);
 
-      await tester.pumpWidget(_makeTestableWidget(TvDetailEpisodePage(arg: TvDetailEpisodeArg(tvId: 1, seasonNumber: 1, episodeNumber: 1),)));
+      await tester.pumpWidget(_makeTestableWidget(TvDetailEpisodePage(
+        arg: TvDetailEpisodeArg(tvId: 1, seasonNumber: 1, episodeNumber: 1),
+      )));
 
       expect(content, findsOneWidget);
     });

@@ -118,8 +118,8 @@ void main() {
     });
 
     test('throw server exception when response 404', () async {
-      when(client.get(Uri.parse('$BASE_URL/tv/1?$API_KEY')))
-          .thenAnswer((_) async =>
+      when(client.get(Uri.parse('$BASE_URL/tv/1?$API_KEY'))).thenAnswer(
+          (_) async =>
               http.Response(readJson("dummy_data/tv_detail.json"), 404));
 
       final call = source.getTvDetail(1);
@@ -133,8 +133,8 @@ void main() {
         json.decode(readJson('dummy_data/tv_detail_season.json')));
 
     test('return detail season model when response 200', () async {
-      when(client.get(Uri.parse('$BASE_URL/tv/1/season/1?$API_KEY'))).thenAnswer(
-          (_) async =>
+      when(client.get(Uri.parse('$BASE_URL/tv/1/season/1?$API_KEY')))
+          .thenAnswer((_) async =>
               http.Response(readJson("dummy_data/tv_detail_season.json"), 200));
 
       final result = await source.getTvDetailSeason(1, 1);
@@ -158,9 +158,9 @@ void main() {
         json.decode(readJson('dummy_data/tv_detail_episode.json')));
 
     test('return episode model when response 200', () async {
-      when(client.get(Uri.parse('$BASE_URL/tv/1/season/1/episode/1?$API_KEY'))).thenAnswer(
-          (_) async =>
-              http.Response(readJson("dummy_data/tv_detail_episode.json"), 200));
+      when(client.get(Uri.parse('$BASE_URL/tv/1/season/1/episode/1?$API_KEY')))
+          .thenAnswer((_) async => http.Response(
+              readJson("dummy_data/tv_detail_episode.json"), 200));
 
       final result = await source.getTvDetailEpisode(1, 1, 1);
 
@@ -169,8 +169,8 @@ void main() {
 
     test('throw server exception when response 404', () async {
       when(client.get(Uri.parse('$BASE_URL/tv/1/season/1/episode/1?$API_KEY')))
-          .thenAnswer((_) async =>
-              http.Response(readJson("dummy_data/tv_detail_episode.json"), 404));
+          .thenAnswer((_) async => http.Response(
+              readJson("dummy_data/tv_detail_episode.json"), 404));
 
       final call = source.getTvDetailEpisode(1, 1, 1);
 
@@ -184,8 +184,8 @@ void main() {
         .tvList;
 
     test('return list tv model when response 200', () async {
-      when(client.get(Uri.parse('$BASE_URL/tv/1/recommendations?$API_KEY'))).thenAnswer(
-          (_) async =>
+      when(client.get(Uri.parse('$BASE_URL/tv/1/recommendations?$API_KEY')))
+          .thenAnswer((_) async =>
               http.Response(readJson("dummy_data/dummy_tv_list.json"), 200));
 
       final result = await source.getTvsRecommendation(1);
@@ -194,8 +194,8 @@ void main() {
     });
 
     test('throw server exception when response 404', () async {
-      when(client.get(Uri.parse('$BASE_URL/tv/1/recommendations?$API_KEY'))).thenAnswer(
-          (_) async =>
+      when(client.get(Uri.parse('$BASE_URL/tv/1/recommendations?$API_KEY')))
+          .thenAnswer((_) async =>
               http.Response(readJson("dummy_data/dummy_tv_list.json"), 404));
 
       final call = source.getTvsRecommendation(1);
@@ -210,8 +210,8 @@ void main() {
         .tvList;
 
     test('return list tv model when response 200', () async {
-      when(client.get(Uri.parse('$BASE_URL/search/tv?$API_KEY&query=test'))).thenAnswer(
-          (_) async =>
+      when(client.get(Uri.parse('$BASE_URL/search/tv?$API_KEY&query=test')))
+          .thenAnswer((_) async =>
               http.Response(readJson("dummy_data/dummy_tv_list.json"), 200));
 
       final result = await source.searchTvs("test");
@@ -220,8 +220,8 @@ void main() {
     });
 
     test('throw server exception when response 404', () async {
-      when(client.get(Uri.parse('$BASE_URL/search/tv?$API_KEY&query=test'))).thenAnswer(
-          (_) async =>
+      when(client.get(Uri.parse('$BASE_URL/search/tv?$API_KEY&query=test')))
+          .thenAnswer((_) async =>
               http.Response(readJson("dummy_data/dummy_tv_list.json"), 404));
 
       final call = source.searchTvs("test");

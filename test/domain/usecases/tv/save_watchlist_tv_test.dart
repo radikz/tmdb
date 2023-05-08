@@ -16,7 +16,8 @@ void main() {
   });
 
   test('save watchlist tv', () async {
-    when(repository.saveWatchlist(testTvDetail)).thenAnswer((_) async => Right("Added to Watchlist"));
+    when(repository.saveWatchlist(testTvDetail))
+        .thenAnswer((_) async => Right("Added to Watchlist"));
 
     final result = await saveWatchlistTv.execute(testTvDetail);
 

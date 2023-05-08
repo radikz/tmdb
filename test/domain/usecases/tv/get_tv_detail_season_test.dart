@@ -16,7 +16,8 @@ void main() {
   });
 
   test('get detail season', () async {
-    when(repository.getTvDetailSeason(1, 1)).thenAnswer((_) async => Right(testDetailSeason));
+    when(repository.getTvDetailSeason(1, 1))
+        .thenAnswer((_) async => Right(testDetailSeason));
 
     final result = await getTvDetailSeason.execute(1, 1);
 

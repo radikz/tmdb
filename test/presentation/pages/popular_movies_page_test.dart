@@ -42,7 +42,6 @@ void main() {
   });
 
   group('when data is loaded', () {
-
     testWidgets('Page should display ListView when data is loaded',
         (WidgetTester tester) async {
       when(mockNotifier.state).thenReturn(RequestState.Loaded);
@@ -81,8 +80,6 @@ void main() {
 
       expect(itemFinder, findsOneWidget);
     });
-
-    
   });
 
   testWidgets('Page should display text with message when Error',

@@ -101,7 +101,7 @@ void main() {
         when(mockNotifier.movieRecommendations).thenReturn(testMovieList);
         when(mockNotifier.recommendationState).thenReturn(RequestState.Loaded);
         when(mockNotifier.isAddedToWatchlist).thenReturn(true);
-        
+
         final inkWell = find.byKey(ValueKey("__recommendation_inkwell__"));
 
         await tester.pumpWidget(_makeTestableWidget(MovieDetailPage(id: 1)));

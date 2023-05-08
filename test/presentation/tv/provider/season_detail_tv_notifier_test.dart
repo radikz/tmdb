@@ -25,7 +25,6 @@ void main() {
     listenerCallCount = 0;
   });
 
-
   test('loading data', () {
     when(mockGetTvDetailSeason.execute(1, 1))
         .thenAnswer((_) async => Right(testDetailSeason));

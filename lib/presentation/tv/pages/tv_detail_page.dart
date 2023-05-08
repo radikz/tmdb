@@ -272,7 +272,10 @@ class DetailContent extends StatelessWidget {
                                         Navigator.pushNamed(
                                           context,
                                           TvSeasonPage.ROUTE_NAME,
-                                          arguments: TvSeasonArg(tvId: movie.id, seasonNumber: season.seasonNumber),
+                                          arguments: TvSeasonArg(
+                                              tvId: movie.id,
+                                              seasonNumber:
+                                                  season.seasonNumber),
                                         );
                                       },
                                       child: Visibility(

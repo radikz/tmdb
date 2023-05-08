@@ -14,9 +14,10 @@ void main() {
     repository = MockTvRepository();
     getTvDetail = GetTvDetail(repository);
   });
-  
+
   test('get detail of tv', () async {
-    when(repository.getTvDetail(1)).thenAnswer((_) async => Right(testTvDetail));
+    when(repository.getTvDetail(1))
+        .thenAnswer((_) async => Right(testTvDetail));
 
     final result = await getTvDetail.execute(1);
 

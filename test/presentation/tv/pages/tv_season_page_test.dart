@@ -32,7 +32,8 @@ void main() {
       when(mockNotifier.state).thenReturn(RequestState.Loading);
       final loadingWidget = find.byType(CircularProgressIndicator);
 
-      await tester.pumpWidget(_makeTestableWidget(TvSeasonPage(arg: TvSeasonArg(tvId: 1, seasonNumber: 1))));
+      await tester.pumpWidget(_makeTestableWidget(
+          TvSeasonPage(arg: TvSeasonArg(tvId: 1, seasonNumber: 1))));
 
       expect(loadingWidget, findsOneWidget);
     });
@@ -42,7 +43,8 @@ void main() {
       when(mockNotifier.message).thenReturn("error");
       final errorWidget = find.byKey(ValueKey("__season_error__tv"));
 
-      await tester.pumpWidget(_makeTestableWidget(TvSeasonPage(arg: TvSeasonArg(tvId: 1, seasonNumber: 1))));
+      await tester.pumpWidget(_makeTestableWidget(
+          TvSeasonPage(arg: TvSeasonArg(tvId: 1, seasonNumber: 1))));
 
       expect(errorWidget, findsOneWidget);
     });
@@ -52,7 +54,8 @@ void main() {
       when(mockNotifier.season).thenReturn(testDetailSeason);
       final content = find.byType(SeasonContent);
 
-      await tester.pumpWidget(_makeTestableWidget(TvSeasonPage(arg: TvSeasonArg(tvId: 1, seasonNumber: 1))));
+      await tester.pumpWidget(_makeTestableWidget(
+          TvSeasonPage(arg: TvSeasonArg(tvId: 1, seasonNumber: 1))));
 
       expect(content, findsOneWidget);
     });

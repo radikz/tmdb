@@ -19,8 +19,7 @@ void main() {
   final listTv = <Tv>[testTv];
 
   test('get list tv', () async {
-    when(repository.getTvsWatchlist())
-        .thenAnswer((_) async => Right(listTv));
+    when(repository.getTvsWatchlist()).thenAnswer((_) async => Right(listTv));
 
     final result = await getWatchlistTvs.execute();
 

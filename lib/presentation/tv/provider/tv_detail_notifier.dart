@@ -51,7 +51,7 @@ class TvDetailNotifier extends ChangeNotifier {
     _recommendationState = RequestState.Loading;
     notifyListeners();
     final detailResult = await getTvDetail.execute(id);
-    final recommendationResult = await getTvsRecommendation.execute(id);  
+    final recommendationResult = await getTvsRecommendation.execute(id);
     detailResult.fold(
       (failure) {
         _tvState = RequestState.Error;

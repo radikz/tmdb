@@ -1,4 +1,3 @@
-
 import 'package:equatable/equatable.dart';
 
 import 'package:ditonton/data/models/tv_model.dart';

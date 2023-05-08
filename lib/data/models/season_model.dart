@@ -21,7 +21,8 @@ class SeasonModel extends Equatable {
   final int seasonNumber;
 
   factory SeasonModel.fromJson(Map<String, dynamic> json) => SeasonModel(
-        airDate: json["air_date"] != null ? DateTime.parse(json["air_date"]) : null,
+        airDate:
+            json["air_date"] != null ? DateTime.parse(json["air_date"]) : null,
         episodeCount: json["episode_count"],
         id: json["id"],
         name: json["name"],
@@ -30,7 +31,7 @@ class SeasonModel extends Equatable {
         seasonNumber: json["season_number"],
       );
 
-  Map<String, dynamic> toJson() => { 
+  Map<String, dynamic> toJson() => {
         "air_date":
             "${airDate?.year.toString().padLeft(4, '0')}-${airDate?.month.toString().padLeft(2, '0')}-${airDate?.day.toString().padLeft(2, '0')}",
         "episode_count": episodeCount,

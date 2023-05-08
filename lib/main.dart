@@ -130,7 +130,7 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(builder: (_) => PopularTvsPage());
             case TopRatedTvsPage.ROUTE_NAME:
               return MaterialPageRoute(builder: (_) => TopRatedTvsPage());
-              case WatchlistTvsPage.ROUTE_NAME:
+            case WatchlistTvsPage.ROUTE_NAME:
               return MaterialPageRoute(builder: (_) => WatchlistTvsPage());
             case TvDetailPage.ROUTE_NAME:
               final id = settings.arguments as int;
@@ -138,13 +138,13 @@ class MyApp extends StatelessWidget {
                 builder: (_) => TvDetailPage(id: id),
                 settings: settings,
               );
-              case TvDetailEpisodePage.ROUTE_NAME:
+            case TvDetailEpisodePage.ROUTE_NAME:
               final arg = settings.arguments as TvDetailEpisodeArg;
               return MaterialPageRoute(
                 builder: (_) => TvDetailEpisodePage(arg: arg),
                 settings: settings,
               );
-              case TvSeasonPage.ROUTE_NAME:
+            case TvSeasonPage.ROUTE_NAME:
               final arg = settings.arguments as TvSeasonArg;
               return MaterialPageRoute(
                 builder: (_) => TvSeasonPage(arg: arg),

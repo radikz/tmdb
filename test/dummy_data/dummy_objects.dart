@@ -128,7 +128,7 @@ final testTvEpisode = TvEpisode(
     seasonNumber: 1,
     stillPath: "stillPath");
 
-    final testTvEpisodeModel = TvEpisodeModel(
+final testTvEpisodeModel = TvEpisodeModel(
     id: 1,
     name: "name",
     overview: "overview",
@@ -149,7 +149,7 @@ final testSeason = Season(
     posterPath: "posterPath",
     seasonNumber: 1);
 
-    final testSeasonModel = SeasonModel(
+final testSeasonModel = SeasonModel(
     airDate: DateTime(2023, 2, 2),
     episodeCount: 3,
     id: 1,
@@ -167,7 +167,7 @@ final testDetailSeason = DetailSeason(
     posterPath: "posterPath",
     seasonNumber: 1);
 
-    final testDetailSeasonModel = DetailSeasonModel(
+final testDetailSeasonModel = DetailSeasonModel(
     airDate: DateTime(2023, 2, 2),
     episodes: [testTvEpisodeModel],
     id: 1,
@@ -203,7 +203,7 @@ final testTvDetail = TvDetail(
     voteAverage: 9,
     voteCount: 90);
 
-    final testTvModelDetail = TvDetailModel(
+final testTvModelDetail = TvDetailModel(
     backdropPath: "backdropPath",
     episodeRunTime: [],
     firstAirDate: DateTime(2023, 2, 2),

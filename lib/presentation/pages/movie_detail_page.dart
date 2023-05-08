@@ -199,7 +199,9 @@ class DetailContent extends StatelessWidget {
                                   );
                                 } else if (data.recommendationState ==
                                     RequestState.Error) {
-                                  return Text(data.message, key: ValueKey("__recommendation_error__"));
+                                  return Text(data.message,
+                                      key:
+                                          ValueKey("__recommendation_error__"));
                                 } else if (data.recommendationState ==
                                     RequestState.Loaded) {
                                   return Container(
@@ -211,7 +213,8 @@ class DetailContent extends StatelessWidget {
                                         return Padding(
                                           padding: const EdgeInsets.all(4.0),
                                           child: InkWell(
-                                            key: ValueKey("__recommendation_inkwell__"),
+                                            key: ValueKey(
+                                                "__recommendation_inkwell__"),
                                             onTap: () {
                                               Navigator.pushReplacementNamed(
                                                 context,
@@ -243,7 +246,9 @@ class DetailContent extends StatelessWidget {
                                     ),
                                   );
                                 } else {
-                                  return Container(key: ValueKey("__recommendation_empty__"),);
+                                  return Container(
+                                    key: ValueKey("__recommendation_empty__"),
+                                  );
                                 }
                               },
                             ),

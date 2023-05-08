@@ -19,8 +19,7 @@ void main() {
   final listTv = <Tv>[testTv];
 
   test('get list tv', () async {
-    when(repository.searchTvs("tv"))
-        .thenAnswer((_) async => Right(listTv));
+    when(repository.searchTvs("tv")).thenAnswer((_) async => Right(listTv));
 
     final result = await searchTvs.execute("tv");
 
