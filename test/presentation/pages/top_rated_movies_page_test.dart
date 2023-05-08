@@ -46,8 +46,6 @@ void main() {
     when(mockNotifier.state).thenReturn(RequestState.Loaded);
     when(mockNotifier.movies).thenReturn(testMovieList);
 
-    final listViewFinder = find.byType(ListView);
-
     await tester.pumpWidget(_makeTestableWidget(TopRatedMoviesPage()));
 
     final listItem = find.byType(MovieCard);
