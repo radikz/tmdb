@@ -21,6 +21,7 @@ import 'package:ditonton/presentation/tv/pages/top_rated_tvs_page.dart';
 import 'package:ditonton/presentation/tv/pages/tv_detail_episode_page.dart';
 import 'package:ditonton/presentation/tv/pages/tv_detail_page.dart';
 import 'package:ditonton/presentation/tv/pages/tv_season_page.dart';
+import 'package:ditonton/presentation/tv/pages/watchlist_tvs_page.dart';
 import 'package:ditonton/presentation/tv/provider/airing_now_tvs_notifier.dart';
 import 'package:ditonton/presentation/tv/provider/episode_detail_tv_notifier.dart';
 import 'package:ditonton/presentation/tv/provider/popular_tvs_notifier.dart';
@@ -29,6 +30,7 @@ import 'package:ditonton/presentation/tv/provider/top_rated_tvs_notifier.dart';
 import 'package:ditonton/presentation/tv/provider/tv_detail_notifier.dart';
 import 'package:ditonton/presentation/tv/provider/tv_list_notifier.dart';
 import 'package:ditonton/presentation/tv/provider/tv_search_notifier.dart';
+import 'package:ditonton/presentation/tv/provider/watchlist_tv_notifier.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -86,6 +88,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => di.locator<SeasonDetailTvNotifier>(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => di.locator<WatchlistTvNotifier>(),
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -125,6 +130,8 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(builder: (_) => PopularTvsPage());
             case TopRatedTvsPage.ROUTE_NAME:
               return MaterialPageRoute(builder: (_) => TopRatedTvsPage());
+              case WatchlistTvsPage.ROUTE_NAME:
+              return MaterialPageRoute(builder: (_) => WatchlistTvsPage());
             case TvDetailPage.ROUTE_NAME:
               final id = settings.arguments as int;
               return MaterialPageRoute(
