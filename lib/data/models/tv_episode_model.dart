@@ -22,7 +22,7 @@ class TvEpisodeModel extends Equatable {
   String overview;
   num voteAverage;
   int voteCount;
-  DateTime airDate;
+  DateTime? airDate;
   int episodeNumber;
   String productionCode;
   int seasonNumber;
@@ -34,7 +34,7 @@ class TvEpisodeModel extends Equatable {
         overview: json["overview"],
         voteAverage: json["vote_average"],
         voteCount: json["vote_count"],
-        airDate: DateTime.parse(json["air_date"]),
+        airDate:  json["air_date"] != null ? DateTime.parse(json["air_date"]) : null,
         episodeNumber: json["episode_number"],
         productionCode: json["production_code"],
         seasonNumber: json["season_number"],
@@ -48,7 +48,7 @@ class TvEpisodeModel extends Equatable {
         "vote_average": voteAverage,
         "vote_count": voteCount,
         "air_date":
-            "${airDate.year.toString().padLeft(4, '0')}-${airDate.month.toString().padLeft(2, '0')}-${airDate.day.toString().padLeft(2, '0')}",
+            "${airDate?.year.toString().padLeft(4, '0')}-${airDate?.month.toString().padLeft(2, '0')}-${airDate?.day.toString().padLeft(2, '0')}",
         "episode_number": episodeNumber,
         "production_code": productionCode,
         "season_number": seasonNumber,

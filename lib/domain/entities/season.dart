@@ -12,7 +12,7 @@ Season({
         required this.seasonNumber,
     });
 
-    DateTime airDate;
+    DateTime? airDate;
     int episodeCount;
     int id;
     String name;

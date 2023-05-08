@@ -17,7 +17,7 @@ class DetailSeason extends Equatable {
   String name;
   List<TvEpisode> episodes;
   String overview;
-  String posterPath;
+  String? posterPath;
   int seasonNumber;
 
   @override

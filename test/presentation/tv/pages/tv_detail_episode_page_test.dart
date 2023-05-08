@@ -2,6 +2,7 @@ import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/tv.dart';
 import 'package:ditonton/presentation/tv/pages/tv_detail_episode_page.dart';
 import 'package:ditonton/presentation/tv/pages/tv_detail_page.dart';
+import 'package:ditonton/presentation/tv/pages/tv_season_page.dart';
 import 'package:ditonton/presentation/tv/provider/episode_detail_tv_notifier.dart';
 import 'package:ditonton/presentation/tv/provider/tv_detail_notifier.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,6 @@ import 'package:provider/provider.dart';
 
 import '../../../dummy_data/dummy_objects.dart';
 import 'tv_detail_episode_page_test.mocks.dart';
-import 'tv_detail_page_test.mocks.dart';
 
 @GenerateMocks([EpisodeDetailTvNotifier])
 void main() {

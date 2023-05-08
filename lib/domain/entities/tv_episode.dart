@@ -19,7 +19,7 @@ class TvEpisode extends Equatable {
     String overview;
     num voteAverage;
     int voteCount;
-    DateTime airDate;
+    DateTime? airDate;
     int episodeNumber;
     String productionCode;
     int seasonNumber;

@@ -8,6 +8,7 @@ import 'package:ditonton/domain/entities/tv_detail.dart';
 import 'package:ditonton/presentation/provider/movie_detail_notifier.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/presentation/tv/pages/tv_detail_episode_page.dart';
+import 'package:ditonton/presentation/tv/pages/tv_season_page.dart';
 import 'package:ditonton/presentation/tv/provider/tv_detail_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -271,11 +272,11 @@ class DetailContent extends StatelessWidget {
                                     child: InkWell(
                                       key: ValueKey("__season_inkwell__tv"),
                                       onTap: () {
-                                        // Navigator.pushReplacementNamed(
-                                        //   context,
-                                        //   TvDetailPage.ROUTE_NAME,
-                                        //   arguments: movie.id,
-                                        // );
+                                        Navigator.pushNamed(
+                                          context,
+                                          TvSeasonPage.ROUTE_NAME,
+                                          arguments: TvSeasonArg(tvId: movie.id, seasonNumber: season.seasonNumber),
+                                        );
                                       },
                                       child: Visibility(
                                         visible: season.posterPath != null,
