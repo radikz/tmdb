@@ -9,7 +9,6 @@ import 'package:ditonton/domain/entities/detail_season.dart';
 import 'package:ditonton/domain/entities/tv_episode.dart';
 import 'package:ditonton/domain/entities/tv_detail.dart';
 import 'package:ditonton/domain/entities/tv.dart';
-import 'package:ditonton/domain/entities/season.dart';
 import 'package:ditonton/domain/repositories/tv_repository.dart';
 
 import '../../common/exception.dart';

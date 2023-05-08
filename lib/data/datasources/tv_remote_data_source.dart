@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:ditonton/data/models/detail_season_model.dart';
-import 'package:ditonton/data/models/season_model.dart';
 import 'package:ditonton/data/models/tv_detail_model.dart';
 import 'package:ditonton/data/models/tv_episode_model.dart';
 import 'package:ditonton/data/models/tv_model.dart';

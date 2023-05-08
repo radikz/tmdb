@@ -1,12 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/detail_season.dart';
 import 'package:ditonton/domain/entities/tv_episode.dart';
 import 'package:ditonton/presentation/tv/pages/tv_detail_episode_page.dart';
-import 'package:ditonton/presentation/tv/provider/episode_detail_tv_notifier.dart';
 import 'package:ditonton/presentation/tv/provider/season_detail_tv_notifier.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 
 import '../../../common/constants.dart';
