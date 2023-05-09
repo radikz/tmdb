@@ -1,4 +1,4 @@
-import 'package:ditonton/common/state_enum.dart';
+import 'package:core/utils/state_enum.dart';
 import 'package:ditonton/domain/usecases/tv/search_tvs.dart';
 import 'package:flutter/foundation.dart';
 
@@ -33,7 +33,7 @@ class TvSearchNotifier extends ChangeNotifier {
         _state = RequestState.Empty;
       } else {
         _tvs = data;
-      _state = RequestState.Loaded;
+        _state = RequestState.Loaded;
       }
       notifyListeners();
     });

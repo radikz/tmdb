@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:ditonton/common/exception.dart';
+import 'package:core/utils/exception.dart';
 import 'package:ditonton/data/datasources/tv_remote_data_source.dart';
 import 'package:ditonton/data/models/detail_season_model.dart';
 import 'package:ditonton/data/models/tv_detail_model.dart';

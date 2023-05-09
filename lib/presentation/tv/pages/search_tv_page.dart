@@ -1,6 +1,6 @@
-import 'package:ditonton/common/constants.dart';
-import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/common/widgets/empty_page.dart';
+import 'package:core/styles/text_styles.dart';
+import 'package:core/utils/state_enum.dart';
+import 'package:core/widgets/empty_page.dart';
 import 'package:ditonton/presentation/tv/pages/widgets/tv_card_list.dart';
 import 'package:ditonton/presentation/tv/provider/tv_search_notifier.dart';
 import 'package:flutter/material.dart';

@@ -25,6 +25,8 @@ dependencies:
     sdk: flutter
   about:
     path: about
+  core:
+    path: core
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -34,7 +36,7 @@ dependencies:
   provider: ^6.0.3
   dartz: ^0.10.0-nullsafety.2
   equatable: ^2.0.2
-  google_fonts: ^3.0.1
+  
   flutter_rating_bar: ^4.0.0
   cached_network_image: ^3.0.0
   get_it: ^7.1.3

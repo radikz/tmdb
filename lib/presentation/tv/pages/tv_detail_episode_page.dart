@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ditonton/common/state_enum.dart';
+import 'package:core/styles/colors.dart';
+import 'package:core/styles/text_styles.dart';
+import 'package:core/utils/state_enum.dart';
 import 'package:ditonton/domain/entities/tv_episode.dart';
 import 'package:ditonton/presentation/tv/provider/episode_detail_tv_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
-
-import '../../../common/constants.dart';
 
 class TvDetailEpisodePage extends StatefulWidget {
   const TvDetailEpisodePage({Key? key, required this.arg}) : super(key: key);

@@ -1,4 +1,5 @@
-import 'package:ditonton/common/constants.dart';
+
+import 'package:core/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class EmptyPage extends StatelessWidget {
@@ -10,12 +11,12 @@ class EmptyPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Icon(
+          const Icon(
             Icons.warning_amber_rounded,
             color: Colors.grey,
             size: 40,
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           Text(

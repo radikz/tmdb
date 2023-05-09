@@ -1,4 +1,4 @@
-import 'package:ditonton/common/state_enum.dart';
+import 'package:core/utils/state_enum.dart';
 import 'package:ditonton/domain/entities/tv.dart';
 import 'package:ditonton/presentation/tv/pages/top_rated_tvs_page.dart';
 import 'package:ditonton/presentation/tv/pages/widgets/tv_card_list.dart';

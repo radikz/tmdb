@@ -1,4 +1,4 @@
-import 'package:ditonton/common/state_enum.dart';
+import 'package:core/utils/state_enum.dart';
 import 'package:ditonton/domain/entities/detail_season.dart';
 import 'package:ditonton/domain/usecases/tv/get_tv_detail_season.dart';
 import 'package:flutter/foundation.dart';

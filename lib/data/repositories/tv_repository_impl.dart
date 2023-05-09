@@ -1,6 +1,7 @@
 import 'dart:io';
 
-import 'package:ditonton/common/failure.dart';
+import 'package:core/utils/exception.dart';
+import 'package:core/utils/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:ditonton/data/datasources/tv_local_data_source.dart';
 import 'package:ditonton/data/datasources/tv_remote_data_source.dart';
@@ -11,7 +12,6 @@ import 'package:ditonton/domain/entities/tv_detail.dart';
 import 'package:ditonton/domain/entities/tv.dart';
 import 'package:ditonton/domain/repositories/tv_repository.dart';
 
-import '../../common/exception.dart';
 
 class TvRepositoryImpl implements TvRepository {
   final TvLocalDataSource localDataSource;
