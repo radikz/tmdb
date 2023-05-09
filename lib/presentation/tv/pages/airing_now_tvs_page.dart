@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class AiringNowTvsPage extends StatefulWidget {
-  static const ROUTE_NAME = '/airing-now-tv';
+  
 
   @override
   _AiringNowTvsPageState createState() => _AiringNowTvsPageState();

@@ -7,4 +7,5 @@ export 'utils/constants.dart';
 export 'utils/failure.dart';
 export 'utils/state_enum.dart';
 export 'utils/utils.dart';
+export 'utils/routes.dart';
 export 'widgets/empty_page.dart';

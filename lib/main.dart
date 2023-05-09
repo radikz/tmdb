@@ -1,4 +1,5 @@
 import 'package:about/about_page.dart';
+import 'package:core/core.dart';
 import 'package:core/styles/colors.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/utils.dart';
@@ -107,51 +108,51 @@ class MyApp extends StatelessWidget {
           switch (settings.name) {
             case '/home':
               return MaterialPageRoute(builder: (_) => HomeMoviePage());
-            case PopularMoviesPage.ROUTE_NAME:
+            case popularMoviesRoute:
               return CupertinoPageRoute(builder: (_) => PopularMoviesPage());
-            case TopRatedMoviesPage.ROUTE_NAME:
+            case topRatedMoviesRoute:
               return CupertinoPageRoute(builder: (_) => TopRatedMoviesPage());
-            case MovieDetailPage.ROUTE_NAME:
+            case movieDetailRoute:
               final id = settings.arguments as int;
               return MaterialPageRoute(
                 builder: (_) => MovieDetailPage(id: id),
                 settings: settings,
               );
-            case SearchPage.ROUTE_NAME:
+            case searchMoviesRoute:
               return CupertinoPageRoute(builder: (_) => SearchPage());
-            case WatchlistMoviesPage.ROUTE_NAME:
+            case watchlistMoviesRoute:
               return MaterialPageRoute(builder: (_) => WatchlistMoviesPage());
-            case AboutPage.ROUTE_NAME:
+            case aboutRoute:
               return MaterialPageRoute(builder: (_) => AboutPage());
-            case HomeTvPage.ROUTE_NAME:
+            case homeTvsRoute:
               return MaterialPageRoute(builder: (_) => HomeTvPage());
-            case AiringNowTvsPage.ROUTE_NAME:
+            case airingTvsRoute:
               return MaterialPageRoute(builder: (_) => AiringNowTvsPage());
-            case PopularTvsPage.ROUTE_NAME:
+            case popularTvsRoute:
               return MaterialPageRoute(builder: (_) => PopularTvsPage());
-            case TopRatedTvsPage.ROUTE_NAME:
+            case topRatedTvsRoute:
               return MaterialPageRoute(builder: (_) => TopRatedTvsPage());
-            case WatchlistTvsPage.ROUTE_NAME:
+            case watchlistTvsRoute:
               return MaterialPageRoute(builder: (_) => WatchlistTvsPage());
-            case TvDetailPage.ROUTE_NAME:
+            case tvDetailRoute:
               final id = settings.arguments as int;
               return MaterialPageRoute(
                 builder: (_) => TvDetailPage(id: id),
                 settings: settings,
               );
-            case TvDetailEpisodePage.ROUTE_NAME:
+            case tvDetailEpisodeRoute:
               final arg = settings.arguments as TvDetailEpisodeArg;
               return MaterialPageRoute(
                 builder: (_) => TvDetailEpisodePage(arg: arg),
                 settings: settings,
               );
-            case TvSeasonPage.ROUTE_NAME:
+            case tvSeasonRoute:
               final arg = settings.arguments as TvSeasonArg;
               return MaterialPageRoute(
                 builder: (_) => TvSeasonPage(arg: arg),
                 settings: settings,
               );
-            case SearchTvPage.ROUTE_NAME:
+            case searchTvsRoute:
               return CupertinoPageRoute(builder: (_) => SearchTvPage());
             default:
               return MaterialPageRoute(builder: (_) {

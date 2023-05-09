@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:core/core.dart';
 import 'package:core/styles/colors.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:ditonton/domain/entities/genre.dart';
@@ -13,7 +14,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 
 class TvDetailPage extends StatefulWidget {
-  static const ROUTE_NAME = '/detail-tv';
+  
 
   final int id;
   TvDetailPage({required this.id});
@@ -219,7 +220,7 @@ class DetailContent extends StatelessWidget {
                                             onTap: () {
                                               Navigator.pushReplacementNamed(
                                                 context,
-                                                TvDetailPage.ROUTE_NAME,
+                                                tvDetailRoute,
                                                 arguments: movie.id,
                                               );
                                             },
@@ -272,7 +273,7 @@ class DetailContent extends StatelessWidget {
                                       onTap: () {
                                         Navigator.pushNamed(
                                           context,
-                                          TvSeasonPage.ROUTE_NAME,
+                                          tvSeasonRoute,
                                           arguments: TvSeasonArg(
                                               tvId: movie.id,
                                               seasonNumber:
@@ -329,7 +330,7 @@ class DetailContent extends StatelessWidget {
                                   onTap: () {
                                     Navigator.pushNamed(
                                       context,
-                                      TvDetailEpisodePage.ROUTE_NAME,
+                                      tvDetailEpisodeRoute,
                                       arguments: TvDetailEpisodeArg(
                                           tvId: movie.id,
                                           seasonNumber: movie

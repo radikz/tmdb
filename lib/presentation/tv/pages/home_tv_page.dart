@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:core/core.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/constants.dart';
 import 'package:core/utils/state_enum.dart';
@@ -16,7 +17,6 @@ import 'package:provider/provider.dart';
 class HomeTvPage extends StatefulWidget {
   const HomeTvPage({Key? key}) : super(key: key);
 
-  static const ROUTE_NAME = 'tv';
 
   @override
   State<HomeTvPage> createState() => _HomeTvPageState();
@@ -40,7 +40,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, SearchTvPage.ROUTE_NAME);
+              Navigator.pushNamed(context, searchTvsRoute);
             },
             icon: Icon(Icons.search),
           )
@@ -55,7 +55,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
               _buildSubHeading(
                 title: 'Airing Now',
                 onTap: () =>
-                    Navigator.pushNamed(context, AiringNowTvsPage.ROUTE_NAME),
+                    Navigator.pushNamed(context, airingTvsRoute),
               ),
               Consumer<TvListNotifier>(builder: (context, data, child) {
                 final state = data.airingTodayTvState;
@@ -73,7 +73,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
               _buildSubHeading(
                 title: 'Popular',
                 onTap: () =>
-                    Navigator.pushNamed(context, PopularTvsPage.ROUTE_NAME),
+                    Navigator.pushNamed(context, popularTvsRoute),
               ),
               Consumer<TvListNotifier>(builder: (context, data, child) {
                 final state = data.popularTvState;
@@ -90,7 +90,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
               _buildSubHeading(
                 title: 'Top Rated',
                 onTap: () =>
-                    Navigator.pushNamed(context, TopRatedTvsPage.ROUTE_NAME),
+                    Navigator.pushNamed(context, topRatedTvsRoute),
               ),
               Consumer<TvListNotifier>(builder: (context, data, child) {
                 final state = data.topRatedTvState;
@@ -152,7 +152,7 @@ class TvList extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(
                   context,
-                  TvDetailPage.ROUTE_NAME,
+                  tvDetailRoute,
                   arguments: movie.id,
                 );
                 print('$BASE_IMAGE_URL${movie.posterPath}');

@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:core/core.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/constants.dart';
 import 'package:core/utils/state_enum.dart';
@@ -14,7 +15,7 @@ class TvSeasonPage extends StatefulWidget {
 
   final TvSeasonArg arg;
 
-  static const ROUTE_NAME = '/season-tv';
+  
 
   @override
   State<TvSeasonPage> createState() => _TvDetailEpisodePageState();
@@ -75,7 +76,7 @@ class SeasonContent extends StatelessWidget {
         onTap: () {
           Navigator.pushNamed(
             context,
-            TvDetailEpisodePage.ROUTE_NAME,
+            tvDetailEpisodeRoute,
             arguments: TvDetailEpisodeArg(
                 tvId: tvId,
                 seasonNumber: episode.seasonNumber,

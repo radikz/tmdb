@@ -13,7 +13,7 @@ class TvDetailEpisodePage extends StatefulWidget {
 
   final TvDetailEpisodeArg arg;
 
-  static const ROUTE_NAME = '/detail-episode-tv';
+  
 
   @override
   State<TvDetailEpisodePage> createState() => _TvDetailEpisodePageState();
