@@ -1,8 +1,8 @@
+import 'package:core/tv/domain/entities/tv.dart';
 import 'package:core/utils/state_enum.dart';
 import 'package:ditonton/domain/usecases/tv/get_now_airing_tvs.dart';
 import 'package:flutter/foundation.dart';
 
-import '../../../domain/entities/tv.dart';
 
 class AiringNowTvsNotifier extends ChangeNotifier {
   final GetNowAiringTvs getNowAiringTvs;

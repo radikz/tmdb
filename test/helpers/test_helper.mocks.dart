@@ -7,8 +7,12 @@ import 'dart:async' as _i9;
 import 'dart:convert' as _i29;
 import 'dart:typed_data' as _i30;
 
-import 'package:dartz/dartz.dart' as _i2;
+import 'package:core/movie/data/models/movie_model.dart' as _i14;
+import 'package:core/movie/domain/entities/movie.dart' as _i11;
+import 'package:core/tv/data/models/tv_model.dart' as _i27;
+import 'package:core/tv/domain/entities/tv.dart' as _i22;
 import 'package:core/utils/failure.dart' as _i10;
+import 'package:dartz/dartz.dart' as _i2;
 import 'package:ditonton/data/datasources/db/database_helper.dart' as _i17;
 import 'package:ditonton/data/datasources/db/database_helper_tv.dart' as _i19;
 import 'package:ditonton/data/datasources/movie_local_data_source.dart' as _i15;
@@ -18,16 +22,12 @@ import 'package:ditonton/data/datasources/tv_local_data_source.dart' as _i28;
 import 'package:ditonton/data/datasources/tv_remote_data_source.dart' as _i26;
 import 'package:ditonton/data/models/detail_season_model.dart' as _i5;
 import 'package:ditonton/data/models/movie_detail_model.dart' as _i3;
-import 'package:ditonton/data/models/movie_model.dart' as _i14;
 import 'package:ditonton/data/models/movie_table.dart' as _i16;
 import 'package:ditonton/data/models/tv_detail_model.dart' as _i4;
 import 'package:ditonton/data/models/tv_episode_model.dart' as _i6;
-import 'package:ditonton/data/models/tv_model.dart' as _i27;
 import 'package:ditonton/data/models/tv_table.dart' as _i20;
 import 'package:ditonton/domain/entities/detail_season.dart' as _i24;
-import 'package:ditonton/domain/entities/movie.dart' as _i11;
 import 'package:ditonton/domain/entities/movie_detail.dart' as _i12;
-import 'package:ditonton/domain/entities/tv.dart' as _i22;
 import 'package:ditonton/domain/entities/tv_detail.dart' as _i23;
 import 'package:ditonton/domain/entities/tv_episode.dart' as _i25;
 import 'package:ditonton/domain/repositories/movie_repository.dart' as _i8;
@@ -216,24 +216,6 @@ class MockMovieRepository extends _i1.Mock implements _i8.MovieRepository {
             )),
           ) as _i9.Future<_i2.Either<_i10.Failure, List<_i11.Movie>>>);
   @override
-  _i9.Future<_i2.Either<_i10.Failure, List<_i11.Movie>>> searchMovies(
-          String? query) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #searchMovies,
-          [query],
-        ),
-        returnValue:
-            _i9.Future<_i2.Either<_i10.Failure, List<_i11.Movie>>>.value(
-                _FakeEither_0<_i10.Failure, List<_i11.Movie>>(
-          this,
-          Invocation.method(
-            #searchMovies,
-            [query],
-          ),
-        )),
-      ) as _i9.Future<_i2.Either<_i10.Failure, List<_i11.Movie>>>);
-  @override
   _i9.Future<_i2.Either<_i10.Failure, String>> saveWatchlist(
           _i12.MovieDetail? movie) =>
       (super.noSuchMethod(
@@ -353,16 +335,6 @@ class MockMovieRemoteDataSource extends _i1.Mock
         Invocation.method(
           #getMovieRecommendations,
           [id],
-        ),
-        returnValue:
-            _i9.Future<List<_i14.MovieModel>>.value(<_i14.MovieModel>[]),
-      ) as _i9.Future<List<_i14.MovieModel>>);
-  @override
-  _i9.Future<List<_i14.MovieModel>> searchMovies(String? query) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #searchMovies,
-          [query],
         ),
         returnValue:
             _i9.Future<List<_i14.MovieModel>>.value(<_i14.MovieModel>[]),
@@ -659,23 +631,6 @@ class MockTvRepository extends _i1.Mock implements _i21.TvRepository {
           ),
         )),
       ) as _i9.Future<_i2.Either<_i10.Failure, _i25.TvEpisode>>);
-  @override
-  _i9.Future<_i2.Either<_i10.Failure, List<_i22.Tv>>> searchTvs(
-          String? query) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #searchTvs,
-          [query],
-        ),
-        returnValue: _i9.Future<_i2.Either<_i10.Failure, List<_i22.Tv>>>.value(
-            _FakeEither_0<_i10.Failure, List<_i22.Tv>>(
-          this,
-          Invocation.method(
-            #searchTvs,
-            [query],
-          ),
-        )),
-      ) as _i9.Future<_i2.Either<_i10.Failure, List<_i22.Tv>>>);
   @override
   _i9.Future<_i2.Either<_i10.Failure, String>> saveWatchlist(
           _i23.TvDetail? tv) =>

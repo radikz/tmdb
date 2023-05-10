@@ -3,14 +3,14 @@ import 'package:ditonton/data/models/movie_table.dart';
 import 'package:ditonton/data/models/season_model.dart';
 import 'package:ditonton/data/models/tv_detail_model.dart';
 import 'package:ditonton/data/models/tv_episode_model.dart';
-import 'package:ditonton/data/models/tv_model.dart';
+import 'package:core/tv/data/models/tv_model.dart';
 import 'package:ditonton/data/models/tv_table.dart';
 import 'package:ditonton/domain/entities/detail_season.dart';
 import 'package:ditonton/domain/entities/genre.dart';
-import 'package:ditonton/domain/entities/movie.dart';
+import 'package:core/movie/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
 import 'package:ditonton/domain/entities/season.dart';
-import 'package:ditonton/domain/entities/tv.dart';
+import 'package:core/tv/domain/entities/tv.dart';
 import 'package:ditonton/domain/entities/tv_detail.dart';
 import 'package:ditonton/domain/entities/tv_episode.dart';
 

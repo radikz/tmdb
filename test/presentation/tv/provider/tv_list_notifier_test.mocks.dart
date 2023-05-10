@@ -5,9 +5,9 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i5;
 
-import 'package:dartz/dartz.dart' as _i3;
+import 'package:core/tv/domain/entities/tv.dart' as _i7;
 import 'package:core/utils/failure.dart' as _i6;
-import 'package:ditonton/domain/entities/tv.dart' as _i7;
+import 'package:dartz/dartz.dart' as _i3;
 import 'package:ditonton/domain/repositories/tv_repository.dart' as _i2;
 import 'package:ditonton/domain/usecases/tv/get_now_airing_tvs.dart' as _i8;
 import 'package:ditonton/domain/usecases/tv/get_popular_tvs.dart' as _i9;

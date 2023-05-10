@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:core/utils/exception.dart';
 import 'package:core/utils/failure.dart';
-import 'package:ditonton/data/models/tv_model.dart';
+import 'package:core/tv/data/models/tv_model.dart';
 import 'package:ditonton/data/repositories/tv_repository_impl.dart';
-import 'package:ditonton/domain/entities/tv.dart';
+import 'package:core/tv/domain/entities/tv.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
@@ -314,46 +314,6 @@ void main() {
       final result = await repository.getTvsRecommendation(tId);
 
       verify(remoteDataSource.getTvsRecommendation(tId));
-      expect(result,
-          equals(Left(ConnectionFailure('Failed to connect to the network'))));
-    });
-  });
-
-  group('Search TV', () {
-    final keyword = "test";
-    test(
-        'should return remote data when the call to remote data source is successful',
-        () async {
-      when(remoteDataSource.searchTvs(keyword))
-          .thenAnswer((_) async => tTvModelList);
-
-      final result = await repository.searchTvs(keyword);
-
-      verify(remoteDataSource.searchTvs(keyword));
-      final resultList = result.getOrElse(() => []);
-      expect(resultList, tTvList);
-    });
-
-    test(
-        'should return server failure when the call to remote data source is unsuccessful',
-        () async {
-      when(remoteDataSource.searchTvs(keyword)).thenThrow(ServerException());
-
-      final result = await repository.searchTvs(keyword);
-
-      verify(remoteDataSource.searchTvs(keyword));
-      expect(result, equals(Left(ServerFailure(''))));
-    });
-
-    test(
-        'should return connection failure when the device is not connected to internet',
-        () async {
-      when(remoteDataSource.searchTvs(keyword))
-          .thenThrow(SocketException('Failed to connect to the network'));
-
-      final result = await repository.searchTvs(keyword);
-
-      verify(remoteDataSource.searchTvs(keyword));
       expect(result,
           equals(Left(ConnectionFailure('Failed to connect to the network'))));
     });

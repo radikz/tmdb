@@ -9,7 +9,7 @@ import 'package:ditonton/data/models/tv_table.dart';
 import 'package:ditonton/domain/entities/detail_season.dart';
 import 'package:ditonton/domain/entities/tv_episode.dart';
 import 'package:ditonton/domain/entities/tv_detail.dart';
-import 'package:ditonton/domain/entities/tv.dart';
+import 'package:core/tv/domain/entities/tv.dart';
 import 'package:ditonton/domain/repositories/tv_repository.dart';
 
 
@@ -146,15 +146,5 @@ class TvRepositoryImpl implements TvRepository {
     }
   }
 
-  @override
-  Future<Either<Failure, List<Tv>>> searchTvs(String query) async {
-    try {
-      final result = await remoteDataSource.searchTvs(query);
-      return Right(result.map((model) => model.toEntity()).toList());
-    } on ServerException {
-      return Left(ServerFailure(''));
-    } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to the network'));
-    }
-  }
+  
 }

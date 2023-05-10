@@ -3,7 +3,7 @@ import 'package:core/core.dart';
 import 'package:core/styles/colors.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:ditonton/domain/entities/genre.dart';
-import 'package:ditonton/domain/entities/movie.dart';
+import 'package:core/movie/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
 import 'package:ditonton/presentation/provider/movie_detail_notifier.dart';
 import 'package:core/utils/state_enum.dart';

@@ -1,13 +1,13 @@
 import 'dart:io';
 
+import 'package:core/movie/data/models/movie_model.dart';
 import 'package:dartz/dartz.dart';
 import 'package:ditonton/data/models/genre_model.dart';
 import 'package:ditonton/data/models/movie_detail_model.dart';
-import 'package:ditonton/data/models/movie_model.dart';
-import 'package:ditonton/data/repositories/movie_repository_impl.dart';
 import 'package:core/utils/exception.dart';
 import 'package:core/utils/failure.dart';
-import 'package:ditonton/domain/entities/movie.dart';
+import 'package:core/movie/domain/entities/movie.dart';
+import 'package:ditonton/data/repositories/movie_repository_impl.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
@@ -298,47 +298,6 @@ void main() {
       verify(mockRemoteDataSource.getMovieRecommendations(tId));
       expect(result,
           equals(Left(ConnectionFailure('Failed to connect to the network'))));
-    });
-  });
-
-  group('Seach Movies', () {
-    final tQuery = 'spiderman';
-
-    test('should return movie list when call to data source is successful',
-        () async {
-      // arrange
-      when(mockRemoteDataSource.searchMovies(tQuery))
-          .thenAnswer((_) async => tMovieModelList);
-      // act
-      final result = await repository.searchMovies(tQuery);
-      // assert
-      /* workaround to test List in Right. Issue: https://github.com/spebbe/dartz/issues/80 */
-      final resultList = result.getOrElse(() => []);
-      expect(resultList, tMovieList);
-    });
-
-    test('should return ServerFailure when call to data source is unsuccessful',
-        () async {
-      // arrange
-      when(mockRemoteDataSource.searchMovies(tQuery))
-          .thenThrow(ServerException());
-      // act
-      final result = await repository.searchMovies(tQuery);
-      // assert
-      expect(result, Left(ServerFailure('')));
-    });
-
-    test(
-        'should return ConnectionFailure when device is not connected to the internet',
-        () async {
-      // arrange
-      when(mockRemoteDataSource.searchMovies(tQuery))
-          .thenThrow(SocketException('Failed to connect to the network'));
-      // act
-      final result = await repository.searchMovies(tQuery);
-      // assert
-      expect(
-          result, Left(ConnectionFailure('Failed to connect to the network')));
     });
   });
 

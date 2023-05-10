@@ -6,8 +6,8 @@
 import 'dart:async' as _i11;
 import 'dart:ui' as _i12;
 
+import 'package:core/tv/domain/entities/tv.dart' as _i10;
 import 'package:core/utils/state_enum.dart' as _i9;
-import 'package:ditonton/domain/entities/tv.dart' as _i10;
 import 'package:ditonton/domain/entities/tv_detail.dart' as _i7;
 import 'package:ditonton/domain/usecases/tv/get_tv_detail.dart' as _i2;
 import 'package:ditonton/domain/usecases/tv/get_tv_watchlist_status.dart'
@@ -153,7 +153,7 @@ class MockTvDetailNotifier extends _i1.Mock implements _i8.TvDetailNotifier {
   @override
   _i9.RequestState get tvState => (super.noSuchMethod(
         Invocation.getter(#tvState),
-        returnValue: _i9.RequestState.Empty,
+        returnValue: _i9.RequestState.Initial,
       ) as _i9.RequestState);
   @override
   List<_i10.Tv> get tvRecommendations => (super.noSuchMethod(
@@ -163,7 +163,7 @@ class MockTvDetailNotifier extends _i1.Mock implements _i8.TvDetailNotifier {
   @override
   _i9.RequestState get recommendationState => (super.noSuchMethod(
         Invocation.getter(#recommendationState),
-        returnValue: _i9.RequestState.Empty,
+        returnValue: _i9.RequestState.Initial,
       ) as _i9.RequestState);
   @override
   String get message => (super.noSuchMethod(

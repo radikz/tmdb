@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">33</td>
-            <td class="headerCovTableEntry">33</td>
+            <td class="headerCovTableEntry">27</td>
+            <td class="headerCovTableEntry">27</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2023-05-08 11:12:01</td>
+            <td class="headerValue">2023-05-10 15:36:35</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -62,10 +62,10 @@
 <pre class="source">
 <a name="1"><span class="lineNum">       1 </span>            : import 'dart:convert';</a>
 <a name="2"><span class="lineNum">       2 </span>            : </a>
-<a name="3"><span class="lineNum">       3 </span>            : import 'package:ditonton/data/models/movie_detail_model.dart';</a>
-<a name="4"><span class="lineNum">       4 </span>            : import 'package:ditonton/data/models/movie_model.dart';</a>
-<a name="5"><span class="lineNum">       5 </span>            : import 'package:ditonton/data/models/movie_response.dart';</a>
-<a name="6"><span class="lineNum">       6 </span>            : import 'package:ditonton/common/exception.dart';</a>
+<a name="3"><span class="lineNum">       3 </span>            : import 'package:core/movie/data/models/movie_model.dart';</a>
+<a name="4"><span class="lineNum">       4 </span>            : import 'package:core/movie/data/models/movie_response.dart';</a>
+<a name="5"><span class="lineNum">       5 </span>            : import 'package:ditonton/data/models/movie_detail_model.dart';</a>
+<a name="6"><span class="lineNum">       6 </span>            : import 'package:core/utils/exception.dart';</a>
 <a name="7"><span class="lineNum">       7 </span>            : import 'package:http/http.dart' as http;</a>
 <a name="8"><span class="lineNum">       8 </span>            : </a>
 <a name="9"><span class="lineNum">       9 </span>            : abstract class MovieRemoteDataSource {</a>
@@ -74,7 +74,7 @@
 <a name="12"><span class="lineNum">      12 </span>            :   Future&lt;List&lt;MovieModel&gt;&gt; getTopRatedMovies();</a>
 <a name="13"><span class="lineNum">      13 </span>            :   Future&lt;MovieDetailResponse&gt; getMovieDetail(int id);</a>
 <a name="14"><span class="lineNum">      14 </span>            :   Future&lt;List&lt;MovieModel&gt;&gt; getMovieRecommendations(int id);</a>
-<a name="15"><span class="lineNum">      15 </span>            :   Future&lt;List&lt;MovieModel&gt;&gt; searchMovies(String query);</a>
+<a name="15"><span class="lineNum">      15 </span>            :   </a>
 <a name="16"><span class="lineNum">      16 </span>            : }</a>
 <a name="17"><span class="lineNum">      17 </span>            : </a>
 <a name="18"><span class="lineNum">      18 </span>            : class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {</a>
@@ -145,18 +145,8 @@
 <a name="83"><span class="lineNum">      83 </span>            :     }</a>
 <a name="84"><span class="lineNum">      84 </span>            :   }</a>
 <a name="85"><span class="lineNum">      85 </span>            : </a>
-<a name="86"><span class="lineNum">      86 </span><span class="lineCov">          1 :   @override</span></a>
-<a name="87"><span class="lineNum">      87 </span>            :   Future&lt;List&lt;MovieModel&gt;&gt; searchMovies(String query) async {</a>
-<a name="88"><span class="lineNum">      88 </span><span class="lineCov">          1 :     final response = await client</span></a>
-<a name="89"><span class="lineNum">      89 </span><span class="lineCov">          3 :         .get(Uri.parse('$BASE_URL/search/movie?$API_KEY&amp;query=$query'));</span></a>
-<a name="90"><span class="lineNum">      90 </span>            : </a>
-<a name="91"><span class="lineNum">      91 </span><span class="lineCov">          2 :     if (response.statusCode == 200) {</span></a>
-<a name="92"><span class="lineNum">      92 </span><span class="lineCov">          4 :       return MovieResponse.fromJson(json.decode(response.body)).movieList;</span></a>
-<a name="93"><span class="lineNum">      93 </span>            :     } else {</a>
-<a name="94"><span class="lineNum">      94 </span><span class="lineCov">          1 :       throw ServerException();</span></a>
-<a name="95"><span class="lineNum">      95 </span>            :     }</a>
-<a name="96"><span class="lineNum">      96 </span>            :   }</a>
-<a name="97"><span class="lineNum">      97 </span>            : }</a>
+<a name="86"><span class="lineNum">      86 </span>            :   </a>
+<a name="87"><span class="lineNum">      87 </span>            : }</a>
 </pre>
       </td>
     </tr>

@@ -1,14 +1,15 @@
 import 'dart:io';
 
+import 'package:core/movie/domain/entities/movie.dart';
 import 'package:dartz/dartz.dart';
 import 'package:ditonton/data/datasources/movie_local_data_source.dart';
-import 'package:ditonton/data/datasources/movie_remote_data_source.dart';
-import 'package:ditonton/data/models/movie_table.dart';
-import 'package:ditonton/domain/entities/movie.dart';
-import 'package:ditonton/domain/entities/movie_detail.dart';
-import 'package:ditonton/domain/repositories/movie_repository.dart';
 import 'package:core/utils/exception.dart';
 import 'package:core/utils/failure.dart';
+import 'package:ditonton/data/models/movie_table.dart';
+import 'package:ditonton/domain/entities/movie_detail.dart';
+
+import '../../domain/repositories/movie_repository.dart';
+import '../datasources/movie_remote_data_source.dart';
 
 class MovieRepositoryImpl implements MovieRepository {
   final MovieRemoteDataSource remoteDataSource;
@@ -79,17 +80,6 @@ class MovieRepositoryImpl implements MovieRepository {
     }
   }
 
-  @override
-  Future<Either<Failure, List<Movie>>> searchMovies(String query) async {
-    try {
-      final result = await remoteDataSource.searchMovies(query);
-      return Right(result.map((model) => model.toEntity()).toList());
-    } on ServerException {
-      return Left(ServerFailure(''));
-    } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to the network'));
-    }
-  }
 
   @override
   Future<Either<Failure, String>> saveWatchlist(MovieDetail movie) async {

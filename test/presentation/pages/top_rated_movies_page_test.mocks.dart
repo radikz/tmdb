@@ -6,8 +6,8 @@
 import 'dart:async' as _i6;
 import 'dart:ui' as _i7;
 
+import 'package:core/movie/domain/entities/movie.dart' as _i5;
 import 'package:core/utils/state_enum.dart' as _i4;
-import 'package:ditonton/domain/entities/movie.dart' as _i5;
 import 'package:ditonton/domain/usecases/get_top_rated_movies.dart' as _i2;
 import 'package:ditonton/presentation/provider/top_rated_movies_notifier.dart'
     as _i3;
@@ -55,7 +55,7 @@ class MockTopRatedMoviesNotifier extends _i1.Mock
   @override
   _i4.RequestState get state => (super.noSuchMethod(
         Invocation.getter(#state),
-        returnValue: _i4.RequestState.Empty,
+        returnValue: _i4.RequestState.Initial,
       ) as _i4.RequestState);
   @override
   List<_i5.Movie> get movies => (super.noSuchMethod(

@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:core/utils/failure.dart';
 import 'package:core/utils/state_enum.dart';
-import 'package:ditonton/domain/entities/movie.dart';
+import 'package:core/movie/domain/entities/movie.dart';
 import 'package:ditonton/domain/usecases/get_top_rated_movies.dart';
 import 'package:ditonton/presentation/provider/top_rated_movies_notifier.dart';
 import 'package:flutter_test/flutter_test.dart';
