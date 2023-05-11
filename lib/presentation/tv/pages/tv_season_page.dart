@@ -3,6 +3,7 @@ import 'package:core/core.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/constants.dart';
 import 'package:core/utils/state_enum.dart';
+import 'package:core/widgets/app_network_image.dart';
 import 'package:ditonton/domain/entities/tv_episode.dart';
 import 'package:ditonton/presentation/tv/pages/tv_detail_episode_page.dart';
 import 'package:ditonton/presentation/tv/provider/season_detail_tv_notifier.dart';
@@ -130,15 +131,10 @@ class SeasonContent extends StatelessWidget {
                           color: Colors.black,
                         ),
                       )),
-                  child: CachedNetworkImage(
-                    imageUrl: '$BASE_IMAGE_URL${episode.stillPath}',
+                  child: AppNetworkImage(
+                    imageUrl: '${episode.stillPath}',
                     width: 80,
                     height: 100,
-                    fit: BoxFit.fitHeight,
-                    placeholder: (context, url) => Center(
-                      child: CircularProgressIndicator(),
-                    ),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
                   ),
                 ),
                 borderRadius: BorderRadius.all(Radius.circular(8)),

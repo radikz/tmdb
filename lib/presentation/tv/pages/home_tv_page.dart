@@ -4,6 +4,7 @@ import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/constants.dart';
 import 'package:core/utils/state_enum.dart';
 import 'package:core/tv/domain/entities/tv.dart';
+import 'package:core/widgets/app_network_image.dart';
 import 'package:ditonton/presentation/tv/pages/airing_now_tvs_page.dart';
 import 'package:ditonton/presentation/tv/pages/popular_tvs_page.dart';
 import 'package:ditonton/presentation/tv/pages/top_rated_tvs_page.dart';
@@ -12,10 +13,8 @@ import 'package:ditonton/presentation/tv/provider/tv_list_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-
 class HomeTvPage extends StatefulWidget {
   const HomeTvPage({Key? key}) : super(key: key);
-
 
   @override
   State<HomeTvPage> createState() => _HomeTvPageState();
@@ -53,8 +52,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
             children: [
               _buildSubHeading(
                 title: 'Airing Now',
-                onTap: () =>
-                    Navigator.pushNamed(context, airingTvsRoute),
+                onTap: () => Navigator.pushNamed(context, airingTvsRoute),
               ),
               Consumer<TvListNotifier>(builder: (context, data, child) {
                 final state = data.airingTodayTvState;
@@ -71,8 +69,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
               }),
               _buildSubHeading(
                 title: 'Popular',
-                onTap: () =>
-                    Navigator.pushNamed(context, popularTvsRoute),
+                onTap: () => Navigator.pushNamed(context, popularTvsRoute),
               ),
               Consumer<TvListNotifier>(builder: (context, data, child) {
                 final state = data.popularTvState;
@@ -88,8 +85,7 @@ class _HomeTvPageState extends State<HomeTvPage> {
               }),
               _buildSubHeading(
                 title: 'Top Rated',
-                onTap: () =>
-                    Navigator.pushNamed(context, topRatedTvsRoute),
+                onTap: () => Navigator.pushNamed(context, topRatedTvsRoute),
               ),
               Consumer<TvListNotifier>(builder: (context, data, child) {
                 final state = data.topRatedTvState;
@@ -158,12 +154,8 @@ class TvList extends StatelessWidget {
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(16)),
-                child: CachedNetworkImage(
-                  imageUrl: '$BASE_IMAGE_URL${movie.posterPath}',
-                  placeholder: (context, url) => Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                child: AppNetworkImage(
+                  imageUrl: '${movie.posterPath}',
                 ),
               ),
             ),

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/core.dart';
 import 'package:core/styles/colors.dart';
 import 'package:core/styles/text_styles.dart';
+import 'package:core/widgets/app_network_image.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:core/tv/domain/entities/tv.dart';
 import 'package:ditonton/domain/entities/tv_detail.dart';
@@ -14,8 +15,6 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 
 class TvDetailPage extends StatefulWidget {
-  
-
   final int id;
   TvDetailPage({required this.id});
 
@@ -74,13 +73,9 @@ class DetailContent extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     return Stack(
       children: [
-        CachedNetworkImage(
-          imageUrl: 'https://image.tmdb.org/t/p/w500${movie.posterPath}',
+        AppNetworkImage(
+          imageUrl: '${movie.posterPath}',
           width: screenWidth,
-          placeholder: (context, url) => Center(
-            child: CircularProgressIndicator(),
-          ),
-          errorWidget: (context, url, error) => Icon(Icons.error),
         ),
         Container(
           margin: const EdgeInsets.only(top: 48 + 8),
@@ -228,18 +223,9 @@ class DetailContent extends StatelessWidget {
                                               borderRadius: BorderRadius.all(
                                                 Radius.circular(8),
                                               ),
-                                              child: CachedNetworkImage(
-                                                imageUrl:
-                                                    'https://image.tmdb.org/t/p/w500${movie.posterPath}',
-                                                placeholder: (context, url) =>
-                                                    Center(
-                                                  child:
-                                                      CircularProgressIndicator(),
-                                                ),
-                                                errorWidget:
-                                                    (context, url, error) =>
-                                                        Icon(Icons.error),
-                                              ),
+                                              child: AppNetworkImage(
+                                                  imageUrl:
+                                                      'https://image.tmdb.org/t/p/w500${movie.posterPath}'),
                                             ),
                                           ),
                                         );
@@ -295,18 +281,9 @@ class DetailContent extends StatelessWidget {
                                           borderRadius: BorderRadius.all(
                                             Radius.circular(8),
                                           ),
-                                          child: CachedNetworkImage(
-                                            imageUrl:
-                                                'https://image.tmdb.org/t/p/w500${season.posterPath}',
-                                            placeholder: (context, url) =>
-                                                Center(
-                                              child:
-                                                  CircularProgressIndicator(),
-                                            ),
-                                            errorWidget:
-                                                (context, url, error) =>
-                                                    Icon(Icons.error),
-                                          ),
+                                          child: AppNetworkImage(
+                                              imageUrl:
+                                                  'https://image.tmdb.org/t/p/w500${season.posterPath}'),
                                         ),
                                       ),
                                     ),
@@ -355,15 +332,9 @@ class DetailContent extends StatelessWidget {
                                       borderRadius: BorderRadius.all(
                                         Radius.circular(8),
                                       ),
-                                      child: CachedNetworkImage(
-                                        imageUrl:
-                                            'https://image.tmdb.org/t/p/w500${movie.lastEpisodeToAir.stillPath}',
-                                        placeholder: (context, url) => Center(
-                                          child: CircularProgressIndicator(),
-                                        ),
-                                        errorWidget: (context, url, error) =>
-                                            Icon(Icons.error),
-                                      ),
+                                      child: AppNetworkImage(
+                                          imageUrl:
+                                              '${movie.lastEpisodeToAir.stillPath}'),
                                     ),
                                   ),
                                 ),

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/core.dart';
 import 'package:core/styles/colors.dart';
 import 'package:core/styles/text_styles.dart';
+import 'package:core/widgets/app_network_image.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:core/movie/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
@@ -227,17 +228,9 @@ class DetailContent extends StatelessWidget {
                                               borderRadius: BorderRadius.all(
                                                 Radius.circular(8),
                                               ),
-                                              child: CachedNetworkImage(
+                                              child: AppNetworkImage(
                                                 imageUrl:
-                                                    'https://image.tmdb.org/t/p/w500${movie.posterPath}',
-                                                placeholder: (context, url) =>
-                                                    Center(
-                                                  child:
-                                                      CircularProgressIndicator(),
-                                                ),
-                                                errorWidget:
-                                                    (context, url, error) =>
-                                                        Icon(Icons.error),
+                                                    '${movie.posterPath}'
                                               ),
                                             ),
                                           ),

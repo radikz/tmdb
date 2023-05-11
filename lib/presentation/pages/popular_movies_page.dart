@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class PopularMoviesPage extends StatefulWidget {
-
   @override
   _PopularMoviesPageState createState() => _PopularMoviesPageState();
 }
@@ -30,6 +29,7 @@ class _PopularMoviesPageState extends State<PopularMoviesPage> {
         child: Consumer<PopularMoviesNotifier>(
           builder: (context, data, child) {
             if (data.state == RequestState.Loading) {
+              print("movie loading");
               return Center(
                 child: CircularProgressIndicator(),
               );
