@@ -6,6 +6,8 @@ import 'package:core/utils/utils.dart';
 import 'package:ditonton/presentation/pages/movie_detail_page.dart';
 import 'package:ditonton/presentation/pages/home_movie_page.dart';
 import 'package:ditonton/presentation/pages/popular_movies_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:search/presentation/bloc/movie_search_bloc.dart';
 import 'package:search/presentation/pages/search_page.dart';
 import 'package:search/presentation/pages/search_tv_page.dart';
 import 'package:search/presentation/provider/movie_search_notifier.dart';
@@ -93,6 +95,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => di.locator<WatchlistTvNotifier>(),
         ),
+        BlocProvider(
+          create: (context) => di.locator<MovieSearchBloc>(),
+        )
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
