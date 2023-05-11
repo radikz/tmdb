@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:ditonton/data/models/tv_table.dart';
-import 'package:sqflite/sqflite.dart';
+import 'package:sqflite_sqlcipher/sqflite.dart';
 
 class DatabaseHelperTv {
   static DatabaseHelperTv? _databaseHelper;
@@ -26,7 +26,7 @@ class DatabaseHelperTv {
     final path = await getDatabasesPath();
     final databasePath = '$path/ditonton_tv.db';
 
-    var db = await openDatabase(databasePath, version: 1, onCreate: _onCreate);
+    var db = await openDatabase(databasePath, version: 1, onCreate: _onCreate, password: "Dv66-@bK3Vj[J+sZ");
     return db;
   }
 
