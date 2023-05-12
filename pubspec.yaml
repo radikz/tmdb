@@ -46,6 +46,9 @@ dependencies:
   sqflite_sqlcipher: ^2.1.1+1
   path_provider: ^2.0.2
 
+  firebase_core: ^2.11.0
+  firebase_crashlytics: ^3.2.0
+
 dev_dependencies:
   mockito: ^5.0.8
   build_runner: ^2.0.4
