@@ -1,10 +1,9 @@
 import 'package:core/styles/text_styles.dart';
-import 'package:core/utils/state_enum.dart';
 import 'package:core/widgets/empty_page.dart';
 import 'package:core/widgets/tv_card_list.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:search/presentation/provider/tv_search_notifier.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:search/presentation/bloc/tv/tv_search_bloc.dart';
 
 class SearchTvPage extends StatelessWidget {
   
@@ -21,9 +20,8 @@ class SearchTvPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextField(
-              onSubmitted: (query) {
-                Provider.of<TvSearchNotifier>(context, listen: false)
-                    .search(query);
+              onChanged: (value) {
+                context.read<TvSearchBloc>().add(OnQueryChanged(value));
               },
               decoration: InputDecoration(
                 hintText: 'Search title',
@@ -37,25 +35,25 @@ class SearchTvPage extends StatelessWidget {
               'Search Result',
               style: kHeading6,
             ),
-            Consumer<TvSearchNotifier>(
-              builder: (context, data, child) {
-                if (data.state == RequestState.Loading) {
+            BlocBuilder<TvSearchBloc, TvSearchState>(
+              builder: (context, state) {
+                if (state is TvSearchLoading) {
                   return Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (data.state == RequestState.Loaded) {
-                  final result = data.tv;
+                } else if (state is TvSearchHasData) {
+                  final result = state.result;
                   return Expanded(
                     child: ListView.builder(
                       padding: const EdgeInsets.all(8),
                       itemBuilder: (context, index) {
-                        final tv = data.tv[index];
+                        final tv = result[index];
                         return TvCard(tv);
                       },
                       itemCount: result.length,
                     ),
                   );
-                } else if (data.state == RequestState.Empty) {
+                } else if (state is TvSearchEmpty) {
                   return EmptyPage();
                 } else {
                   return Expanded(
