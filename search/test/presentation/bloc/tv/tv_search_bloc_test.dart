@@ -10,7 +10,6 @@ import 'package:search/presentation/bloc/tv/tv_search_bloc.dart';
 
 import 'tv_search_bloc_test.mocks.dart';
 
-
 @GenerateMocks([SearchTvs])
 void main() {
   late TvSearchBloc searchBloc;

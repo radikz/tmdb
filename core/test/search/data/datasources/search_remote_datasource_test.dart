@@ -5,12 +5,12 @@ import 'package:core/search/data/datasources/search_remote_datasource.dart';
 import 'package:core/tv/data/models/tv_response.dart';
 import 'package:core/utils/constants.dart';
 import 'package:core/utils/exception.dart';
+import 'package:core/utils/json_reader.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import '../../../json_reader.dart';
 import 'search_remote_datasource_test.mocks.dart';
 
 @GenerateMocks([], customMocks: [
