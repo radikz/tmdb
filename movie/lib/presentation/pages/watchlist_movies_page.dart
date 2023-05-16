@@ -6,8 +6,6 @@ import 'package:movie/presentation/provider/watchlist_movie_notifier.dart';
 import 'package:provider/provider.dart';
 
 class WatchlistMoviesPage extends StatefulWidget {
-  
-
   @override
   _WatchlistMoviesPageState createState() => _WatchlistMoviesPageState();
 }

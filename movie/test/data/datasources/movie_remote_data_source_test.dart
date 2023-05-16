@@ -15,7 +15,6 @@ import 'movie_remote_data_source_test.mocks.dart';
 
 @GenerateMocks([], customMocks: [MockSpec<http.Client>(as: #MockHttpClient)])
 void main() {
-
   late MovieRemoteDataSourceImpl dataSource;
   late MockHttpClient mockHttpClient;
 

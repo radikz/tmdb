@@ -1,4 +1,3 @@
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -6,7 +5,6 @@ import 'package:movie/domain/repositories/movie_repository.dart';
 import 'package:movie/domain/usecases/get_watchlist_status.dart';
 
 import '../../helper/test_helper.mocks.dart';
-
 
 @GenerateMocks([MovieRepository])
 void main() {

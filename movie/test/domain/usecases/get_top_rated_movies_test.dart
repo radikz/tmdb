@@ -8,7 +8,6 @@ import 'package:movie/domain/usecases/get_top_rated_movies.dart';
 
 import '../../helper/test_helper.mocks.dart';
 
-
 @GenerateMocks([MovieRepository])
 void main() {
   late GetTopRatedMovies usecase;

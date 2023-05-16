@@ -12,7 +12,6 @@ abstract class MovieRemoteDataSource {
   Future<List<MovieModel>> getTopRatedMovies();
   Future<MovieDetailResponse> getMovieDetail(int id);
   Future<List<MovieModel>> getMovieRecommendations(int id);
-  
 }
 
 class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
@@ -82,6 +81,4 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
       throw ServerException();
     }
   }
-
-  
 }

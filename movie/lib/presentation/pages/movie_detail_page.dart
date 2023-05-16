@@ -13,7 +13,6 @@ import 'package:movie/presentation/provider/movie_detail_notifier.dart';
 import 'package:provider/provider.dart';
 
 class MovieDetailPage extends StatefulWidget {
-
   final int id;
   MovieDetailPage({required this.id});
 
@@ -229,9 +228,8 @@ class DetailContent extends StatelessWidget {
                                                 Radius.circular(8),
                                               ),
                                               child: AppNetworkImage(
-                                                imageUrl:
-                                                    '${movie.posterPath}'
-                                              ),
+                                                  imageUrl:
+                                                      '${movie.posterPath}'),
                                             ),
                                           ),
                                         );

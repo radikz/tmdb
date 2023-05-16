@@ -10,7 +10,6 @@ import 'package:movie/data/models/movie_table.dart';
 import 'package:movie/domain/entities/movie_detail.dart';
 import 'package:movie/domain/repositories/movie_repository.dart';
 
-
 class MovieRepositoryImpl implements MovieRepository {
   final MovieRemoteDataSource remoteDataSource;
   final MovieLocalDataSource localDataSource;
@@ -79,7 +78,6 @@ class MovieRepositoryImpl implements MovieRepository {
       return Left(ConnectionFailure('Failed to connect to the network'));
     }
   }
-
 
   @override
   Future<Either<Failure, String>> saveWatchlist(MovieDetail movie) async {
