@@ -5,6 +5,12 @@ import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/utils.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie/presentation/bloc/movie_detail/movie_detail_bloc.dart';
+import 'package:movie/presentation/bloc/now_playing/bloc/now_playing_movie_bloc.dart';
+import 'package:movie/presentation/bloc/popular/popular_movie_bloc.dart';
+import 'package:movie/presentation/bloc/recommendation/recommendation_movie_bloc.dart';
+import 'package:movie/presentation/bloc/top_rated/top_rated_movie_bloc.dart';
+import 'package:movie/presentation/bloc/watchlist/watchlist_movie_bloc.dart';
 import 'package:movie/presentation/pages/home_movie_page.dart';
 import 'package:movie/presentation/pages/movie_detail_page.dart';
 import 'package:movie/presentation/pages/popular_movies_page.dart';
@@ -108,6 +114,24 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => di.locator<TvSearchBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => di.locator<TopRatedMovieBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => di.locator<NowPlayingMovieBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => di.locator<PopularMovieBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => di.locator<MovieDetailBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => di.locator<WatchlistMovieBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => di.locator<RecommendationMovieBloc>(),
         ),
       ],
       child: MaterialApp(

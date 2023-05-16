@@ -10,13 +10,10 @@ import 'package:tv/domain/entities/tv_episode.dart';
 import 'package:tv/presentation/tv/pages/tv_detail_episode_page.dart';
 import 'package:tv/presentation/tv/provider/season_detail_tv_notifier.dart';
 
-
 class TvSeasonPage extends StatefulWidget {
   const TvSeasonPage({Key? key, required this.arg}) : super(key: key);
 
   final TvSeasonArg arg;
-
-  
 
   @override
   State<TvSeasonPage> createState() => _TvDetailEpisodePageState();

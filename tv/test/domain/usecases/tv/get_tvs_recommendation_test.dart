@@ -7,7 +7,6 @@ import 'package:tv/domain/usecases/tv/get_tvs_recommendation.dart';
 import '../../../dummy_data/dummy_objects.dart';
 import '../../../helpers/test_helper.mocks.dart';
 
-
 void main() {
   late GetTvsRecommendation getTvsRecommendation;
   late MockTvRepository repository;

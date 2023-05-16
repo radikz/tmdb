@@ -5,8 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:tv/presentation/tv/provider/airing_now_tvs_notifier.dart';
 
 class AiringNowTvsPage extends StatefulWidget {
-  
-
   @override
   _AiringNowTvsPageState createState() => _AiringNowTvsPageState();
 }

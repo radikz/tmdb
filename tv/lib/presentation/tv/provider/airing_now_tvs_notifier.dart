@@ -3,7 +3,6 @@ import 'package:core/utils/state_enum.dart';
 import 'package:flutter/foundation.dart';
 import 'package:tv/domain/usecases/tv/get_now_airing_tvs.dart';
 
-
 class AiringNowTvsNotifier extends ChangeNotifier {
   final GetNowAiringTvs getNowAiringTvs;
 

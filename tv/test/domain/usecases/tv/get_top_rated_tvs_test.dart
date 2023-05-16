@@ -7,7 +7,6 @@ import 'package:tv/domain/usecases/tv/get_top_rated_tvs.dart';
 import '../../../dummy_data/dummy_objects.dart';
 import '../../../helpers/test_helper.mocks.dart';
 
-
 void main() {
   late GetTopRatedTvs getTopRatedTvs;
   late MockTvRepository repository;

@@ -6,7 +6,6 @@ import 'package:tv/domain/usecases/tv/save_watchlist_tv.dart';
 import '../../../dummy_data/dummy_objects.dart';
 import '../../../helpers/test_helper.mocks.dart';
 
-
 void main() {
   late SaveWatchlistTv saveWatchlistTv;
   late MockTvRepository repository;

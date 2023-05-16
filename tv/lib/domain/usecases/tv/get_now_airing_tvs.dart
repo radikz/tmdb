@@ -3,7 +3,6 @@ import 'package:dartz/dartz.dart';
 import 'package:core/tv/domain/entities/tv.dart';
 import 'package:tv/domain/repositories/tv_repository.dart';
 
-
 class GetNowAiringTvs {
   final TvRepository repository;
 

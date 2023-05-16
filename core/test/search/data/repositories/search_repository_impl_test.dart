@@ -151,7 +151,8 @@ void main() {
     test(
         'should return server failure when the call to remote data source is unsuccessful',
         () async {
-      when(mockRemoteDataSource.searchTvs(keyword)).thenThrow(ServerException());
+      when(mockRemoteDataSource.searchTvs(keyword))
+          .thenThrow(ServerException());
 
       final result = await repository.searchTvs(keyword);
 

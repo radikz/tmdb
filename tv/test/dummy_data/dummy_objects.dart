@@ -1,4 +1,3 @@
-
 import 'package:core/tv/data/models/tv_model.dart';
 import 'package:core/movie/domain/entities/movie.dart';
 import 'package:core/tv/domain/entities/tv.dart';
@@ -25,8 +24,6 @@ final testTvTable = TvTable(
   posterPath: 'posterPath',
   overview: 'overview',
 );
-
-
 
 final testTvMap = {
   'id': 1,

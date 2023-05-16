@@ -5,8 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:tv/presentation/tv/provider/popular_tvs_notifier.dart';
 
 class PopularTvsPage extends StatefulWidget {
-   
-
   @override
   _PopularTvsPageState createState() => _PopularTvsPageState();
 }

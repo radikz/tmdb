@@ -18,6 +18,7 @@ abstract class TvRemoteDataSource {
     // TODO: implement getTvDetailSeason
     throw UnimplementedError();
   }
+
   Future<TvEpisodeModel> getTvDetailEpisode(
       int tvId, int seasonNumber, int episodeNumber);
   Future<List<TvModel>> searchTvs(String query);

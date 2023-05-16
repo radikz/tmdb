@@ -3,7 +3,6 @@ import 'package:tv/data/models/tv_table.dart';
 
 import 'db/database_helper_tv.dart';
 
-
 abstract class TvLocalDataSource {
   Future<String> insertWatchlist(TvTable movie);
   Future<String> removeWatchlist(TvTable movie);

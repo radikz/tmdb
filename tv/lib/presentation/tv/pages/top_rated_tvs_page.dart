@@ -5,8 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:tv/presentation/tv/provider/top_rated_tvs_notifier.dart';
 
 class TopRatedTvsPage extends StatefulWidget {
-  
-
   @override
   _TopRatedTvsPageState createState() => _TopRatedTvsPageState();
 }

@@ -5,7 +5,6 @@ import 'package:core/tv/data/models/tv_response.dart';
 import 'package:core/utils/json_reader.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-
 void main() {
   final tvModel = TvModel(
     backdropPath: "/xgZ9AhvXqi9aSDWzCpoC9JAkLPY.jpg",

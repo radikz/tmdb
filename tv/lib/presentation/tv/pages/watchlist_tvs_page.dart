@@ -6,8 +6,6 @@ import 'package:provider/provider.dart';
 import 'package:tv/presentation/tv/provider/watchlist_tv_notifier.dart';
 
 class WatchlistTvsPage extends StatefulWidget {
-  
-
   @override
   _WatchlistMoviesPageState createState() => _WatchlistMoviesPageState();
 }

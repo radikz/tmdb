@@ -12,7 +12,6 @@ import 'package:tv/domain/entities/tv_detail.dart';
 import 'package:tv/domain/entities/tv_episode.dart';
 import 'package:tv/domain/repositories/tv_repository.dart';
 
-
 class TvRepositoryImpl implements TvRepository {
   final TvLocalDataSource localDataSource;
   final TvRemoteDataSource remoteDataSource;
@@ -145,6 +144,4 @@ class TvRepositoryImpl implements TvRepository {
       throw e;
     }
   }
-
-  
 }

@@ -13,11 +13,8 @@ import 'package:mockito/mockito.dart';
 
 import 'search_remote_datasource_test.mocks.dart';
 
-@GenerateMocks([], customMocks: [
-  MockSpec<http.Client>(as: #MockHttpClient)
-])
+@GenerateMocks([], customMocks: [MockSpec<http.Client>(as: #MockHttpClient)])
 void main() {
-
   late SearchRemoteDataSourceImpl dataSource;
   late MockHttpClient mockHttpClient;
 
@@ -63,7 +60,8 @@ void main() {
         .tvList;
 
     test('return list tv model when response 200', () async {
-      when(mockHttpClient.get(Uri.parse('$BASE_URL/search/tv?$API_KEY&query=test')))
+      when(mockHttpClient
+              .get(Uri.parse('$BASE_URL/search/tv?$API_KEY&query=test')))
           .thenAnswer((_) async =>
               http.Response(readJson("dummy_data/dummy_tv_list.json"), 200));
 
@@ -73,7 +71,8 @@ void main() {
     });
 
     test('throw server exception when response 404', () async {
-      when(mockHttpClient.get(Uri.parse('$BASE_URL/search/tv?$API_KEY&query=test')))
+      when(mockHttpClient
+              .get(Uri.parse('$BASE_URL/search/tv?$API_KEY&query=test')))
           .thenAnswer((_) async =>
               http.Response(readJson("dummy_data/dummy_tv_list.json"), 404));
 

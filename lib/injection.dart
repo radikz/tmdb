@@ -15,6 +15,12 @@ import 'package:movie/domain/usecases/get_watchlist_movies.dart';
 import 'package:movie/domain/usecases/get_watchlist_status.dart';
 import 'package:movie/domain/usecases/remove_watchlist.dart';
 import 'package:movie/domain/usecases/save_watchlist.dart';
+import 'package:movie/presentation/bloc/movie_detail/movie_detail_bloc.dart';
+import 'package:movie/presentation/bloc/now_playing/bloc/now_playing_movie_bloc.dart';
+import 'package:movie/presentation/bloc/popular/popular_movie_bloc.dart';
+import 'package:movie/presentation/bloc/recommendation/recommendation_movie_bloc.dart';
+import 'package:movie/presentation/bloc/top_rated/top_rated_movie_bloc.dart';
+import 'package:movie/presentation/bloc/watchlist/watchlist_movie_bloc.dart';
 import 'package:movie/presentation/provider/movie_detail_notifier.dart';
 import 'package:movie/presentation/provider/movie_list_notifier.dart';
 import 'package:movie/presentation/provider/popular_movies_notifier.dart';
@@ -52,7 +58,6 @@ import 'package:tv/presentation/tv/provider/top_rated_tvs_notifier.dart';
 import 'package:tv/presentation/tv/provider/tv_detail_notifier.dart';
 import 'package:tv/presentation/tv/provider/tv_list_notifier.dart';
 import 'package:tv/presentation/tv/provider/watchlist_tv_notifier.dart';
-
 
 final locator = GetIt.instance;
 
@@ -144,6 +149,16 @@ void init() {
   );
   locator.registerFactory(() => MovieSearchBloc(locator()));
   locator.registerFactory(() => TvSearchBloc(locator()));
+  locator.registerFactory(() => TopRatedMovieBloc(locator()));
+  locator.registerFactory(() => PopularMovieBloc(locator()));
+  locator.registerFactory(() => NowPlayingMovieBloc(locator()));
+  locator.registerFactory(() => RecommendationMovieBloc(locator()));
+  locator.registerFactory(() => WatchlistMovieBloc(
+      getWatchListStatus: locator(),
+      getWatchlistMovies: locator(),
+      saveWatchlist: locator(),
+      removeWatchlist: locator()));
+  locator.registerFactory(() => MovieDetailBloc(locator()));
 
   // use case
   locator.registerLazySingleton(() => GetNowPlayingMovies(locator()));

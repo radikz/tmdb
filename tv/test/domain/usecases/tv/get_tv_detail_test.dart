@@ -6,7 +6,6 @@ import 'package:tv/domain/usecases/tv/get_tv_detail.dart';
 import '../../../dummy_data/dummy_objects.dart';
 import '../../../helpers/test_helper.mocks.dart';
 
-
 void main() {
   late GetTvDetail getTvDetail;
   late MockTvRepository repository;

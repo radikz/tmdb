@@ -3,7 +3,8 @@ import 'package:core/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class AppNetworkImage extends StatelessWidget {
-  const AppNetworkImage({super.key, required this.imageUrl, this.height, this.width});
+  const AppNetworkImage(
+      {super.key, required this.imageUrl, this.height, this.width});
 
   final String imageUrl;
   final double? width;

@@ -1,4 +1,3 @@
-
 import 'package:core/styles/colors.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/state_enum.dart';
@@ -13,8 +12,6 @@ class TvDetailEpisodePage extends StatefulWidget {
   const TvDetailEpisodePage({Key? key, required this.arg}) : super(key: key);
 
   final TvDetailEpisodeArg arg;
-
-  
 
   @override
   State<TvDetailEpisodePage> createState() => _TvDetailEpisodePageState();
