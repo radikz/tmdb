@@ -58,7 +58,7 @@ class WatchlistMovieBloc
     FetchWatchlistMovie event,
     Emitter<WatchlistMovieState> emit,
   ) async {
-    emit(state.copyWith(status: WatchlistMovieStatus.loading));
+    emit(WatchlistMovieState(status: WatchlistMovieStatus.loading));
     final result = await _getWatchlistMovies.execute();
 
     await result.fold(
@@ -102,7 +102,7 @@ class WatchlistMovieBloc
     FetchWatchlistStatusMovie event,
     Emitter<WatchlistMovieState> emit,
   ) async {
-    emit(state.copyWith(status: WatchlistMovieStatus.loading));
+    emit(WatchlistMovieState(status: WatchlistMovieStatus.loading));
     final result = await _getWatchListStatus.execute(event.id);
     emit(state.copyWith(
         isAddedToWatchlist: result, status: WatchlistMovieStatus.success));

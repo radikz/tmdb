@@ -119,11 +119,10 @@ void main() {
             status: WatchlistMovieStatus.loading,
             message: "Saved",
             watchlistStatus: WatchlistStatus.saved),
-        WatchlistMovieState(
-            status: WatchlistMovieStatus.success,
-            isAddedToWatchlist: true,
-            watchlistStatus: WatchlistStatus.saved,
-            message: "Saved"),
+            WatchlistMovieState(status: WatchlistMovieStatus.loading),
+        
+            WatchlistMovieState(
+            status: WatchlistMovieStatus.success, isAddedToWatchlist: true),
       ],
     );
 
@@ -142,11 +141,9 @@ void main() {
             status: WatchlistMovieStatus.loading,
             message: "Error",
             watchlistStatus: WatchlistStatus.failure),
+            WatchlistMovieState(status: WatchlistMovieStatus.loading),
         WatchlistMovieState(
-            status: WatchlistMovieStatus.success,
-            watchlistStatus: WatchlistStatus.failure,
-            isAddedToWatchlist: false,
-            message: "Error"),
+            status: WatchlistMovieStatus.success),
       ],
     );
 
@@ -165,11 +162,10 @@ void main() {
             status: WatchlistMovieStatus.loading,
             message: "Removed",
             watchlistStatus: WatchlistStatus.removed),
+            WatchlistMovieState(status: WatchlistMovieStatus.loading),
         WatchlistMovieState(
             status: WatchlistMovieStatus.success,
-            isAddedToWatchlist: true,
-            watchlistStatus: WatchlistStatus.removed,
-            message: "Removed"),
+            isAddedToWatchlist: true,),
       ],
     );
 
