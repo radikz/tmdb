@@ -4,7 +4,6 @@ import 'package:equatable/equatable.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:search/domain/usecases/search_movies.dart';
 
-
 part 'movie_search_event.dart';
 part 'movie_search_state.dart';
 

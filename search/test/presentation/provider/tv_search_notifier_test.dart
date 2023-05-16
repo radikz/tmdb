@@ -10,7 +10,6 @@ import 'package:search/presentation/provider/tv_search_notifier.dart';
 
 import 'tv_search_notifier_test.mocks.dart';
 
-
 @GenerateMocks([SearchTvs])
 void main() {
   late MockSearchTvs mockSearchTvs;
@@ -27,17 +26,17 @@ void main() {
   });
 
   final testTv = Tv(
-    firstAirDate: DateTime(2023, 2, 2).toIso8601String(),
-    genreIds: [],
-    id: 1,
-    name: "name",
-    originCountry: [],
-    originalLanguage: "originalLanguage",
-    originalName: "originalName",
-    overview: "overview",
-    popularity: 9,
-    voteAverage: 9,
-    voteCount: 9);
+      firstAirDate: DateTime(2023, 2, 2).toIso8601String(),
+      genreIds: [],
+      id: 1,
+      name: "name",
+      originCountry: [],
+      originalLanguage: "originalLanguage",
+      originalName: "originalName",
+      overview: "overview",
+      popularity: 9,
+      voteAverage: 9,
+      voteCount: 9);
 
   final testListTv = <Tv>[testTv];
 

@@ -7,8 +7,6 @@ import 'package:provider/provider.dart';
 import 'package:search/presentation/provider/tv_search_notifier.dart';
 
 class SearchTvPage extends StatelessWidget {
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

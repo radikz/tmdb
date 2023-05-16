@@ -6,8 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:search/presentation/bloc/tv/tv_search_bloc.dart';
 
 class SearchTvPage extends StatelessWidget {
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

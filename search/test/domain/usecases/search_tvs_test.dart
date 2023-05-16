@@ -7,7 +7,6 @@ import 'search_movies_test.mocks.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-
 @GenerateMocks([SearchRepository])
 void main() {
   late SearchTvs searchTvs;
@@ -19,17 +18,17 @@ void main() {
   });
 
   final testTv = Tv(
-    firstAirDate: DateTime(2023, 2, 2).toIso8601String(),
-    genreIds: [],
-    id: 1,
-    name: "name",
-    originCountry: [],
-    originalLanguage: "originalLanguage",
-    originalName: "originalName",
-    overview: "overview",
-    popularity: 9,
-    voteAverage: 9,
-    voteCount: 9);
+      firstAirDate: DateTime(2023, 2, 2).toIso8601String(),
+      genreIds: [],
+      id: 1,
+      name: "name",
+      originCountry: [],
+      originalLanguage: "originalLanguage",
+      originalName: "originalName",
+      overview: "overview",
+      popularity: 9,
+      voteAverage: 9,
+      voteCount: 9);
 
   final listTv = <Tv>[testTv];
 
