@@ -63,10 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '153757556487',
     projectId: 'test1-8850d',
     storageBucket: 'test1-8850d.appspot.com',
-    androidClientId:
-        '153757556487-jrcmg7bg9p7s8ko1q1ts4jlfd47n0vmp.apps.googleusercontent.com',
-    iosClientId:
-        '153757556487-aif3dngg6c51cqnd8725l1luekjkln91.apps.googleusercontent.com',
+    androidClientId: '153757556487-jrcmg7bg9p7s8ko1q1ts4jlfd47n0vmp.apps.googleusercontent.com',
+    iosClientId: '153757556487-aif3dngg6c51cqnd8725l1luekjkln91.apps.googleusercontent.com',
     iosBundleId: 'com.dicoding.ditonton',
   );
 }

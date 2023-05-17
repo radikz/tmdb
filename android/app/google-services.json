@@ -29,6 +29,13 @@
             {
               "client_id": "153757556487-g64q3e38rmvkmcjl20obkmd18aoqb7b1.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "153757556487-aif3dngg6c51cqnd8725l1luekjkln91.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dicoding.ditonton"
+              }
             }
           ]
         }
@@ -66,6 +73,13 @@
             {
               "client_id": "153757556487-g64q3e38rmvkmcjl20obkmd18aoqb7b1.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "153757556487-aif3dngg6c51cqnd8725l1luekjkln91.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dicoding.ditonton"
+              }
             }
           ]
         }
