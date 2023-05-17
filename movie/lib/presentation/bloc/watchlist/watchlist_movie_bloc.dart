@@ -104,7 +104,7 @@ class WatchlistMovieBloc
   ) async {
     emit(WatchlistMovieState(status: WatchlistMovieStatus.loading));
     final result = await _getWatchListStatus.execute(event.id);
-    emit(state.copyWith(
-        isAddedToWatchlist: result, status: WatchlistMovieStatus.success));
+      emit(state.copyWith(
+          isAddedToWatchlist: result, status: WatchlistMovieStatus.success));
   }
 }

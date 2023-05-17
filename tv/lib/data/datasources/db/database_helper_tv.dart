@@ -28,7 +28,7 @@ class DatabaseHelperTv {
     final databasePath = '$path/ditonton_tv.db';
 
     var db = await openDatabase(databasePath,
-        version: 1, onCreate: _onCreate, password: encrypt("Dv66-@bK3Vj[J+sZ"));
+        version: 1, onCreate: _onCreate);
     return db;
   }
 
