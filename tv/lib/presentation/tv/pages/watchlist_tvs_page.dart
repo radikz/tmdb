@@ -1,3 +1,4 @@
+import 'package:core/core.dart';
 import 'package:core/utils/state_enum.dart';
 import 'package:core/utils/utils.dart';
 import 'package:core/widgets/tv_card_list.dart';
@@ -57,6 +58,8 @@ class _WatchlistMoviesPageState extends State<WatchlistTvsPage>
                 key: Key('error_message_tv'),
                 child: Text(state.message!),
               );
+            } else if (state.status == WatchlistTvStatus.empty) {
+              return EmptyPage();
             } else {
               return SizedBox();
             }
