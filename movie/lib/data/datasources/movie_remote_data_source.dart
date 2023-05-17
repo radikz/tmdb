@@ -4,6 +4,7 @@ import 'package:core/movie/data/models/movie_model.dart';
 import 'package:core/movie/data/models/movie_response.dart';
 import 'package:core/utils/exception.dart';
 import 'package:http/http.dart' as http;
+import 'package:http/io_client.dart';
 import 'package:movie/data/models/movie_detail_model.dart';
 
 abstract class MovieRemoteDataSource {
@@ -18,7 +19,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
   static const API_KEY = 'api_key=2174d146bb9c0eab47529b2e77d6b526';
   static const BASE_URL = 'https://api.themoviedb.org/3';
 
-  final http.Client client;
+  final IOClient client;
 
   MovieRemoteDataSourceImpl({required this.client});
 

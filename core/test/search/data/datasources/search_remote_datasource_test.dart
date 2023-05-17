@@ -8,12 +8,13 @@ import 'package:core/utils/exception.dart';
 import 'package:core/utils/json_reader.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
+import 'package:http/io_client.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 import 'search_remote_datasource_test.mocks.dart';
 
-@GenerateMocks([], customMocks: [MockSpec<http.Client>(as: #MockHttpClient)])
+@GenerateMocks([], customMocks: [MockSpec<IOClient>(as: #MockHttpClient)])
 void main() {
   late SearchRemoteDataSourceImpl dataSource;
   late MockHttpClient mockHttpClient;

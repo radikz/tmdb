@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:core/search/data/datasources/search_remote_datasource.dart';
 import 'package:core/search/data/repositories/search_repository_impl.dart';
 import 'package:core/search/domain/repositories/search_repository.dart';
+import 'package:flutter/services.dart';
+import 'package:http/io_client.dart';
 import 'package:movie/data/datasources/db/database_helper.dart';
 import 'package:movie/data/datasources/movie_local_data_source.dart';
 import 'package:movie/data/datasources/movie_remote_data_source.dart';
@@ -54,7 +58,14 @@ import 'package:tv/presentation/tv/bloc/watchlist/watchlist_tv_bloc.dart';
 
 final locator = GetIt.instance;
 
-void init() {
+Future<SecurityContext> get globalContext async {
+  final sslCert = await rootBundle.load('assets/tmdb-cert.cer');
+  SecurityContext securityContext = SecurityContext(withTrustedRoots: false);
+  securityContext.setTrustedCertificatesBytes(sslCert.buffer.asInt8List());
+  return securityContext;
+}
+
+Future<void> init() async {
   locator.registerFactory(() => MovieSearchBloc(locator()));
   locator.registerFactory(() => TvSearchBloc(locator()));
   locator.registerFactory(() => TopRatedMovieBloc(locator()));
@@ -134,7 +145,10 @@ void init() {
   locator.registerLazySingleton(() => DatabaseHelperTv());
 
   // external
-  locator.registerLazySingleton(() => http.Client());
+  HttpClient client = HttpClient(context: await globalContext);
+  client.badCertificateCallback =
+      (X509Certificate cert, String host, int port) => false;
+  locator.registerLazySingleton(() => IOClient(client));
 
   /// search
   locator.registerLazySingleton<SearchRepository>(

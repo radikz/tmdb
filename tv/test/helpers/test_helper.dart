@@ -1,3 +1,4 @@
+import 'package:http/io_client.dart';
 import 'package:tv/data/datasources/db/database_helper_tv.dart';
 import 'package:tv/data/datasources/tv_local_data_source.dart';
 import 'package:tv/data/datasources/tv_remote_data_source.dart';
@@ -12,6 +13,6 @@ import 'package:http/http.dart' as http;
   TvRemoteDataSource,
   TvLocalDataSource,
 ], customMocks: [
-  MockSpec<http.Client>(as: #MockHttpClient)
+  MockSpec<IOClient>(as: #MockHttpClient)
 ])
 void main() {}

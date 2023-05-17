@@ -4,6 +4,7 @@ import 'package:core/utils/exception.dart';
 import 'package:core/tv/data/models/tv_model.dart';
 import 'package:core/tv/data/models/tv_response.dart';
 import 'package:http/http.dart' as http;
+import 'package:http/io_client.dart';
 import 'package:tv/data/models/detail_season_model.dart';
 import 'package:tv/data/models/tv_detail_model.dart';
 import 'package:tv/data/models/tv_episode_model.dart';
@@ -28,7 +29,7 @@ class TvRemoteDataSourceImpl implements TvRemoteDataSource {
   static const API_KEY = 'api_key=2174d146bb9c0eab47529b2e77d6b526';
   static const BASE_URL = 'https://api.themoviedb.org/3';
 
-  final http.Client client;
+  final IOClient client;
   TvRemoteDataSourceImpl({
     required this.client,
   });

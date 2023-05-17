@@ -7,6 +7,7 @@ import 'package:core/tv/data/models/tv_response.dart';
 import 'package:core/utils/constants.dart';
 import 'package:core/utils/exception.dart';
 import 'package:http/http.dart' as http;
+import 'package:http/io_client.dart';
 
 abstract class SearchRemoteDataSource {
   Future<List<MovieModel>> searchMovies(String query);
@@ -14,7 +15,7 @@ abstract class SearchRemoteDataSource {
 }
 
 class SearchRemoteDataSourceImpl extends SearchRemoteDataSource {
-  final http.Client client;
+  final IOClient client;
 
   SearchRemoteDataSourceImpl({required this.client});
 
