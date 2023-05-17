@@ -32,12 +32,13 @@ class _TvDetailPageState extends State<TvDetailPage> {
   Widget build(BuildContext context) {
     return BlocListener<WatchlistTvBloc, WatchlistTvState>(
       listener: (context, state) {
-       final message = state.message;
+        final message = state.message;
         if (state.message != null) {
           if (message == watchlistAddSuccessMessage ||
               message == watchlistRemoveSuccessMessage) {
-            ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(key: const ValueKey("watchlist_tv_snackbar"), content: Text(message!)));
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                key: const ValueKey("watchlist_tv_snackbar"),
+                content: Text(message!)));
           } else {
             showDialog(
                 context: context,
@@ -145,7 +146,10 @@ class DetailContent extends StatelessWidget {
                                       final isAddedWatchlist =
                                           state.isAddedToWatchlist;
                                       return isAddedWatchlist
-                                          ? const Icon(Icons.check, key: Key("tv_detail_icon_check"),)
+                                          ? const Icon(
+                                              Icons.check,
+                                              key: Key("tv_detail_icon_check"),
+                                            )
                                           : const Icon(Icons.add);
                                     },
                                   ),
@@ -184,10 +188,12 @@ class DetailContent extends StatelessWidget {
                             const SizedBox(height: 16),
                             Text(
                               'Recommendations',
-                              key: const ValueKey("__detail_recommendation_text__tv"),
+                              key: const ValueKey(
+                                  "__detail_recommendation_text__tv"),
                               style: kHeading6,
                             ),
-                            BlocBuilder<RecommendationTvBloc, RecommendationTvState>(
+                            BlocBuilder<RecommendationTvBloc,
+                                RecommendationTvState>(
                               builder: (context, state) {
                                 if (state is RecommendationTvLoading) {
                                   return const Center(
@@ -220,12 +226,12 @@ class DetailContent extends StatelessWidget {
                                               );
                                             },
                                             child: ClipRRect(
-                                              borderRadius: const BorderRadius.all(
+                                              borderRadius:
+                                                  const BorderRadius.all(
                                                 Radius.circular(8),
                                               ),
                                               child: AppNetworkImage(
-                                                  imageUrl:
-                                                      '${tv.posterPath}'),
+                                                  imageUrl: '${tv.posterPath}'),
                                             ),
                                           ),
                                         );
@@ -235,7 +241,8 @@ class DetailContent extends StatelessWidget {
                                   );
                                 } else {
                                   return Container(
-                                    key: const ValueKey("__recommendation_empty__tv"),
+                                    key: const ValueKey(
+                                        "__recommendation_empty__tv"),
                                   );
                                 }
                               },
@@ -255,7 +262,8 @@ class DetailContent extends StatelessWidget {
                                   return Padding(
                                     padding: const EdgeInsets.all(4.0),
                                     child: InkWell(
-                                      key: const ValueKey("__season_inkwell__tv"),
+                                      key: const ValueKey(
+                                          "__season_inkwell__tv"),
                                       onTap: () {
                                         Navigator.pushNamed(
                                           context,
@@ -310,15 +318,15 @@ class DetailContent extends StatelessWidget {
                                       tvDetailEpisodeRoute,
                                       arguments: TvDetailEpisodeArg(
                                           tvId: tv.id,
-                                          seasonNumber: tv
-                                              .lastEpisodeToAir.seasonNumber,
+                                          seasonNumber:
+                                              tv.lastEpisodeToAir.seasonNumber,
                                           episodeNumber: tv
                                               .lastEpisodeToAir.episodeNumber),
                                     );
                                   },
                                   child: Visibility(
-                                    visible: tv.lastEpisodeToAir.stillPath !=
-                                        null,
+                                    visible:
+                                        tv.lastEpisodeToAir.stillPath != null,
                                     replacement: Container(
                                         width: 100,
                                         color: Colors.grey,

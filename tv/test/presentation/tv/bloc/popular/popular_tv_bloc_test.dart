@@ -30,8 +30,7 @@ void main() {
   blocTest<PopularTvBloc, PopularTvState>(
     'emits [Loading, Loaded] when data is gotten successfully',
     build: () {
-      when(mockGetPopularTvs.execute())
-          .thenAnswer((_) async => Right(tTvList));
+      when(mockGetPopularTvs.execute()).thenAnswer((_) async => Right(tTvList));
       return popularTvBloc;
     },
     act: (bloc) => bloc.add(FetchPopularTv()),

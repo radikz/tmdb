@@ -2,7 +2,7 @@ part of 'season_detail_tv_bloc.dart';
 
 abstract class SeasonDetailTvState extends Equatable {
   const SeasonDetailTvState();
-  
+
   @override
   List<Object> get props => [];
 }

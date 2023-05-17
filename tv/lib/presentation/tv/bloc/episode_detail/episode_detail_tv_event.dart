@@ -21,4 +21,3 @@ class FetchEpisodeDetailTv extends EpisodeDetailTvEvent {
   @override
   List<Object> get props => [id, seasonNumber, episodeNumber];
 }
-

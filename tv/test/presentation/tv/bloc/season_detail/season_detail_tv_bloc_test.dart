@@ -30,11 +30,16 @@ void main() {
   blocTest<SeasonDetailTvBloc, SeasonDetailTvState>(
     'emits [Loading, Loaded] when data is gotten successfully',
     build: () {
-      when(mockGetSeasonDetailTvs.execute(1, 1,))
-          .thenAnswer((_) async => Right(testDetailSeason));
+      when(mockGetSeasonDetailTvs.execute(
+        1,
+        1,
+      )).thenAnswer((_) async => Right(testDetailSeason));
       return episodeDetailTvBloc;
     },
-    act: (bloc) => bloc.add(const FetchSeasonDetailTv(id: 1, seasonNumber: 1, )),
+    act: (bloc) => bloc.add(const FetchSeasonDetailTv(
+      id: 1,
+      seasonNumber: 1,
+    )),
     expect: () => <SeasonDetailTvState>[
       SeasonDetailTvLoading(),
       SeasonDetailTvLoaded(testDetailSeason),
@@ -44,11 +49,16 @@ void main() {
   blocTest<SeasonDetailTvBloc, SeasonDetailTvState>(
     'emits [Loading, Failure] when failure',
     build: () {
-      when(mockGetSeasonDetailTvs.execute(1, 1,))
-          .thenAnswer((_) async => const Left(ServerFailure("Error")));
+      when(mockGetSeasonDetailTvs.execute(
+        1,
+        1,
+      )).thenAnswer((_) async => const Left(ServerFailure("Error")));
       return episodeDetailTvBloc;
     },
-    act: (bloc) => bloc.add(const FetchSeasonDetailTv(id: 1, seasonNumber: 1, )),
+    act: (bloc) => bloc.add(const FetchSeasonDetailTv(
+      id: 1,
+      seasonNumber: 1,
+    )),
     expect: () => <SeasonDetailTvState>[
       SeasonDetailTvLoading(),
       const SeasonDetailTvFailure("Error"),

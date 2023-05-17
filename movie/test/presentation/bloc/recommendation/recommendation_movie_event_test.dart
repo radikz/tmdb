@@ -3,6 +3,7 @@ import 'package:movie/presentation/bloc/recommendation/recommendation_movie_bloc
 
 void main() {
   test('supports value comparison', () {
-    expect(const FetchRecommendationMovie(1), const FetchRecommendationMovie(1));
+    expect(
+        const FetchRecommendationMovie(1), const FetchRecommendationMovie(1));
   });
 }

@@ -9,7 +9,6 @@ void main() {
     expect(const FetchWatchlistStatusTv(1), const FetchWatchlistStatusTv(1));
     expect(RemoveWatchlistTvEvent(testTvDetail),
         RemoveWatchlistTvEvent(testTvDetail));
-    expect(
-        AddWatchlistTv(testTvDetail), AddWatchlistTv(testTvDetail));
+    expect(AddWatchlistTv(testTvDetail), AddWatchlistTv(testTvDetail));
   });
 }

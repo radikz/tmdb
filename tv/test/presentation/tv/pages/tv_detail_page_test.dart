@@ -66,7 +66,8 @@ void main() {
     });
 
     testWidgets("detail tv is error", (tester) async {
-      when(() => movieDetailBloc.state).thenReturn(const TvDetailFailure("error"));
+      when(() => movieDetailBloc.state)
+          .thenReturn(const TvDetailFailure("error"));
       when(() => watchlistTvBloc.state).thenReturn(const WatchlistTvState());
       final errorWidget = find.byType(Text);
 
@@ -98,7 +99,8 @@ void main() {
             .thenReturn(const RecommendationTvFailure("error"));
         when(() => watchlistTvBloc.state).thenReturn(const WatchlistTvState());
 
-        final errorRecom = find.byKey(const ValueKey("__recommendation_error__tv"));
+        final errorRecom =
+            find.byKey(const ValueKey("__recommendation_error__tv"));
 
         await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(id: 1)));
 
@@ -112,7 +114,8 @@ void main() {
             .thenReturn(RecommendationTvEmpty());
         when(() => watchlistTvBloc.state).thenReturn(const WatchlistTvState());
 
-        final errorRecom = find.byKey(const ValueKey("__recommendation_empty__tv"));
+        final errorRecom =
+            find.byKey(const ValueKey("__recommendation_empty__tv"));
 
         await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(id: 1)));
 
@@ -128,7 +131,8 @@ void main() {
             .thenReturn(RecommendationTvLoaded(testTvList));
         when(() => watchlistTvBloc.state).thenReturn(const WatchlistTvState());
 
-        final inkWell = find.byKey(const ValueKey("__recommendation_inkwell__tv"));
+        final inkWell =
+            find.byKey(const ValueKey("__recommendation_inkwell__tv"));
 
         await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(id: 1)));
 
@@ -254,8 +258,8 @@ void main() {
             .thenReturn(TvDetailLoaded(testTvDetail));
         when(() => recommendationTvBloc.state)
             .thenReturn(RecommendationTvLoaded(testTvList));
-        when(() => watchlistTvBloc.state).thenReturn(
-            const WatchlistTvState(isAddedToWatchlist: false, message: 'Failed'));
+        when(() => watchlistTvBloc.state).thenReturn(const WatchlistTvState(
+            isAddedToWatchlist: false, message: 'Failed'));
         whenListen<WatchlistTvState>(
           watchlistTvBloc,
           Stream.fromIterable(const [

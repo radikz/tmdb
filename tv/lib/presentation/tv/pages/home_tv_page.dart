@@ -49,15 +49,15 @@ class _HomeTvPageState extends State<HomeTvPage> {
               ),
               BlocBuilder<AiringNowTvBloc, AiringNowTvState>(
                 builder: (context, state) {
-                if (state is AiringNowTvLoading) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else if (state is AiringNowTvLoaded) {
-                  return TvList(state.result);
-                } else {
-                  return const Text('Failed');
-                }
+                  if (state is AiringNowTvLoading) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else if (state is AiringNowTvLoaded) {
+                    return TvList(state.result);
+                  } else {
+                    return const Text('Failed');
+                  }
                 },
               ),
               _buildSubHeading(
@@ -66,15 +66,15 @@ class _HomeTvPageState extends State<HomeTvPage> {
               ),
               BlocBuilder<PopularTvBloc, PopularTvState>(
                 builder: (context, state) {
-                if (state is PopularTvLoading) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else if (state is PopularTvLoaded) {
-                  return TvList(state.result);
-                } else {
-                  return const Text('Failed');
-                }
+                  if (state is PopularTvLoading) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else if (state is PopularTvLoaded) {
+                    return TvList(state.result);
+                  } else {
+                    return const Text('Failed');
+                  }
                 },
               ),
               _buildSubHeading(
@@ -83,15 +83,15 @@ class _HomeTvPageState extends State<HomeTvPage> {
               ),
               BlocBuilder<TopRatedTvBloc, TopRatedTvState>(
                 builder: (context, state) {
-                if (state is TopRatedTvLoading) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else if (state is TopRatedTvLoaded) {
-                  return TvList(state.result);
-                } else {
-                  return const Text('Failed');
-                }
+                  if (state is TopRatedTvLoading) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else if (state is TopRatedTvLoaded) {
+                    return TvList(state.result);
+                  } else {
+                    return const Text('Failed');
+                  }
                 },
               ),
             ],

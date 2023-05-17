@@ -54,20 +54,25 @@ void main() {
   group('Detail Movie', () {
     testWidgets("detail movie is loading", (tester) async {
       when(() => movieDetailBloc.state).thenReturn(MovieDetailLoading());
-      when(() => watchlistMovieBloc.state).thenReturn(const WatchlistMovieState());
+      when(() => watchlistMovieBloc.state)
+          .thenReturn(const WatchlistMovieState());
       final loadingWidget = find.byType(CircularProgressIndicator);
 
-      await tester.pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
+      await tester
+          .pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
 
       expect(loadingWidget, findsOneWidget);
     });
 
     testWidgets("detail movie is error", (tester) async {
-      when(() => movieDetailBloc.state).thenReturn(const MovieDetailFailure("error"));
-      when(() => watchlistMovieBloc.state).thenReturn(const WatchlistMovieState());
+      when(() => movieDetailBloc.state)
+          .thenReturn(const MovieDetailFailure("error"));
+      when(() => watchlistMovieBloc.state)
+          .thenReturn(const WatchlistMovieState());
       final errorWidget = find.byType(Text);
 
-      await tester.pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
+      await tester
+          .pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
 
       expect(errorWidget, findsOneWidget);
     });
@@ -78,12 +83,14 @@ void main() {
             .thenReturn(const MovieDetailLoaded(testMovieDetail));
         when(() => recommendationMovieBloc.state)
             .thenReturn(RecommendationMovieLoading());
-        when(() => watchlistMovieBloc.state).thenReturn(const WatchlistMovieState());
+        when(() => watchlistMovieBloc.state)
+            .thenReturn(const WatchlistMovieState());
 
         final loadingRecommendation =
             find.byKey(const ValueKey("__recommendation_loading__"));
 
-        await tester.pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
+        await tester
+            .pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
 
         expect(loadingRecommendation, findsOneWidget);
       });
@@ -93,11 +100,14 @@ void main() {
             .thenReturn(const MovieDetailLoaded(testMovieDetail));
         when(() => recommendationMovieBloc.state)
             .thenReturn(const RecommendationMovieFailure("error"));
-        when(() => watchlistMovieBloc.state).thenReturn(const WatchlistMovieState());
+        when(() => watchlistMovieBloc.state)
+            .thenReturn(const WatchlistMovieState());
 
-        final errorRecom = find.byKey(const ValueKey("__recommendation_error__"));
+        final errorRecom =
+            find.byKey(const ValueKey("__recommendation_error__"));
 
-        await tester.pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
+        await tester
+            .pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
 
         expect(errorRecom, findsOneWidget);
       });
@@ -107,11 +117,14 @@ void main() {
             .thenReturn(const MovieDetailLoaded(testMovieDetail));
         when(() => recommendationMovieBloc.state)
             .thenReturn(RecommendationMovieEmpty());
-        when(() => watchlistMovieBloc.state).thenReturn(const WatchlistMovieState());
+        when(() => watchlistMovieBloc.state)
+            .thenReturn(const WatchlistMovieState());
 
-        final errorRecom = find.byKey(const ValueKey("__recommendation_empty__"));
+        final errorRecom =
+            find.byKey(const ValueKey("__recommendation_empty__"));
 
-        await tester.pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
+        await tester
+            .pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
 
         expect(errorRecom, findsOneWidget);
       });
@@ -123,11 +136,14 @@ void main() {
             .thenReturn(const MovieDetailLoaded(testMovieDetail));
         when(() => recommendationMovieBloc.state)
             .thenReturn(RecommendationMovieLoaded(testMovieList));
-        when(() => watchlistMovieBloc.state).thenReturn(const WatchlistMovieState());
+        when(() => watchlistMovieBloc.state)
+            .thenReturn(const WatchlistMovieState());
 
-        final inkWell = find.byKey(const ValueKey("__recommendation_inkwell__"));
+        final inkWell =
+            find.byKey(const ValueKey("__recommendation_inkwell__"));
 
-        await tester.pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
+        await tester
+            .pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
 
         expect(inkWell, findsOneWidget);
       });
@@ -144,7 +160,8 @@ void main() {
 
         final loadingWidget = find.byIcon(Icons.add);
 
-        await tester.pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
+        await tester
+            .pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
 
         expect(loadingWidget, findsOneWidget);
       });
@@ -161,7 +178,8 @@ void main() {
 
         final loadingWidget = find.byIcon(Icons.check);
 
-        await tester.pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
+        await tester
+            .pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
 
         expect(loadingWidget, findsOneWidget);
       });
@@ -173,8 +191,9 @@ void main() {
             .thenReturn(const MovieDetailLoaded(testMovieDetail));
         when(() => recommendationMovieBloc.state)
             .thenReturn(RecommendationMovieLoaded(testMovieList));
-        when(() => watchlistMovieBloc.state).thenReturn(const WatchlistMovieState(
-            isAddedToWatchlist: false, message: "Added to Watchlist"));
+        when(() => watchlistMovieBloc.state).thenReturn(
+            const WatchlistMovieState(
+                isAddedToWatchlist: false, message: "Added to Watchlist"));
         whenListen<WatchlistMovieState>(
           watchlistMovieBloc,
           Stream.fromIterable(const [
@@ -184,9 +203,11 @@ void main() {
           ]),
         );
 
-        final watchlistButton = find.byKey(const ValueKey("watchlist_movie_button"));
+        final watchlistButton =
+            find.byKey(const ValueKey("watchlist_movie_button"));
 
-        await tester.pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
+        await tester
+            .pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
 
         expect(find.byIcon(Icons.add), findsOneWidget);
 
@@ -207,8 +228,9 @@ void main() {
             .thenReturn(const MovieDetailLoaded(testMovieDetail));
         when(() => recommendationMovieBloc.state)
             .thenReturn(RecommendationMovieLoaded(testMovieList));
-        when(() => watchlistMovieBloc.state).thenReturn(const WatchlistMovieState(
-            isAddedToWatchlist: true, message: "Removed from Watchlist"));
+        when(() => watchlistMovieBloc.state).thenReturn(
+            const WatchlistMovieState(
+                isAddedToWatchlist: true, message: "Removed from Watchlist"));
         whenListen<WatchlistMovieState>(
           watchlistMovieBloc,
           Stream.fromIterable(const [
@@ -218,11 +240,14 @@ void main() {
           ]),
         );
 
-        final watchlistButton = find.byKey(const ValueKey("watchlist_movie_button"));
+        final watchlistButton =
+            find.byKey(const ValueKey("watchlist_movie_button"));
 
-        await tester.pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
+        await tester
+            .pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
 
-        expect(find.byKey(const Key("movie_detail_icon_check")), findsOneWidget);
+        expect(
+            find.byKey(const Key("movie_detail_icon_check")), findsOneWidget);
 
         expect(watchlistButton, findsOneWidget);
 
@@ -242,7 +267,8 @@ void main() {
         when(() => recommendationMovieBloc.state)
             .thenReturn(RecommendationMovieLoaded(testMovieList));
         when(() => watchlistMovieBloc.state).thenReturn(
-            const WatchlistMovieState(isAddedToWatchlist: false, message: 'Failed'));
+            const WatchlistMovieState(
+                isAddedToWatchlist: false, message: 'Failed'));
         whenListen<WatchlistMovieState>(
           watchlistMovieBloc,
           Stream.fromIterable(const [
@@ -251,16 +277,19 @@ void main() {
           ]),
         );
 
-        final watchlistButton = find.byKey(const ValueKey("watchlist_movie_button"));
+        final watchlistButton =
+            find.byKey(const ValueKey("watchlist_movie_button"));
 
-        await tester.pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
+        await tester
+            .pumpWidget(_makeTestableWidget(const MovieDetailPage(id: 1)));
 
         expect(find.byIcon(Icons.add), findsOneWidget);
 
         await tester.tap(watchlistButton);
         await tester.pump();
 
-        expect(find.byKey(const ValueKey("watchlist_movie_error_alert_dialog")), findsOneWidget);
+        expect(find.byKey(const ValueKey("watchlist_movie_error_alert_dialog")),
+            findsOneWidget);
         expect(find.text('Failed'), findsOneWidget);
       });
     });

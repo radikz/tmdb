@@ -8,13 +8,15 @@ part 'episode_detail_tv_state.dart';
 
 class EpisodeDetailTvBloc
     extends Bloc<EpisodeDetailTvEvent, EpisodeDetailTvState> {
-  EpisodeDetailTvBloc(this._getTvDetailEpisode) : super(EpisodeDetailTvInitial()) {
+  EpisodeDetailTvBloc(this._getTvDetailEpisode)
+      : super(EpisodeDetailTvInitial()) {
     on<FetchEpisodeDetailTv>((event, emit) async {
       emit(EpisodeDetailTvLoading());
       final id = event.id;
       final seasonNumber = event.seasonNumber;
       final episodeNumber = event.episodeNumber;
-      final result = await _getTvDetailEpisode.execute(id, seasonNumber, episodeNumber);
+      final result =
+          await _getTvDetailEpisode.execute(id, seasonNumber, episodeNumber);
       result.fold(
         (failure) {
           emit(EpisodeDetailTvFailure(failure.message));

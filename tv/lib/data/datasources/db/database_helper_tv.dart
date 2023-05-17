@@ -24,8 +24,7 @@ class DatabaseHelperTv {
     final path = await getDatabasesPath();
     final databasePath = '$path/ditonton_tv.db';
 
-    var db = await openDatabase(databasePath,
-        version: 1, onCreate: _onCreate);
+    var db = await openDatabase(databasePath, version: 1, onCreate: _onCreate);
     return db;
   }
 

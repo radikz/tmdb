@@ -62,8 +62,10 @@ void main() {
       final result = await repository.getNowAiringTvs();
 
       verify(remoteDataSource.getNowAiringTvs());
-      expect(result,
-          equals(const Left(ConnectionFailure('Failed to connect to the network'))));
+      expect(
+          result,
+          equals(const Left(
+              ConnectionFailure('Failed to connect to the network'))));
     });
   });
 
@@ -102,8 +104,10 @@ void main() {
       final result = await repository.getTopRatedTvs();
 
       verify(remoteDataSource.getTopRatedTvs());
-      expect(result,
-          equals(const Left(ConnectionFailure('Failed to connect to the network'))));
+      expect(
+          result,
+          equals(const Left(
+              ConnectionFailure('Failed to connect to the network'))));
     });
   });
 
@@ -142,8 +146,10 @@ void main() {
       final result = await repository.getPopularTvs();
 
       verify(remoteDataSource.getPopularTvs());
-      expect(result,
-          equals(const Left(ConnectionFailure('Failed to connect to the network'))));
+      expect(
+          result,
+          equals(const Left(
+              ConnectionFailure('Failed to connect to the network'))));
     });
   });
 
@@ -185,8 +191,10 @@ void main() {
       final result = await repository.getTvDetail(tId);
       // assert
       verify(remoteDataSource.getTvDetail(tId));
-      expect(result,
-          equals(const Left(ConnectionFailure('Failed to connect to the network'))));
+      expect(
+          result,
+          equals(const Left(
+              ConnectionFailure('Failed to connect to the network'))));
     });
   });
 
@@ -229,8 +237,10 @@ void main() {
       final result = await repository.getTvDetailEpisode(tId, tId, tId);
       // assert
       verify(remoteDataSource.getTvDetailEpisode(tId, tId, tId));
-      expect(result,
-          equals(const Left(ConnectionFailure('Failed to connect to the network'))));
+      expect(
+          result,
+          equals(const Left(
+              ConnectionFailure('Failed to connect to the network'))));
     });
   });
 
@@ -273,8 +283,10 @@ void main() {
       final result = await repository.getTvDetailSeason(tId, tId);
       // assert
       verify(remoteDataSource.getTvDetailSeason(tId, tId));
-      expect(result,
-          equals(const Left(ConnectionFailure('Failed to connect to the network'))));
+      expect(
+          result,
+          equals(const Left(
+              ConnectionFailure('Failed to connect to the network'))));
     });
   });
 
@@ -314,8 +326,10 @@ void main() {
       final result = await repository.getTvsRecommendation(tId);
 
       verify(remoteDataSource.getTvsRecommendation(tId));
-      expect(result,
-          equals(const Left(ConnectionFailure('Failed to connect to the network'))));
+      expect(
+          result,
+          equals(const Left(
+              ConnectionFailure('Failed to connect to the network'))));
     });
   });
 

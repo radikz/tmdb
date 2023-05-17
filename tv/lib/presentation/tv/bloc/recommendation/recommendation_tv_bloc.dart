@@ -8,7 +8,8 @@ part 'recommendation_tv_state.dart';
 
 class RecommendationTvBloc
     extends Bloc<RecommendationTvEvent, RecommendationTvState> {
-  RecommendationTvBloc(this._getTvsRecommendation) : super(RecommendationTvInitial()) {
+  RecommendationTvBloc(this._getTvsRecommendation)
+      : super(RecommendationTvInitial()) {
     on<FetchRecommendationTv>((event, emit) async {
       emit(RecommendationTvLoading());
       final id = event.id;

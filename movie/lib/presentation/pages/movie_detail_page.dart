@@ -41,8 +41,9 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
         if (state.message != null) {
           if (message == watchlistAddSuccessMessage ||
               message == watchlistRemoveSuccessMessage) {
-            ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(key: const ValueKey("watchlist_movie_snackbar"), content: Text(message!)));
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                key: const ValueKey("watchlist_movie_snackbar"),
+                content: Text(message!)));
           } else {
             showDialog(
                 context: context,
@@ -150,7 +151,11 @@ class DetailContent extends StatelessWidget {
                                       final isAddedWatchlist =
                                           state.isAddedToWatchlist;
                                       return isAddedWatchlist
-                                          ? const Icon(Icons.check, key: Key("movie_detail_icon_check"),)
+                                          ? const Icon(
+                                              Icons.check,
+                                              key: Key(
+                                                  "movie_detail_icon_check"),
+                                            )
                                           : const Icon(Icons.add);
                                     },
                                   ),
@@ -189,10 +194,12 @@ class DetailContent extends StatelessWidget {
                             const SizedBox(height: 16),
                             Text(
                               'Recommendations',
-                              key: const ValueKey("__detail_recommendation_text__"),
+                              key: const ValueKey(
+                                  "__detail_recommendation_text__"),
                               style: kHeading6,
                             ),
-                            BlocBuilder<RecommendationMovieBloc, RecommendationMovieState>(
+                            BlocBuilder<RecommendationMovieBloc,
+                                RecommendationMovieState>(
                               builder: (context, state) {
                                 if (state is RecommendationMovieLoading) {
                                   return const Center(
@@ -201,10 +208,11 @@ class DetailContent extends StatelessWidget {
                                           "__recommendation_loading__"),
                                     ),
                                   );
-                                } else if (state is RecommendationMovieFailure) {
+                                } else if (state
+                                    is RecommendationMovieFailure) {
                                   return Text(state.message,
-                                      key:
-                                          const ValueKey("__recommendation_error__"));
+                                      key: const ValueKey(
+                                          "__recommendation_error__"));
                                 } else if (state is RecommendationMovieLoaded) {
                                   return SizedBox(
                                     height: 150,
@@ -225,7 +233,8 @@ class DetailContent extends StatelessWidget {
                                               );
                                             },
                                             child: ClipRRect(
-                                              borderRadius: const BorderRadius.all(
+                                              borderRadius:
+                                                  const BorderRadius.all(
                                                 Radius.circular(8),
                                               ),
                                               child: AppNetworkImage(
@@ -240,7 +249,8 @@ class DetailContent extends StatelessWidget {
                                   );
                                 } else {
                                   return Container(
-                                    key: const ValueKey("__recommendation_empty__"),
+                                    key: const ValueKey(
+                                        "__recommendation_empty__"),
                                   );
                                 }
                               },

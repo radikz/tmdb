@@ -8,7 +8,8 @@ import 'package:tv/presentation/tv/pages/tv_detail_episode_page.dart';
 
 import '../../../dummy_data/dummy_objects.dart';
 
-class MockEpisodeDetailTvBloc extends MockBloc<EpisodeDetailTvEvent, EpisodeDetailTvState>
+class MockEpisodeDetailTvBloc
+    extends MockBloc<EpisodeDetailTvEvent, EpisodeDetailTvState>
     implements EpisodeDetailTvBloc {}
 
 void main() {
@@ -40,7 +41,8 @@ void main() {
     });
 
     testWidgets("episode tv is error", (tester) async {
-      when(() => mockBloc.state).thenReturn(const EpisodeDetailTvFailure("error"));
+      when(() => mockBloc.state)
+          .thenReturn(const EpisodeDetailTvFailure("error"));
       final errorWidget = find.byKey(const ValueKey("__episode_error__tv"));
 
       await tester.pumpWidget(_makeTestableWidget(TvDetailEpisodePage(
@@ -51,7 +53,8 @@ void main() {
     });
 
     testWidgets("episode tv is loaded", (tester) async {
-      when(() => mockBloc.state).thenReturn(EpisodeDetailTvLoaded(testTvEpisode));
+      when(() => mockBloc.state)
+          .thenReturn(EpisodeDetailTvLoaded(testTvEpisode));
       final content = find.byType(DetailContentEpisode);
 
       await tester.pumpWidget(_makeTestableWidget(TvDetailEpisodePage(

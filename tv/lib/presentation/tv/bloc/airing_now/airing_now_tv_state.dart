@@ -2,7 +2,7 @@ part of 'airing_now_tv_bloc.dart';
 
 abstract class AiringNowTvState extends Equatable {
   const AiringNowTvState();
-  
+
   @override
   List<Object> get props => [];
 }

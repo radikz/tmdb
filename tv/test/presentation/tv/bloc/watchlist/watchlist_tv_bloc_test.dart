@@ -14,7 +14,6 @@ import 'package:tv/presentation/tv/bloc/watchlist/watchlist_tv_bloc.dart';
 import '../../../../dummy_data/dummy_objects.dart';
 import 'watchlist_tv_bloc_test.mocks.dart';
 
-
 @GenerateMocks(
     [GetWatchlistTvs, RemoveWatchlistTv, SaveWatchlistTv, GetTvWatchlistStatus])
 void main() {
@@ -35,7 +34,6 @@ void main() {
         removeWatchlist: mockRemoveWatchlistTv,
         getWatchlistTvs: mockGetWatchlistTvs);
   });
-
 
   final testTvList = <Tv>[testTv];
 
@@ -116,7 +114,8 @@ void main() {
       build: () {
         when(mockSaveWatchlistTv.execute(testTvDetail))
             .thenAnswer((_) async => const Left(DatabaseFailure("Error")));
-        when(mockGetTvWatchlistStatus.execute(1)).thenAnswer((_) async => false);
+        when(mockGetTvWatchlistStatus.execute(1))
+            .thenAnswer((_) async => false);
         return nowPlayingMovieBloc;
       },
       act: (bloc) => bloc.add(AddWatchlistTv(testTvDetail)),
@@ -159,7 +158,8 @@ void main() {
       build: () {
         when(mockRemoveWatchlistTv.execute(testTvDetail))
             .thenAnswer((_) async => const Left(DatabaseFailure("Error")));
-        when(mockGetTvWatchlistStatus.execute(1)).thenAnswer((_) async => false);
+        when(mockGetTvWatchlistStatus.execute(1))
+            .thenAnswer((_) async => false);
         return nowPlayingMovieBloc;
       },
       act: (bloc) => bloc.add(RemoveWatchlistTvEvent(testTvDetail)),
@@ -169,9 +169,10 @@ void main() {
             status: WatchlistTvStatus.loading,
             message: "Error",
             watchlistStatus: WatchlistStatus.failure),
-            const WatchlistTvState(status: WatchlistTvStatus.loading),
+        const WatchlistTvState(status: WatchlistTvStatus.loading),
         const WatchlistTvState(
-            status: WatchlistTvStatus.success,),
+          status: WatchlistTvStatus.success,
+        ),
       ],
     );
   });

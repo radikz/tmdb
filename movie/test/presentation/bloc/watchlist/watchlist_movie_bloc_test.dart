@@ -183,9 +183,10 @@ void main() {
             status: WatchlistMovieStatus.loading,
             message: "Error",
             watchlistStatus: WatchlistStatus.failure),
-            const WatchlistMovieState(status: WatchlistMovieStatus.loading),
+        const WatchlistMovieState(status: WatchlistMovieStatus.loading),
         const WatchlistMovieState(
-            status: WatchlistMovieStatus.success,),
+          status: WatchlistMovieStatus.success,
+        ),
       ],
     );
   });

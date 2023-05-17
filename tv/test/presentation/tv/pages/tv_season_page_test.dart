@@ -40,7 +40,8 @@ void main() {
     });
 
     testWidgets("season tv is error", (tester) async {
-      when(() => mockBloc.state).thenReturn(const SeasonDetailTvFailure("error"));
+      when(() => mockBloc.state)
+          .thenReturn(const SeasonDetailTvFailure("error"));
       final errorWidget = find.byKey(const ValueKey("__season_error__tv"));
 
       await tester.pumpWidget(_makeTestableWidget(
@@ -50,7 +51,8 @@ void main() {
     });
 
     testWidgets("season tv is loaded", (tester) async {
-      when(() => mockBloc.state).thenReturn(SeasonDetailTvLoaded(testDetailSeason));
+      when(() => mockBloc.state)
+          .thenReturn(SeasonDetailTvLoaded(testDetailSeason));
       final content = find.byType(SeasonContent);
 
       await tester.pumpWidget(_makeTestableWidget(

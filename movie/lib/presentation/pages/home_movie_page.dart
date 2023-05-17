@@ -45,7 +45,6 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
             ),
             ListTile(
               onTap: () {
-
                 Navigator.pushNamed(context, homeTvsRoute);
               },
               leading: const Icon(Icons.tv),

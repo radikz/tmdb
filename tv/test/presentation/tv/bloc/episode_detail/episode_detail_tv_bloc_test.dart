@@ -34,7 +34,8 @@ void main() {
           .thenAnswer((_) async => Right(testTvEpisode));
       return episodeDetailTvBloc;
     },
-    act: (bloc) => bloc.add(const FetchEpisodeDetailTv(id: 1, seasonNumber: 1, episodeNumber: 1)),
+    act: (bloc) => bloc.add(
+        const FetchEpisodeDetailTv(id: 1, seasonNumber: 1, episodeNumber: 1)),
     expect: () => <EpisodeDetailTvState>[
       EpisodeDetailTvLoading(),
       EpisodeDetailTvLoaded(testTvEpisode),
@@ -48,7 +49,8 @@ void main() {
           .thenAnswer((_) async => const Left(ServerFailure("Error")));
       return episodeDetailTvBloc;
     },
-    act: (bloc) => bloc.add(const FetchEpisodeDetailTv(id: 1, seasonNumber: 1, episodeNumber: 1)),
+    act: (bloc) => bloc.add(
+        const FetchEpisodeDetailTv(id: 1, seasonNumber: 1, episodeNumber: 1)),
     expect: () => <EpisodeDetailTvState>[
       EpisodeDetailTvLoading(),
       const EpisodeDetailTvFailure("Error"),
