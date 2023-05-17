@@ -3,7 +3,7 @@ import 'package:tv/presentation/tv/bloc/episode_detail/episode_detail_tv_bloc.da
 
 void main() {
   test('supports value comparison', () {
-    expect(const FetchEpisodeDetailTv(id: 1, seasonNumber: 1, episodeNumber: 1),
-        const FetchEpisodeDetailTv(id: 1, seasonNumber: 1, episodeNumber: 1));
+    expect(FetchEpisodeDetailTv(id: 1, seasonNumber: 1, episodeNumber: 1),
+        FetchEpisodeDetailTv(id: 1, seasonNumber: 1, episodeNumber: 1));
   });
 }

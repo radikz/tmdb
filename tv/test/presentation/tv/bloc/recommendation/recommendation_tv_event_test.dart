@@ -3,6 +3,6 @@ import 'package:tv/presentation/tv/bloc/recommendation/recommendation_tv_bloc.da
 
 void main() {
   test('supports value comparison', () {
-    expect(const FetchRecommendationTv(1), const FetchRecommendationTv(1));
+    expect(FetchRecommendationTv(1), FetchRecommendationTv(1));
   });
 }

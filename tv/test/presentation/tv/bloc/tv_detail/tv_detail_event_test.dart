@@ -3,6 +3,6 @@ import 'package:tv/presentation/tv/bloc/tv_detail/tv_detail_bloc.dart';
 
 void main() {
   test('supports value comparison', () {
-    expect(const FetchTvDetail(1), const FetchTvDetail(1));
+    expect(FetchTvDetail(1), FetchTvDetail(1));
   });
 }

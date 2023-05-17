@@ -6,7 +6,7 @@ import '../../../../dummy_data/dummy_objects.dart';
 void main() {
   test('supports value comparison', () {
     expect(FetchWatchlistTv(), FetchWatchlistTv());
-    expect(const FetchWatchlistStatusTv(1), const FetchWatchlistStatusTv(1));
+    expect(FetchWatchlistStatusTv(1), FetchWatchlistStatusTv(1));
     expect(RemoveWatchlistTvEvent(testTvDetail),
         RemoveWatchlistTvEvent(testTvDetail));
     expect(AddWatchlistTv(testTvDetail), AddWatchlistTv(testTvDetail));
