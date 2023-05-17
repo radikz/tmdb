@@ -2,7 +2,9 @@ import 'package:core/utils/state_enum.dart';
 import 'package:core/utils/utils.dart';
 import 'package:core/widgets/tv_card_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
+import 'package:tv/presentation/tv/bloc/watchlist/watchlist_tv_bloc.dart';
 import 'package:tv/presentation/tv/provider/watchlist_tv_notifier.dart';
 
 class WatchlistTvsPage extends StatefulWidget {
@@ -15,9 +17,7 @@ class _WatchlistMoviesPageState extends State<WatchlistTvsPage>
   @override
   void initState() {
     super.initState();
-    Future.microtask(() =>
-        Provider.of<WatchlistTvNotifier>(context, listen: false)
-            .fetchWatchlistTvs());
+    context.read<WatchlistTvBloc>().add(FetchWatchlistTv());
   }
 
   @override
@@ -26,9 +26,9 @@ class _WatchlistMoviesPageState extends State<WatchlistTvsPage>
     routeObserver.subscribe(this, ModalRoute.of(context)!);
   }
 
+  @override
   void didPopNext() {
-    Provider.of<WatchlistTvNotifier>(context, listen: false)
-        .fetchWatchlistTvs();
+    context.read<WatchlistTvBloc>().add(FetchWatchlistTv());
   }
 
   @override
@@ -39,25 +39,27 @@ class _WatchlistMoviesPageState extends State<WatchlistTvsPage>
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Consumer<WatchlistTvNotifier>(
-          builder: (context, data, child) {
-            if (data.state == RequestState.Loading) {
+        child: BlocBuilder<WatchlistTvBloc, WatchlistTvState>(
+          builder: (context, state) {
+            if (state.status == WatchlistTvStatus.loading) {
               return Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (data.state == RequestState.Loaded) {
+            } else if (state.status == WatchlistTvStatus.success) {
               return ListView.builder(
                 itemBuilder: (context, index) {
-                  final movie = data.tvs[index];
-                  return TvCard(movie);
+                  final tv = state.watchlistTvs[index];
+                  return TvCard(tv);
                 },
-                itemCount: data.tvs.length,
+                itemCount: state.watchlistTvs.length,
+              );
+            } else if (state.status == WatchlistTvStatus.failure) {
+              return Center(
+                key: Key('error_message_tv'),
+                child: Text(state.message!),
               );
             } else {
-              return Center(
-                key: Key('error_message'),
-                child: Text(data.message),
-              );
+              return SizedBox();
             }
           },
         ),

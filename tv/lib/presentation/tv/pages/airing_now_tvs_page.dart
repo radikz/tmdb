@@ -1,7 +1,9 @@
 import 'package:core/utils/state_enum.dart';
 import 'package:core/widgets/tv_card_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
+import 'package:tv/presentation/tv/bloc/airing_now/airing_now_tv_bloc.dart';
 import 'package:tv/presentation/tv/provider/airing_now_tvs_notifier.dart';
 
 class AiringNowTvsPage extends StatefulWidget {
@@ -13,9 +15,7 @@ class _AiringNowTvsPageState extends State<AiringNowTvsPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() =>
-        Provider.of<AiringNowTvsNotifier>(context, listen: false)
-            .fetchAiringNowTvs());
+    context.read<AiringNowTvBloc>().add(FetchAiringNowTv());
   }
 
   @override
@@ -26,25 +26,27 @@ class _AiringNowTvsPageState extends State<AiringNowTvsPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Consumer<AiringNowTvsNotifier>(
-          builder: (context, data, child) {
-            if (data.state == RequestState.Loading) {
+        child: BlocBuilder<AiringNowTvBloc, AiringNowTvState>(
+          builder: (context, state) {
+            if (state is AiringNowTvLoading) {
               return Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (data.state == RequestState.Loaded) {
+            } else if (state is AiringNowTvLoaded) {
               return ListView.builder(
                 itemBuilder: (context, index) {
-                  final tv = data.tv[index];
+                  final tv = state.result[index];
                   return TvCard(tv);
                 },
-                itemCount: data.tv.length,
+                itemCount: state.result.length,
               );
-            } else {
+            } else if (state is AiringNowTvFailure) {
               return Center(
                 key: Key('error_message_tv'),
-                child: Text(data.message),
+                child: Text(state.message),
               );
+            } else {
+              return SizedBox();
             }
           },
         ),

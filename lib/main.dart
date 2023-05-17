@@ -31,6 +31,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ditonton/injection.dart' as di;
+import 'package:tv/presentation/tv/bloc/airing_now/airing_now_tv_bloc.dart';
+import 'package:tv/presentation/tv/bloc/episode_detail/episode_detail_tv_bloc.dart';
+import 'package:tv/presentation/tv/bloc/popular/popular_tv_bloc.dart';
+import 'package:tv/presentation/tv/bloc/recommendation/recommendation_tv_bloc.dart';
+import 'package:tv/presentation/tv/bloc/season_detail/season_detail_tv_bloc.dart';
+import 'package:tv/presentation/tv/bloc/top_rated/top_rated_tv_bloc.dart';
+import 'package:tv/presentation/tv/bloc/tv_detail/tv_detail_bloc.dart';
+import 'package:tv/presentation/tv/bloc/watchlist/watchlist_tv_bloc.dart';
 import 'package:tv/presentation/tv/pages/airing_now_tvs_page.dart';
 import 'package:tv/presentation/tv/pages/home_tv_page.dart';
 import 'package:tv/presentation/tv/pages/popular_tvs_page.dart';
@@ -132,6 +140,30 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => di.locator<RecommendationMovieBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => di.locator<TopRatedTvBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => di.locator<AiringNowTvBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => di.locator<PopularTvBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => di.locator<TvDetailBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => di.locator<WatchlistTvBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => di.locator<RecommendationTvBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => di.locator<EpisodeDetailTvBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => di.locator<SeasonDetailTvBloc>(),
         ),
       ],
       child: MaterialApp(

@@ -44,6 +44,20 @@ void main() {
   );
 
   blocTest<RecommendationTvBloc, RecommendationTvState>(
+    'emits [Loading, Empty] when data is gotten successfully',
+    build: () {
+      when(mockGetRecommendationTvs.execute(1))
+          .thenAnswer((_) async => Right(tTvList));
+      return recommendationTvBloc;
+    },
+    act: (bloc) => bloc.add(FetchRecommendationTv(1)),
+    expect: () => <RecommendationTvState>[
+      RecommendationTvLoading(),
+      RecommendationTvEmpty(),
+    ],
+  );
+
+  blocTest<RecommendationTvBloc, RecommendationTvState>(
     'emits [Loading, Failure] when failure',
     build: () {
       when(mockGetRecommendationTvs.execute(1))

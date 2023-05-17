@@ -3,9 +3,11 @@ import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/state_enum.dart';
 import 'package:core/widgets/app_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:tv/domain/entities/tv_episode.dart';
+import 'package:tv/presentation/tv/bloc/episode_detail/episode_detail_tv_bloc.dart';
 import 'package:tv/presentation/tv/provider/episode_detail_tv_notifier.dart';
 
 class TvDetailEpisodePage extends StatefulWidget {
@@ -21,8 +23,8 @@ class _TvDetailEpisodePageState extends State<TvDetailEpisodePage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() => context.read<EpisodeDetailTvNotifier>().fetchEpisode(
-        tvId: widget.arg.tvId,
+    context.read<EpisodeDetailTvBloc>().add(FetchEpisodeDetailTv(
+        id: widget.arg.tvId,
         seasonNumber: widget.arg.seasonNumber,
         episodeNumber: widget.arg.episodeNumber));
   }
@@ -33,20 +35,25 @@ class _TvDetailEpisodePageState extends State<TvDetailEpisodePage> {
       appBar: AppBar(
         title: Text("Detail Episode"),
       ),
-      body: SafeArea(child: Consumer<EpisodeDetailTvNotifier>(
-          builder: (context, provider, child) {
-        if (provider.state == RequestState.Loaded) {
-          return DetailContentEpisode(episode: provider.episodes);
-        } else if (provider.state == RequestState.Loading) {
-          return Center(
-            child: CircularProgressIndicator(),
-          );
-        }
-        return Text(
-          provider.message,
-          key: ValueKey("__episode_error__tv"),
-        );
-      })),
+      body: SafeArea(
+          child: BlocBuilder<EpisodeDetailTvBloc, EpisodeDetailTvState>(
+        builder: (context, state) {
+          if (state is EpisodeDetailTvLoaded) {
+            return DetailContentEpisode(episode: state.result);
+          } else if (state is EpisodeDetailTvLoading) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (state is EpisodeDetailTvFailure) {
+            return Text(
+              state.message,
+              key: ValueKey("__episode_error__tv"),
+            );
+          } else {
+            return SizedBox();
+          }
+        },
+      )),
     );
   }
 }

@@ -5,8 +5,10 @@ import 'package:core/utils/constants.dart';
 import 'package:core/utils/state_enum.dart';
 import 'package:core/widgets/app_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:tv/domain/entities/tv_episode.dart';
+import 'package:tv/presentation/tv/bloc/season_detail/season_detail_tv_bloc.dart';
 import 'package:tv/presentation/tv/pages/tv_detail_episode_page.dart';
 import 'package:tv/presentation/tv/provider/season_detail_tv_notifier.dart';
 
@@ -23,8 +25,8 @@ class _TvDetailEpisodePageState extends State<TvSeasonPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() => context.read<SeasonDetailTvNotifier>().fetchSeason(
-        tvId: widget.arg.tvId, seasonNumber: widget.arg.seasonNumber));
+    context.read<SeasonDetailTvBloc>().add(FetchSeasonDetailTv(
+        id: widget.arg.tvId, seasonNumber: widget.arg.seasonNumber));
   }
 
   @override
@@ -33,29 +35,33 @@ class _TvDetailEpisodePageState extends State<TvSeasonPage> {
       appBar: AppBar(
         title: Text("Season"),
       ),
-      body: SafeArea(child:
-          Consumer<SeasonDetailTvNotifier>(builder: (context, provider, child) {
-        if (provider.state == RequestState.Loaded) {
-          print("data ${provider.season.name}");
-          return ListView.builder(
-            itemBuilder: (context, index) {
-              return SeasonContent(
-                episode: provider.season.episodes[index],
-                tvId: widget.arg.tvId,
-              );
-            },
-            itemCount: provider.season.episodes.length,
-          );
-        } else if (provider.state == RequestState.Loading) {
-          return Center(
-            child: CircularProgressIndicator(),
-          );
-        }
-        return Text(
-          provider.message,
-          key: ValueKey("__season_error__tv"),
-        );
-      })),
+      body:
+          SafeArea(child: BlocBuilder<SeasonDetailTvBloc, SeasonDetailTvState>(
+        builder: (context, state) {
+          if (state is SeasonDetailTvLoaded) {
+            return ListView.builder(
+              itemBuilder: (context, index) {
+                return SeasonContent(
+                  episode: state.result.episodes[index],
+                  tvId: widget.arg.tvId,
+                );
+              },
+              itemCount: state.result.episodes.length,
+            );
+          } else if (state is SeasonDetailTvLoading) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (state is SeasonDetailTvFailure) {
+            return Text(
+              state.message,
+              key: ValueKey("__season_error__tv"),
+            );
+          } else {
+            return SizedBox();
+          }
+        },
+      )),
     );
   }
 }

@@ -1,26 +1,30 @@
+import 'package:bloc_test/bloc_test.dart';
 import 'package:core/utils/state_enum.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:provider/provider.dart';
+import 'package:tv/presentation/tv/bloc/episode_detail/episode_detail_tv_bloc.dart';
 import 'package:tv/presentation/tv/pages/tv_detail_episode_page.dart';
 import 'package:tv/presentation/tv/provider/episode_detail_tv_notifier.dart';
 
 import '../../../dummy_data/dummy_objects.dart';
-import 'tv_detail_episode_page_test.mocks.dart';
 
-@GenerateMocks([EpisodeDetailTvNotifier])
+class MockEpisodeDetailTvBloc extends MockBloc<EpisodeDetailTvEvent, EpisodeDetailTvState>
+    implements EpisodeDetailTvBloc {}
+
 void main() {
-  late MockEpisodeDetailTvNotifier mockNotifier;
+  late MockEpisodeDetailTvBloc mockBloc;
 
   setUp(() {
-    mockNotifier = MockEpisodeDetailTvNotifier();
+    mockBloc = MockEpisodeDetailTvBloc();
   });
 
   Widget _makeTestableWidget(Widget body) {
-    return ChangeNotifierProvider<EpisodeDetailTvNotifier>.value(
-      value: mockNotifier,
+    return BlocProvider<EpisodeDetailTvBloc>.value(
+      value: mockBloc,
       child: MaterialApp(
         home: body,
       ),
@@ -29,7 +33,7 @@ void main() {
 
   group('Episode Tv', () {
     testWidgets("Episode tv is loading", (tester) async {
-      when(mockNotifier.state).thenReturn(RequestState.Loading);
+      when(() => mockBloc.state).thenReturn(EpisodeDetailTvLoading());
       final loadingWidget = find.byType(CircularProgressIndicator);
 
       await tester.pumpWidget(_makeTestableWidget(TvDetailEpisodePage(
@@ -40,8 +44,7 @@ void main() {
     });
 
     testWidgets("episode tv is error", (tester) async {
-      when(mockNotifier.state).thenReturn(RequestState.Error);
-      when(mockNotifier.message).thenReturn("error");
+      when(() => mockBloc.state).thenReturn(EpisodeDetailTvFailure("error"));
       final errorWidget = find.byKey(ValueKey("__episode_error__tv"));
 
       await tester.pumpWidget(_makeTestableWidget(TvDetailEpisodePage(
@@ -52,8 +55,7 @@ void main() {
     });
 
     testWidgets("episode tv is loaded", (tester) async {
-      when(mockNotifier.state).thenReturn(RequestState.Loaded);
-      when(mockNotifier.episodes).thenReturn(testTvEpisode);
+      when(() => mockBloc.state).thenReturn(EpisodeDetailTvLoaded(testTvEpisode));
       final content = find.byType(DetailContentEpisode);
 
       await tester.pumpWidget(_makeTestableWidget(TvDetailEpisodePage(
