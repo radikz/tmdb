@@ -29,7 +29,6 @@ import 'package:search/domain/usecases/search_movies.dart';
 import 'package:search/domain/usecases/search_tvs.dart';
 import 'package:search/presentation/bloc/movie/movie_search_bloc.dart';
 import 'package:search/presentation/bloc/tv/tv_search_bloc.dart';
-import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
 import 'package:tv/data/datasources/db/database_helper_tv.dart';
 import 'package:tv/data/datasources/tv_local_data_source.dart';

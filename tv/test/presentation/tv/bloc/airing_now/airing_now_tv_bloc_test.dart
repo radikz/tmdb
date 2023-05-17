@@ -45,13 +45,13 @@ void main() {
     'emits [Loading, Failure] when failure',
     build: () {
       when(mockGetAiringNowTvs.execute())
-          .thenAnswer((_) async => Left(ServerFailure("Error")));
+          .thenAnswer((_) async => const Left(ServerFailure("Error")));
       return airingNowTvBloc;
     },
     act: (bloc) => bloc.add(FetchAiringNowTv()),
     expect: () => <AiringNowTvState>[
       AiringNowTvLoading(),
-      AiringNowTvFailure("Error"),
+      const AiringNowTvFailure("Error"),
     ],
   );
 }

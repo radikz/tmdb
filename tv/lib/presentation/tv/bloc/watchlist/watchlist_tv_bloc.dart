@@ -20,7 +20,7 @@ class WatchlistTvBloc extends Bloc<WatchlistTvEvent, WatchlistTvState> {
         _saveWatchlist = saveWatchlist,
         _removeWatchlist = removeWatchlist,
         _getWatchlistTvs = getWatchlistTvs,
-        super(WatchlistTvState()) {
+        super(const WatchlistTvState()) {
     on<FetchWatchlistStatusTv>(_fetchWatchlistStatusTv);
     on<RemoveWatchlistTvEvent>(_removeWatchlistTv);
     on<AddWatchlistTv>(_addWatchlistTv);
@@ -57,7 +57,7 @@ class WatchlistTvBloc extends Bloc<WatchlistTvEvent, WatchlistTvState> {
     FetchWatchlistTv event,
     Emitter<WatchlistTvState> emit,
   ) async {
-    emit(WatchlistTvState(status: WatchlistTvStatus.loading));
+    emit(const WatchlistTvState(status: WatchlistTvStatus.loading));
     final result = await _getWatchlistTvs.execute();
 
     await result.fold(
@@ -101,7 +101,7 @@ class WatchlistTvBloc extends Bloc<WatchlistTvEvent, WatchlistTvState> {
     FetchWatchlistStatusTv event,
     Emitter<WatchlistTvState> emit,
   ) async {
-    emit(WatchlistTvState(status: WatchlistTvStatus.loading));
+    emit(const WatchlistTvState(status: WatchlistTvStatus.loading));
     final result = await _getWatchListStatus.execute(event.id);
     emit(state.copyWith(
         isAddedToWatchlist: result, status: WatchlistTvStatus.success));

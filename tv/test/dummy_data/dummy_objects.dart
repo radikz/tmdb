@@ -1,5 +1,4 @@
 import 'package:core/tv/data/models/tv_model.dart';
-import 'package:core/movie/domain/entities/movie.dart';
 import 'package:core/tv/domain/entities/tv.dart';
 import 'package:tv/data/models/detail_season_model.dart';
 import 'package:tv/data/models/season_model.dart';
@@ -11,14 +10,14 @@ import 'package:tv/domain/entities/season.dart';
 import 'package:tv/domain/entities/tv_detail.dart';
 import 'package:tv/domain/entities/tv_episode.dart';
 
-final testWatchlistTv = Tv.watchlist(
+const testWatchlistTv = Tv.watchlist(
   id: 1,
   name: 'name',
   posterPath: 'posterPath',
   overview: 'overview',
 );
 
-final testTvTable = TvTable(
+const testTvTable = TvTable(
   id: 1,
   name: 'name',
   posterPath: 'posterPath',
@@ -34,10 +33,10 @@ final testTvMap = {
 
 final testTv = Tv(
     firstAirDate: DateTime(2023, 2, 2).toIso8601String(),
-    genreIds: [],
+    genreIds: const [],
     id: 1,
     name: "name",
-    originCountry: [],
+    originCountry: const [],
     originalLanguage: "originalLanguage",
     originalName: "originalName",
     overview: "overview",
@@ -47,10 +46,10 @@ final testTv = Tv(
 
 final testTvModel = TvModel(
     firstAirDate: DateTime(2023, 2, 2).toIso8601String(),
-    genreIds: [],
+    genreIds: const [],
     id: 1,
     name: "name",
-    originCountry: [],
+    originCountry: const [],
     originalLanguage: "originalLanguage",
     originalName: "originalName",
     overview: "overview",
@@ -120,19 +119,19 @@ final testDetailSeasonModel = DetailSeasonModel(
 
 final testTvDetail = TvDetail(
     backdropPath: "backdropPath",
-    episodeRunTime: [],
+    episodeRunTime: const [],
     firstAirDate: DateTime(2023, 2, 2),
-    genres: [],
+    genres: const [],
     homepage: "homepage",
     id: 1,
     inProduction: false,
-    languages: [],
+    languages: const [],
     lastAirDate: DateTime(2023, 2, 2),
     lastEpisodeToAir: testTvEpisode,
     name: "name",
     numberOfEpisodes: 9,
     numberOfSeasons: 9,
-    originCountry: [],
+    originCountry: const [],
     originalLanguage: "",
     originalName: "originalName",
     overview: "overview",
@@ -147,19 +146,19 @@ final testTvDetail = TvDetail(
 
 final testTvModelDetail = TvDetailModel(
     backdropPath: "backdropPath",
-    episodeRunTime: [],
+    episodeRunTime: const [],
     firstAirDate: DateTime(2023, 2, 2),
-    genres: [],
+    genres: const [],
     homepage: "homepage",
     id: 1,
     inProduction: false,
-    languages: [],
+    languages: const [],
     lastAirDate: DateTime(2023, 2, 2),
     lastEpisodeToAir: testTvEpisodeModel,
     name: "name",
     numberOfEpisodes: 9,
     numberOfSeasons: 9,
-    originCountry: [],
+    originCountry: const [],
     originalLanguage: "",
     originalName: "originalName",
     overview: "overview",

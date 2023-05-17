@@ -19,10 +19,10 @@ void main() {
 
   final testTv = Tv(
       firstAirDate: DateTime(2023, 2, 2).toIso8601String(),
-      genreIds: [],
+      genreIds: const [],
       id: 1,
       name: "name",
-      originCountry: [],
+      originCountry: const [],
       originalLanguage: "originalLanguage",
       originalName: "originalName",
       overview: "overview",

@@ -13,7 +13,7 @@ void main() {
 
   setUp(() {
     repository = MockTvRepository();
-    getTopRatedTvs = new GetTopRatedTvs(repository);
+    getTopRatedTvs = GetTopRatedTvs(repository);
   });
   final listTv = <Tv>[testTv];
   test('get list of tv', () async {

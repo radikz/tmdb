@@ -3,7 +3,7 @@ import 'package:core/tv/domain/entities/tv.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  final tvModel = TvModel(
+  const tvModel = TvModel(
       firstAirDate: "firstAirDate",
       genreIds: [],
       id: 1,
@@ -16,7 +16,7 @@ void main() {
       voteAverage: 9,
       voteCount: 10);
 
-  final tvEntity = Tv(
+  const tvEntity = Tv(
       firstAirDate: "firstAirDate",
       genreIds: [],
       id: 1,

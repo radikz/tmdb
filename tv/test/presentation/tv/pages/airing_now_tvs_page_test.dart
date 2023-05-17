@@ -1,13 +1,10 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:core/utils/state_enum.dart';
 import 'package:core/tv/domain/entities/tv.dart';
 import 'package:core/widgets/tv_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:provider/provider.dart';
 import 'package:tv/presentation/tv/bloc/airing_now/airing_now_tv_bloc.dart';
 import 'package:tv/presentation/tv/pages/airing_now_tvs_page.dart';
 
@@ -39,7 +36,7 @@ void main() {
     final progressBarFinder = find.byType(CircularProgressIndicator);
     final centerFinder = find.byType(Center);
 
-    await tester.pumpWidget(_makeTestableWidget(AiringNowTvsPage()));
+    await tester.pumpWidget(_makeTestableWidget(const AiringNowTvsPage()));
 
     expect(centerFinder, findsOneWidget);
     expect(progressBarFinder, findsOneWidget);
@@ -48,11 +45,11 @@ void main() {
   group('when data is loaded', () {
     testWidgets('Page should display ListView when data is loaded',
         (WidgetTester tester) async {
-      when(() => mockBloc.state).thenReturn(AiringNowTvLoaded(<Tv>[]));
+      when(() => mockBloc.state).thenReturn(const AiringNowTvLoaded(<Tv>[]));
 
       final listViewFinder = find.byType(ListView);
 
-      await tester.pumpWidget(_makeTestableWidget(AiringNowTvsPage()));
+      await tester.pumpWidget(_makeTestableWidget(const AiringNowTvsPage()));
 
       expect(listViewFinder, findsOneWidget);
     });
@@ -63,7 +60,7 @@ void main() {
 
       final itemFinder = find.byType(TvCard);
 
-      await tester.pumpWidget(_makeTestableWidget(AiringNowTvsPage()));
+      await tester.pumpWidget(_makeTestableWidget(const AiringNowTvsPage()));
 
       expect(itemFinder, findsOneWidget);
     });
@@ -71,11 +68,11 @@ void main() {
 
   testWidgets('Page should display text with message when Error',
       (WidgetTester tester) async {
-    when(() => mockBloc.state).thenReturn(AiringNowTvFailure("Error message"));
+    when(() => mockBloc.state).thenReturn(const AiringNowTvFailure("Error message"));
 
-    final textFinder = find.byKey(Key('error_message_tv'));
+    final textFinder = find.byKey(const Key('error_message_tv'));
 
-    await tester.pumpWidget(_makeTestableWidget(AiringNowTvsPage()));
+    await tester.pumpWidget(_makeTestableWidget(const AiringNowTvsPage()));
 
     expect(textFinder, findsOneWidget);
   });

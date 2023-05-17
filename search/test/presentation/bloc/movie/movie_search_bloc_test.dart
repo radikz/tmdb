@@ -20,7 +20,7 @@ void main() {
     searchBloc = MovieSearchBloc(mockSearchMovies);
   });
 
-  final tMovieModel = Movie(
+  const tMovieModel = Movie(
     adult: false,
     backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
     genreIds: [14, 28],
@@ -37,7 +37,7 @@ void main() {
     voteCount: 13507,
   );
   final tMovieList = <Movie>[tMovieModel];
-  final tQuery = 'spiderman';
+  const tQuery = 'spiderman';
 
   test('initial state should be empty', () {
     expect(searchBloc.state, MovieSearchEmpty());
@@ -50,7 +50,7 @@ void main() {
           .thenAnswer((_) async => Right(tMovieList));
       return searchBloc;
     },
-    act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
+    act: (bloc) => bloc.add(const OnQueryChanged(tQuery)),
     wait: const Duration(milliseconds: 500),
     expect: () => [
       MovieSearchLoading(),
@@ -65,15 +65,15 @@ void main() {
     'Should emit [Loading, Error] when get search is unsuccessful',
     build: () {
       when(mockSearchMovies.execute(tQuery))
-          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return searchBloc;
     },
-    act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
+    act: (bloc) => bloc.add(const OnQueryChanged(tQuery)),
     expect: () => [
       MovieSearchLoading(),
-      MovieSearchError('Server Failure'),
+      const MovieSearchError('Server Failure'),
     ],
-    wait: Duration(milliseconds: 500),
+    wait: const Duration(milliseconds: 500),
     verify: (bloc) {
       verify(mockSearchMovies.execute(tQuery));
     },

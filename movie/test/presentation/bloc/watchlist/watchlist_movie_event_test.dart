@@ -6,10 +6,10 @@ import '../../../helper/dummy.dart';
 void main() {
   test('supports value comparison', () {
     expect(FetchWatchlistMovie(), FetchWatchlistMovie());
-    expect(FetchWatchlistStatusMovie(1), FetchWatchlistStatusMovie(1));
-    expect(RemoveWatchlistMovie(testMovieDetail),
-        RemoveWatchlistMovie(testMovieDetail));
+    expect(const FetchWatchlistStatusMovie(1), const FetchWatchlistStatusMovie(1));
+    expect(const RemoveWatchlistMovie(testMovieDetail),
+        const RemoveWatchlistMovie(testMovieDetail));
     expect(
-        AddWatchlistMovie(testMovieDetail), AddWatchlistMovie(testMovieDetail));
+        const AddWatchlistMovie(testMovieDetail), const AddWatchlistMovie(testMovieDetail));
   });
 }

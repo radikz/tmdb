@@ -7,7 +7,7 @@ import 'package:movie/data/models/movie_detail_model.dart';
 
 void main() {
   test('toJson should return a valid JSON object', () {
-    final movieDetail = MovieDetailResponse(
+    const movieDetail = MovieDetailResponse(
       adult: false,
       backdropPath: "/path.jpg",
       budget: 100,

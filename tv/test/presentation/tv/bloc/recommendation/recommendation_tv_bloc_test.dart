@@ -5,9 +5,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:tv/domain/usecases/tv/get_now_airing_tvs.dart';
 import 'package:tv/domain/usecases/tv/get_tvs_recommendation.dart';
-import 'package:tv/presentation/tv/bloc/airing_now/airing_now_tv_bloc.dart';
 import 'package:tv/presentation/tv/bloc/recommendation/recommendation_tv_bloc.dart';
 
 import '../../../../dummy_data/dummy_objects.dart';
@@ -36,7 +34,7 @@ void main() {
           .thenAnswer((_) async => Right(tTvList));
       return recommendationTvBloc;
     },
-    act: (bloc) => bloc.add(FetchRecommendationTv(1)),
+    act: (bloc) => bloc.add(const FetchRecommendationTv(1)),
     expect: () => <RecommendationTvState>[
       RecommendationTvLoading(),
       RecommendationTvLoaded(tTvList),
@@ -47,10 +45,10 @@ void main() {
     'emits [Loading, Empty] when data is gotten successfully',
     build: () {
       when(mockGetRecommendationTvs.execute(1))
-          .thenAnswer((_) async => Right(<Tv>[]));
+          .thenAnswer((_) async => const Right(<Tv>[]));
       return recommendationTvBloc;
     },
-    act: (bloc) => bloc.add(FetchRecommendationTv(1)),
+    act: (bloc) => bloc.add(const FetchRecommendationTv(1)),
     expect: () => <RecommendationTvState>[
       RecommendationTvLoading(),
       RecommendationTvEmpty(),
@@ -61,13 +59,13 @@ void main() {
     'emits [Loading, Failure] when failure',
     build: () {
       when(mockGetRecommendationTvs.execute(1))
-          .thenAnswer((_) async => Left(ServerFailure("Error")));
+          .thenAnswer((_) async => const Left(ServerFailure("Error")));
       return recommendationTvBloc;
     },
-    act: (bloc) => bloc.add(FetchRecommendationTv(1)),
+    act: (bloc) => bloc.add(const FetchRecommendationTv(1)),
     expect: () => <RecommendationTvState>[
       RecommendationTvLoading(),
-      RecommendationTvFailure("Error"),
+      const RecommendationTvFailure("Error"),
     ],
   );
 }

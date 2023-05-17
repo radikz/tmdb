@@ -1,18 +1,18 @@
 import 'package:core/styles/text_styles.dart';
-import 'package:core/utils/state_enum.dart';
 import 'package:core/widgets/empty_page.dart';
 import 'package:core/widgets/movie_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
 import 'package:search/presentation/bloc/movie/movie_search_bloc.dart';
 
 class SearchPage extends StatelessWidget {
+  const SearchPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Search'),
+        title: const Text('Search'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -23,14 +23,14 @@ class SearchPage extends StatelessWidget {
               onChanged: (value) {
                 context.read<MovieSearchBloc>().add(OnQueryChanged(value));
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Search title',
                 prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(),
               ),
               textInputAction: TextInputAction.search,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Text(
               'Search Result',
               style: kHeading6,
@@ -38,7 +38,7 @@ class SearchPage extends StatelessWidget {
             BlocBuilder<MovieSearchBloc, MovieSearchState>(
               builder: (context, state) {
                 if (state is MovieSearchLoading) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 } else if (state is MovieSearchHasData) {
@@ -54,7 +54,7 @@ class SearchPage extends StatelessWidget {
                     ),
                   );
                 } else if (state is MovieSearchEmpty) {
-                  return EmptyPage();
+                  return const EmptyPage();
                 } else {
                   return Expanded(
                     child: Container(),

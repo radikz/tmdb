@@ -6,7 +6,7 @@ import 'package:core/utils/json_reader.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  final tvModel = TvModel(
+  const tvModel = TvModel(
     backdropPath: "/xgZ9AhvXqi9aSDWzCpoC9JAkLPY.jpg",
     firstAirDate: "2019-01-01",
     genreIds: [35],
@@ -26,7 +26,7 @@ void main() {
   late TvResponse tvResponse;
 
   setUp(() {
-    tvResponse = TvResponse([tvModel]);
+    tvResponse = const TvResponse([tvModel]);
   });
 
   group('fromJson', () {

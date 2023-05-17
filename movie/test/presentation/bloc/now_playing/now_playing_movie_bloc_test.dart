@@ -20,7 +20,7 @@ void main() {
     nowPlayingMovieBloc = NowPlayingMovieBloc(mockGetNowPlayingMovies);
   });
 
-  final tMovie = Movie(
+  const tMovie = Movie(
     adult: false,
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
@@ -60,13 +60,13 @@ void main() {
     'emits [Loading, Failure] when failure',
     build: () {
       when(mockGetNowPlayingMovies.execute())
-          .thenAnswer((_) async => Left(ServerFailure("Error")));
+          .thenAnswer((_) async => const Left(ServerFailure("Error")));
       return nowPlayingMovieBloc;
     },
     act: (bloc) => bloc.add(FetchNowPlayingMovie()),
     expect: () => <NowPlayingMovieState>[
       NowPlayingMovieLoading(),
-      NowPlayingMovieFailure("Error"),
+      const NowPlayingMovieFailure("Error"),
     ],
   );
 }

@@ -115,7 +115,7 @@ void main() {
   });
 
   group('get movie detail', () {
-    final tId = 1;
+    const tId = 1;
     final tMovieDetail = MovieDetailResponse.fromJson(
         json.decode(readJson('dummy_data/movie_detail.json')));
 
@@ -146,7 +146,7 @@ void main() {
     final tMovieList = MovieResponse.fromJson(
             json.decode(readJson('dummy_data/movie_recommendations.json')))
         .movieList;
-    final tId = 1;
+    const tId = 1;
 
     test('should return list of Movie Model when the response code is 200',
         () async {

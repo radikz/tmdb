@@ -21,7 +21,7 @@ class WatchlistMovieBloc
         _saveWatchlist = saveWatchlist,
         _removeWatchlist = removeWatchlist,
         _getWatchlistMovies = getWatchlistMovies,
-        super(WatchlistMovieState()) {
+        super(const WatchlistMovieState()) {
     on<FetchWatchlistStatusMovie>(_fetchWatchlistStatusMovie);
     on<RemoveWatchlistMovie>(_removeWatchlistMovie);
     on<AddWatchlistMovie>(_addWatchlistMovie);
@@ -58,7 +58,7 @@ class WatchlistMovieBloc
     FetchWatchlistMovie event,
     Emitter<WatchlistMovieState> emit,
   ) async {
-    emit(WatchlistMovieState(status: WatchlistMovieStatus.loading));
+    emit(const WatchlistMovieState(status: WatchlistMovieStatus.loading));
     final result = await _getWatchlistMovies.execute();
 
     await result.fold(
@@ -102,7 +102,7 @@ class WatchlistMovieBloc
     FetchWatchlistStatusMovie event,
     Emitter<WatchlistMovieState> emit,
   ) async {
-    emit(WatchlistMovieState(status: WatchlistMovieStatus.loading));
+    emit(const WatchlistMovieState(status: WatchlistMovieStatus.loading));
     final result = await _getWatchListStatus.execute(event.id);
       emit(state.copyWith(
           isAddedToWatchlist: result, status: WatchlistMovieStatus.success));

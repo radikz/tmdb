@@ -5,11 +5,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:tv/domain/usecases/tv/get_now_airing_tvs.dart';
-import 'package:tv/domain/usecases/tv/get_tv_detail_episode.dart';
 import 'package:tv/domain/usecases/tv/get_tv_detail_season.dart';
-import 'package:tv/presentation/tv/bloc/airing_now/airing_now_tv_bloc.dart';
-import 'package:tv/presentation/tv/bloc/episode_detail/episode_detail_tv_bloc.dart';
 import 'package:tv/presentation/tv/bloc/season_detail/season_detail_tv_bloc.dart';
 
 import '../../../../dummy_data/dummy_objects.dart';
@@ -38,7 +34,7 @@ void main() {
           .thenAnswer((_) async => Right(testDetailSeason));
       return episodeDetailTvBloc;
     },
-    act: (bloc) => bloc.add(FetchSeasonDetailTv(id: 1, seasonNumber: 1, )),
+    act: (bloc) => bloc.add(const FetchSeasonDetailTv(id: 1, seasonNumber: 1, )),
     expect: () => <SeasonDetailTvState>[
       SeasonDetailTvLoading(),
       SeasonDetailTvLoaded(testDetailSeason),
@@ -49,13 +45,13 @@ void main() {
     'emits [Loading, Failure] when failure',
     build: () {
       when(mockGetSeasonDetailTvs.execute(1, 1,))
-          .thenAnswer((_) async => Left(ServerFailure("Error")));
+          .thenAnswer((_) async => const Left(ServerFailure("Error")));
       return episodeDetailTvBloc;
     },
-    act: (bloc) => bloc.add(FetchSeasonDetailTv(id: 1, seasonNumber: 1, )),
+    act: (bloc) => bloc.add(const FetchSeasonDetailTv(id: 1, seasonNumber: 1, )),
     expect: () => <SeasonDetailTvState>[
       SeasonDetailTvLoading(),
-      SeasonDetailTvFailure("Error"),
+      const SeasonDetailTvFailure("Error"),
     ],
   );
 }

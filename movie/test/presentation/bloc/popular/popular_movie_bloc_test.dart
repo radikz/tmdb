@@ -20,7 +20,7 @@ void main() {
     popularMovieBloc = PopularMovieBloc(mockGetpopularMovies);
   });
 
-  final tMovie = Movie(
+  const tMovie = Movie(
     adult: false,
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
@@ -60,13 +60,13 @@ void main() {
     'emits [Loading, Failure] when failure',
     build: () {
       when(mockGetpopularMovies.execute())
-          .thenAnswer((_) async => Left(ServerFailure("Error")));
+          .thenAnswer((_) async => const Left(ServerFailure("Error")));
       return popularMovieBloc;
     },
     act: (bloc) => bloc.add(FetchPopularMovie()),
     expect: () => <PopularMovieState>[
       PopularMovieLoading(),
-      PopularMovieFailure("Error"),
+      const PopularMovieFailure("Error"),
     ],
   );
 }

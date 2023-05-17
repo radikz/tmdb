@@ -1,5 +1,4 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:core/movie/domain/entities/movie.dart';
 import 'package:core/tv/domain/entities/tv.dart';
 import 'package:core/utils/failure.dart';
 import 'package:dartz/dartz.dart';
@@ -41,7 +40,7 @@ void main() {
   final testTvList = <Tv>[testTv];
 
   test('initial state is state', () {
-    expect(nowPlayingMovieBloc.state, WatchlistTvState());
+    expect(nowPlayingMovieBloc.state, const WatchlistTvState());
   });
 
   group('Fetching Watchlist Data', () {
@@ -54,7 +53,7 @@ void main() {
       },
       act: (bloc) => bloc.add(FetchWatchlistTv()),
       expect: () => <WatchlistTvState>[
-        WatchlistTvState(status: WatchlistTvStatus.loading),
+        const WatchlistTvState(status: WatchlistTvStatus.loading),
         WatchlistTvState(
             status: WatchlistTvStatus.success, watchlistTvs: testTvList),
       ],
@@ -64,13 +63,13 @@ void main() {
       'emits [Loading, Failure] when failure',
       build: () {
         when(mockGetWatchlistTvs.execute())
-            .thenAnswer((_) async => Left(DatabaseFailure("Error")));
+            .thenAnswer((_) async => const Left(DatabaseFailure("Error")));
         return nowPlayingMovieBloc;
       },
       act: (bloc) => bloc.add(FetchWatchlistTv()),
       expect: () => <WatchlistTvState>[
-        WatchlistTvState(status: WatchlistTvStatus.loading),
-        WatchlistTvState(
+        const WatchlistTvState(status: WatchlistTvStatus.loading),
+        const WatchlistTvState(
             status: WatchlistTvStatus.failure, message: "Error"),
       ],
     );
@@ -83,10 +82,10 @@ void main() {
         when(mockGetTvWatchlistStatus.execute(1)).thenAnswer((_) async => true);
         return nowPlayingMovieBloc;
       },
-      act: (bloc) => bloc.add(FetchWatchlistStatusTv(1)),
+      act: (bloc) => bloc.add(const FetchWatchlistStatusTv(1)),
       expect: () => <WatchlistTvState>[
-        WatchlistTvState(status: WatchlistTvStatus.loading),
-        WatchlistTvState(
+        const WatchlistTvState(status: WatchlistTvStatus.loading),
+        const WatchlistTvState(
             status: WatchlistTvStatus.success, isAddedToWatchlist: true),
       ],
     );
@@ -95,19 +94,19 @@ void main() {
       'emits [Loading, Success] when adding new data to watchlist',
       build: () {
         when(mockSaveWatchlistTv.execute(testTvDetail))
-            .thenAnswer((_) async => Right("Saved"));
+            .thenAnswer((_) async => const Right("Saved"));
         when(mockGetTvWatchlistStatus.execute(1)).thenAnswer((_) async => true);
         return nowPlayingMovieBloc;
       },
       act: (bloc) => bloc.add(AddWatchlistTv(testTvDetail)),
       expect: () => <WatchlistTvState>[
-        WatchlistTvState(status: WatchlistTvStatus.loading),
-        WatchlistTvState(
+        const WatchlistTvState(status: WatchlistTvStatus.loading),
+        const WatchlistTvState(
             status: WatchlistTvStatus.loading,
             message: "Saved",
             watchlistStatus: WatchlistStatus.saved),
-        WatchlistTvState(status: WatchlistTvStatus.loading),
-        WatchlistTvState(
+        const WatchlistTvState(status: WatchlistTvStatus.loading),
+        const WatchlistTvState(
             status: WatchlistTvStatus.success, isAddedToWatchlist: true),
       ],
     );
@@ -116,19 +115,19 @@ void main() {
       'emits [Loading, Failure] when failed adding new data to watchlist',
       build: () {
         when(mockSaveWatchlistTv.execute(testTvDetail))
-            .thenAnswer((_) async => Left(DatabaseFailure("Error")));
+            .thenAnswer((_) async => const Left(DatabaseFailure("Error")));
         when(mockGetTvWatchlistStatus.execute(1)).thenAnswer((_) async => false);
         return nowPlayingMovieBloc;
       },
       act: (bloc) => bloc.add(AddWatchlistTv(testTvDetail)),
       expect: () => <WatchlistTvState>[
-        WatchlistTvState(status: WatchlistTvStatus.loading),
-        WatchlistTvState(
+        const WatchlistTvState(status: WatchlistTvStatus.loading),
+        const WatchlistTvState(
             status: WatchlistTvStatus.loading,
             message: "Error",
             watchlistStatus: WatchlistStatus.failure),
-        WatchlistTvState(status: WatchlistTvStatus.loading),
-        WatchlistTvState(status: WatchlistTvStatus.success),
+        const WatchlistTvState(status: WatchlistTvStatus.loading),
+        const WatchlistTvState(status: WatchlistTvStatus.success),
       ],
     );
 
@@ -136,19 +135,19 @@ void main() {
       'emits [Loading, Success] when removing watchlist',
       build: () {
         when(mockRemoveWatchlistTv.execute(testTvDetail))
-            .thenAnswer((_) async => Right("Removed"));
+            .thenAnswer((_) async => const Right("Removed"));
         when(mockGetTvWatchlistStatus.execute(1)).thenAnswer((_) async => true);
         return nowPlayingMovieBloc;
       },
       act: (bloc) => bloc.add(RemoveWatchlistTvEvent(testTvDetail)),
       expect: () => <WatchlistTvState>[
-        WatchlistTvState(status: WatchlistTvStatus.loading),
-        WatchlistTvState(
+        const WatchlistTvState(status: WatchlistTvStatus.loading),
+        const WatchlistTvState(
             status: WatchlistTvStatus.loading,
             message: "Removed",
             watchlistStatus: WatchlistStatus.removed),
-        WatchlistTvState(status: WatchlistTvStatus.loading),
-        WatchlistTvState(
+        const WatchlistTvState(status: WatchlistTvStatus.loading),
+        const WatchlistTvState(
           status: WatchlistTvStatus.success,
           isAddedToWatchlist: true,
         ),
@@ -159,19 +158,19 @@ void main() {
       'emits [Loading, Failure] when failed to remove the watchlist',
       build: () {
         when(mockRemoveWatchlistTv.execute(testTvDetail))
-            .thenAnswer((_) async => Left(DatabaseFailure("Error")));
+            .thenAnswer((_) async => const Left(DatabaseFailure("Error")));
         when(mockGetTvWatchlistStatus.execute(1)).thenAnswer((_) async => false);
         return nowPlayingMovieBloc;
       },
       act: (bloc) => bloc.add(RemoveWatchlistTvEvent(testTvDetail)),
       expect: () => <WatchlistTvState>[
-        WatchlistTvState(status: WatchlistTvStatus.loading),
-        WatchlistTvState(
+        const WatchlistTvState(status: WatchlistTvStatus.loading),
+        const WatchlistTvState(
             status: WatchlistTvStatus.loading,
             message: "Error",
             watchlistStatus: WatchlistStatus.failure),
-            WatchlistTvState(status: WatchlistTvStatus.loading),
-        WatchlistTvState(
+            const WatchlistTvState(status: WatchlistTvStatus.loading),
+        const WatchlistTvState(
             status: WatchlistTvStatus.success,),
       ],
     );

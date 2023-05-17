@@ -6,11 +6,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:search/presentation/bloc/tv/tv_search_bloc.dart';
 
 class SearchTvPage extends StatelessWidget {
+  const SearchTvPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Search'),
+        title: const Text('Search'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -21,14 +23,14 @@ class SearchTvPage extends StatelessWidget {
               onChanged: (value) {
                 context.read<TvSearchBloc>().add(OnQueryChanged(value));
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Search title',
                 prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(),
               ),
               textInputAction: TextInputAction.search,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Text(
               'Search Result',
               style: kHeading6,
@@ -36,7 +38,7 @@ class SearchTvPage extends StatelessWidget {
             BlocBuilder<TvSearchBloc, TvSearchState>(
               builder: (context, state) {
                 if (state is TvSearchLoading) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 } else if (state is TvSearchHasData) {
@@ -52,7 +54,7 @@ class SearchTvPage extends StatelessWidget {
                     ),
                   );
                 } else if (state is TvSearchEmpty) {
-                  return EmptyPage();
+                  return const EmptyPage();
                 } else {
                   return Expanded(
                     child: Container(),

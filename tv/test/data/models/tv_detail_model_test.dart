@@ -9,13 +9,13 @@ import 'package:tv/domain/entities/tv_episode.dart';
 void main() {
   final detailTvModel = TvDetailModel(
       backdropPath: "backdrop",
-      episodeRunTime: [90],
+      episodeRunTime: const [90],
       firstAirDate: DateTime(2023, 4, 4),
-      genres: [],
+      genres: const [],
       homepage: "homepage",
       id: 1,
       inProduction: true,
-      languages: [],
+      languages: const [],
       lastAirDate: DateTime(2023),
       lastEpisodeToAir: TvEpisodeModel(
           id: 1,
@@ -31,7 +31,7 @@ void main() {
       name: "name",
       numberOfEpisodes: 9,
       numberOfSeasons: 9,
-      originCountry: [],
+      originCountry: const [],
       originalLanguage: "originalLanguage",
       originalName: "originalName",
       overview: "overview",
@@ -56,13 +56,13 @@ void main() {
 
   final detailTv = TvDetail(
       backdropPath: "backdrop",
-      episodeRunTime: [90],
+      episodeRunTime: const [90],
       firstAirDate: DateTime(2023, 4, 4),
-      genres: [],
+      genres: const [],
       homepage: "homepage",
       id: 1,
       inProduction: true,
-      languages: [],
+      languages: const [],
       lastAirDate: DateTime(2023),
       lastEpisodeToAir: TvEpisode(
           id: 1,
@@ -78,7 +78,7 @@ void main() {
       name: "name",
       numberOfEpisodes: 9,
       numberOfSeasons: 9,
-      originCountry: [],
+      originCountry: const [],
       originalLanguage: "originalLanguage",
       originalName: "originalName",
       overview: "overview",

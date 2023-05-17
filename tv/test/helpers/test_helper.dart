@@ -5,7 +5,6 @@ import 'package:tv/data/datasources/tv_remote_data_source.dart';
 import 'package:tv/domain/repositories/tv_repository.dart';
 
 import 'package:mockito/annotations.dart';
-import 'package:http/http.dart' as http;
 
 @GenerateMocks([
   DatabaseHelperTv,

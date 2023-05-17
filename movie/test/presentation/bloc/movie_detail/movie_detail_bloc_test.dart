@@ -28,13 +28,13 @@ void main() {
     'emits [Loading, Loaded] when data is gotten successfully',
     build: () {
       when(mockGetMovieDetails.execute(1))
-          .thenAnswer((_) async => Right(testMovieDetail));
+          .thenAnswer((_) async => const Right(testMovieDetail));
       return movieDetailBloc;
     },
-    act: (bloc) => bloc.add(FetchMovieDetail(1)),
+    act: (bloc) => bloc.add(const FetchMovieDetail(1)),
     expect: () => <MovieDetailState>[
       MovieDetailLoading(),
-      MovieDetailLoaded(testMovieDetail),
+      const MovieDetailLoaded(testMovieDetail),
     ],
   );
 
@@ -42,13 +42,13 @@ void main() {
     'emits [Loading, Failure] when failure',
     build: () {
       when(mockGetMovieDetails.execute(1))
-          .thenAnswer((_) async => Left(ServerFailure("Error")));
+          .thenAnswer((_) async => const Left(ServerFailure("Error")));
       return movieDetailBloc;
     },
-    act: (bloc) => bloc.add(FetchMovieDetail(1)),
+    act: (bloc) => bloc.add(const FetchMovieDetail(1)),
     expect: () => <MovieDetailState>[
       MovieDetailLoading(),
-      MovieDetailFailure("Error"),
+      const MovieDetailFailure("Error"),
     ],
   );
 }

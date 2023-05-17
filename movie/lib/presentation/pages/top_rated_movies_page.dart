@@ -1,23 +1,23 @@
-import 'package:core/utils/state_enum.dart';
 import 'package:core/widgets/movie_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/presentation/bloc/top_rated/top_rated_movie_bloc.dart';
-import 'package:provider/provider.dart';
 
 class TopRatedMoviesPage extends StatelessWidget {
+  const TopRatedMoviesPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Top Rated Movies'),
+        title: const Text('Top Rated Movies'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: BlocBuilder<TopRatedMovieBloc, TopRatedMovieState>(
           builder: (context, state) {
             if (state is TopRatedMovieLoading) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             } else if (state is TopRatedMovieLoaded) {
@@ -30,11 +30,11 @@ class TopRatedMoviesPage extends StatelessWidget {
               );
             } else if (state is TopRatedMovieFailure) {
               return Center(
-                key: Key('error_message'),
+                key: const Key('error_message'),
                 child: Text(state.message),
               );
             } else {
-              return SizedBox();
+              return const SizedBox();
             }
           },
         ),

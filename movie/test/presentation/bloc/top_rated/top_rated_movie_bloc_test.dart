@@ -20,7 +20,7 @@ void main() {
     topRatedMovieBloc = TopRatedMovieBloc(mockGettopRatedMovies);
   });
 
-  final tMovie = Movie(
+  const tMovie = Movie(
     adult: false,
     backdropPath: 'backdropPath',
     genreIds: [1, 2, 3],
@@ -60,13 +60,13 @@ void main() {
     'emits [Loading, Failure] when failure',
     build: () {
       when(mockGettopRatedMovies.execute())
-          .thenAnswer((_) async => Left(ServerFailure("Error")));
+          .thenAnswer((_) async => const Left(ServerFailure("Error")));
       return topRatedMovieBloc;
     },
     act: (bloc) => bloc.add(FetchTopRatedMovie()),
     expect: () => <TopRatedMovieState>[
       TopRatedMovieLoading(),
-      TopRatedMovieFailure("Error"),
+      const TopRatedMovieFailure("Error"),
     ],
   );
 }

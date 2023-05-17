@@ -5,7 +5,7 @@ import 'package:core/tv/data/models/tv_model.dart';
 class TvResponse extends Equatable {
   final List<TvModel> tvList;
 
-  TvResponse(this.tvList);
+  const TvResponse(this.tvList);
 
   @override
   List<Object> get props => [tvList];

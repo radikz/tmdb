@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:movie/presentation/bloc/popular/popular_movie_bloc.dart';
 import 'package:movie/presentation/bloc/top_rated/top_rated_movie_bloc.dart';
-import 'package:movie/presentation/pages/popular_movies_page.dart';
 import 'package:movie/presentation/pages/top_rated_movies_page.dart';
 
 import '../../helper/dummy.dart';
@@ -40,7 +38,7 @@ void main() {
     final progressBarFinder = find.byType(CircularProgressIndicator);
     final centerFinder = find.byType(Center);
 
-    await tester.pumpWidget(_makeTestableWidget(TopRatedMoviesPage()));
+    await tester.pumpWidget(_makeTestableWidget(const TopRatedMoviesPage()));
 
     expect(centerFinder, findsOneWidget);
     expect(progressBarFinder, findsOneWidget);
@@ -49,11 +47,11 @@ void main() {
   group('when data is loaded', () {
     testWidgets('Page should display ListView when data is loaded',
         (WidgetTester tester) async {
-      when(() => mockBloc.state).thenReturn(TopRatedMovieLoaded(<Movie>[]));
+      when(() => mockBloc.state).thenReturn(const TopRatedMovieLoaded(<Movie>[]));
 
       final listViewFinder = find.byType(ListView);
 
-      await tester.pumpWidget(_makeTestableWidget(TopRatedMoviesPage()));
+      await tester.pumpWidget(_makeTestableWidget(const TopRatedMoviesPage()));
 
       expect(listViewFinder, findsOneWidget);
     });
@@ -61,11 +59,11 @@ void main() {
     testWidgets('Page should display item when loaded',
         (WidgetTester tester) async {
       when(() => mockBloc.state)
-          .thenReturn(TopRatedMovieLoaded(<Movie>[testMovie]));
+          .thenReturn(const TopRatedMovieLoaded(<Movie>[testMovie]));
 
       final itemFinder = find.byType(MovieCard);
 
-      await tester.pumpWidget(_makeTestableWidget(TopRatedMoviesPage()));
+      await tester.pumpWidget(_makeTestableWidget(const TopRatedMoviesPage()));
 
       expect(itemFinder, findsOneWidget);
     });
@@ -73,11 +71,11 @@ void main() {
 
   testWidgets('Page should display text with message when Error',
       (WidgetTester tester) async {
-    when(() => mockBloc.state).thenReturn(TopRatedMovieFailure("Error"));
+    when(() => mockBloc.state).thenReturn(const TopRatedMovieFailure("Error"));
 
-    final textFinder = find.byKey(Key('error_message'));
+    final textFinder = find.byKey(const Key('error_message'));
 
-    await tester.pumpWidget(_makeTestableWidget(TopRatedMoviesPage()));
+    await tester.pumpWidget(_makeTestableWidget(const TopRatedMoviesPage()));
 
     expect(textFinder, findsOneWidget);
   });

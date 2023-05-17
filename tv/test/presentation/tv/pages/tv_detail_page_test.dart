@@ -1,12 +1,9 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:core/utils/state_enum.dart';
 import 'package:core/tv/domain/entities/tv.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:provider/provider.dart';
 import 'package:tv/presentation/tv/bloc/recommendation/recommendation_tv_bloc.dart';
 import 'package:tv/presentation/tv/bloc/tv_detail/tv_detail_bloc.dart';
 import 'package:tv/presentation/tv/bloc/watchlist/watchlist_tv_bloc.dart';
@@ -59,21 +56,21 @@ void main() {
   group('Detail Tv', () {
     testWidgets("detail tv is loading", (tester) async {
       when(() => movieDetailBloc.state).thenReturn(TvDetailLoading());
-      when(() => watchlistTvBloc.state).thenReturn(WatchlistTvState());
+      when(() => watchlistTvBloc.state).thenReturn(const WatchlistTvState());
 
       final loadingWidget = find.byType(CircularProgressIndicator);
 
-      await tester.pumpWidget(_makeTestableWidget(TvDetailPage(id: 1)));
+      await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(id: 1)));
 
       expect(loadingWidget, findsOneWidget);
     });
 
     testWidgets("detail tv is error", (tester) async {
-      when(() => movieDetailBloc.state).thenReturn(TvDetailFailure("error"));
-      when(() => watchlistTvBloc.state).thenReturn(WatchlistTvState());
+      when(() => movieDetailBloc.state).thenReturn(const TvDetailFailure("error"));
+      when(() => watchlistTvBloc.state).thenReturn(const WatchlistTvState());
       final errorWidget = find.byType(Text);
 
-      await tester.pumpWidget(_makeTestableWidget(TvDetailPage(id: 1)));
+      await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(id: 1)));
 
       expect(errorWidget, findsOneWidget);
     });
@@ -84,12 +81,12 @@ void main() {
             .thenReturn(TvDetailLoaded(testTvDetail));
         when(() => recommendationTvBloc.state)
             .thenReturn(RecommendationTvLoading());
-        when(() => watchlistTvBloc.state).thenReturn(WatchlistTvState());
+        when(() => watchlistTvBloc.state).thenReturn(const WatchlistTvState());
 
         final loadingRecommendation =
-            find.byKey(ValueKey("__recommendation_loading__tv"));
+            find.byKey(const ValueKey("__recommendation_loading__tv"));
 
-        await tester.pumpWidget(_makeTestableWidget(TvDetailPage(id: 1)));
+        await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(id: 1)));
 
         expect(loadingRecommendation, findsOneWidget);
       });
@@ -98,12 +95,12 @@ void main() {
         when(() => movieDetailBloc.state)
             .thenReturn(TvDetailLoaded(testTvDetail));
         when(() => recommendationTvBloc.state)
-            .thenReturn(RecommendationTvFailure("error"));
-        when(() => watchlistTvBloc.state).thenReturn(WatchlistTvState());
+            .thenReturn(const RecommendationTvFailure("error"));
+        when(() => watchlistTvBloc.state).thenReturn(const WatchlistTvState());
 
-        final errorRecom = find.byKey(ValueKey("__recommendation_error__tv"));
+        final errorRecom = find.byKey(const ValueKey("__recommendation_error__tv"));
 
-        await tester.pumpWidget(_makeTestableWidget(TvDetailPage(id: 1)));
+        await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(id: 1)));
 
         expect(errorRecom, findsOneWidget);
       });
@@ -113,11 +110,11 @@ void main() {
             .thenReturn(TvDetailLoaded(testTvDetail));
         when(() => recommendationTvBloc.state)
             .thenReturn(RecommendationTvEmpty());
-        when(() => watchlistTvBloc.state).thenReturn(WatchlistTvState());
+        when(() => watchlistTvBloc.state).thenReturn(const WatchlistTvState());
 
-        final errorRecom = find.byKey(ValueKey("__recommendation_empty__tv"));
+        final errorRecom = find.byKey(const ValueKey("__recommendation_empty__tv"));
 
-        await tester.pumpWidget(_makeTestableWidget(TvDetailPage(id: 1)));
+        await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(id: 1)));
 
         expect(errorRecom, findsOneWidget);
       });
@@ -129,11 +126,11 @@ void main() {
             .thenReturn(TvDetailLoaded(testTvDetail));
         when(() => recommendationTvBloc.state)
             .thenReturn(RecommendationTvLoaded(testTvList));
-        when(() => watchlistTvBloc.state).thenReturn(WatchlistTvState());
+        when(() => watchlistTvBloc.state).thenReturn(const WatchlistTvState());
 
-        final inkWell = find.byKey(ValueKey("__recommendation_inkwell__tv"));
+        final inkWell = find.byKey(const ValueKey("__recommendation_inkwell__tv"));
 
-        await tester.pumpWidget(_makeTestableWidget(TvDetailPage(id: 1)));
+        await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(id: 1)));
 
         expect(inkWell, findsOneWidget);
       });
@@ -143,12 +140,12 @@ void main() {
             .thenReturn(TvDetailLoaded(testTvDetail));
         when(() => recommendationTvBloc.state)
             .thenReturn(RecommendationTvLoaded(testTvList));
-        when(() => watchlistTvBloc.state).thenReturn(WatchlistTvState());
+        when(() => watchlistTvBloc.state).thenReturn(const WatchlistTvState());
 
-        final inkwell = find.byKey(ValueKey("__season_inkwell__tv"));
-        final text = find.byKey(ValueKey("__detail_season_text__tv"));
+        final inkwell = find.byKey(const ValueKey("__season_inkwell__tv"));
+        final text = find.byKey(const ValueKey("__detail_season_text__tv"));
 
-        await tester.pumpWidget(_makeTestableWidget(TvDetailPage(id: 1)));
+        await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(id: 1)));
 
         expect(text, findsOneWidget);
         expect(inkwell, findsOneWidget);
@@ -162,11 +159,11 @@ void main() {
         when(() => recommendationTvBloc.state)
             .thenReturn(RecommendationTvLoaded(testTvList));
         when(() => watchlistTvBloc.state)
-            .thenReturn(WatchlistTvState(isAddedToWatchlist: false));
+            .thenReturn(const WatchlistTvState(isAddedToWatchlist: false));
 
         final loadingWidget = find.byIcon(Icons.add);
 
-        await tester.pumpWidget(_makeTestableWidget(TvDetailPage(id: 1)));
+        await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(id: 1)));
 
         expect(loadingWidget, findsOneWidget);
       });
@@ -179,11 +176,11 @@ void main() {
         when(() => recommendationTvBloc.state)
             .thenReturn(RecommendationTvLoaded(testTvList));
         when(() => watchlistTvBloc.state)
-            .thenReturn(WatchlistTvState(isAddedToWatchlist: true));
+            .thenReturn(const WatchlistTvState(isAddedToWatchlist: true));
 
         final loadingWidget = find.byIcon(Icons.check);
 
-        await tester.pumpWidget(_makeTestableWidget(TvDetailPage(id: 1)));
+        await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(id: 1)));
 
         expect(loadingWidget, findsOneWidget);
       });
@@ -195,7 +192,7 @@ void main() {
             .thenReturn(TvDetailLoaded(testTvDetail));
         when(() => recommendationTvBloc.state)
             .thenReturn(RecommendationTvLoaded(testTvList));
-        when(() => watchlistTvBloc.state).thenReturn(WatchlistTvState(
+        when(() => watchlistTvBloc.state).thenReturn(const WatchlistTvState(
             isAddedToWatchlist: false, message: "Added to Watchlist"));
         whenListen<WatchlistTvState>(
           watchlistTvBloc,
@@ -208,7 +205,7 @@ void main() {
 
         final watchlistButton = find.byType(ElevatedButton);
 
-        await tester.pumpWidget(_makeTestableWidget(TvDetailPage(id: 1)));
+        await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(id: 1)));
 
         expect(find.byIcon(Icons.add), findsOneWidget);
 
@@ -226,7 +223,7 @@ void main() {
             .thenReturn(TvDetailLoaded(testTvDetail));
         when(() => recommendationTvBloc.state)
             .thenReturn(RecommendationTvLoaded(testTvList));
-        when(() => watchlistTvBloc.state).thenReturn(WatchlistTvState(
+        when(() => watchlistTvBloc.state).thenReturn(const WatchlistTvState(
             isAddedToWatchlist: true, message: "Removed from Watchlist"));
         whenListen<WatchlistTvState>(
           watchlistTvBloc,
@@ -239,7 +236,7 @@ void main() {
 
         final watchlistButton = find.byType(ElevatedButton);
 
-        await tester.pumpWidget(_makeTestableWidget(TvDetailPage(id: 1)));
+        await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(id: 1)));
 
         expect(find.byIcon(Icons.check), findsOneWidget);
 
@@ -258,7 +255,7 @@ void main() {
         when(() => recommendationTvBloc.state)
             .thenReturn(RecommendationTvLoaded(testTvList));
         when(() => watchlistTvBloc.state).thenReturn(
-            WatchlistTvState(isAddedToWatchlist: false, message: 'Failed'));
+            const WatchlistTvState(isAddedToWatchlist: false, message: 'Failed'));
         whenListen<WatchlistTvState>(
           watchlistTvBloc,
           Stream.fromIterable(const [
@@ -269,7 +266,7 @@ void main() {
 
         final watchlistButton = find.byType(ElevatedButton);
 
-        await tester.pumpWidget(_makeTestableWidget(TvDetailPage(id: 1)));
+        await tester.pumpWidget(_makeTestableWidget(const TvDetailPage(id: 1)));
 
         expect(find.byIcon(Icons.add), findsOneWidget);
 

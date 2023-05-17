@@ -27,7 +27,7 @@ void main() {
     );
   });
 
-  final tMovieModel = MovieModel(
+  const tMovieModel = MovieModel(
     adult: false,
     backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
     genreIds: [14, 28],
@@ -44,7 +44,7 @@ void main() {
     voteCount: 13507,
   );
 
-  final tMovie = Movie(
+  const tMovie = Movie(
     adult: false,
     backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
     genreIds: [14, 28],
@@ -63,10 +63,10 @@ void main() {
 
   final testTv = Tv(
       firstAirDate: DateTime(2023, 2, 2).toIso8601String(),
-      genreIds: [],
+      genreIds: const [],
       id: 1,
       name: "name",
-      originCountry: [],
+      originCountry: const [],
       originalLanguage: "originalLanguage",
       originalName: "originalName",
       overview: "overview",
@@ -76,10 +76,10 @@ void main() {
 
   final testTvModel = TvModel(
       firstAirDate: DateTime(2023, 2, 2).toIso8601String(),
-      genreIds: [],
+      genreIds: const [],
       id: 1,
       name: "name",
-      originCountry: [],
+      originCountry: const [],
       originalLanguage: "originalLanguage",
       originalName: "originalName",
       overview: "overview",
@@ -93,7 +93,7 @@ void main() {
   final tTvList = <Tv>[testTv];
 
   group('Seach Movies', () {
-    final tQuery = 'spiderman';
+    const tQuery = 'spiderman';
 
     test('should return movie list when call to data source is successful',
         () async {
@@ -116,7 +116,7 @@ void main() {
       // act
       final result = await repository.searchMovies(tQuery);
       // assert
-      expect(result, Left(ServerFailure('')));
+      expect(result, const Left(ServerFailure('')));
     });
 
     test(
@@ -124,17 +124,17 @@ void main() {
         () async {
       // arrange
       when(mockRemoteDataSource.searchMovies(tQuery))
-          .thenThrow(SocketException('Failed to connect to the network'));
+          .thenThrow(const SocketException('Failed to connect to the network'));
       // act
       final result = await repository.searchMovies(tQuery);
       // assert
       expect(
-          result, Left(ConnectionFailure('Failed to connect to the network')));
+          result, const Left(ConnectionFailure('Failed to connect to the network')));
     });
   });
 
   group('Search TV', () {
-    final keyword = "test";
+    const keyword = "test";
     test(
         'should return remote data when the call to remote data source is successful',
         () async {
@@ -157,20 +157,20 @@ void main() {
       final result = await repository.searchTvs(keyword);
 
       verify(mockRemoteDataSource.searchTvs(keyword));
-      expect(result, equals(Left(ServerFailure(''))));
+      expect(result, equals(const Left(ServerFailure(''))));
     });
 
     test(
         'should return connection failure when the device is not connected to internet',
         () async {
       when(mockRemoteDataSource.searchTvs(keyword))
-          .thenThrow(SocketException('Failed to connect to the network'));
+          .thenThrow(const SocketException('Failed to connect to the network'));
 
       final result = await repository.searchTvs(keyword);
 
       verify(mockRemoteDataSource.searchTvs(keyword));
       expect(result,
-          equals(Left(ConnectionFailure('Failed to connect to the network'))));
+          equals(const Left(ConnectionFailure('Failed to connect to the network'))));
     });
   });
 }

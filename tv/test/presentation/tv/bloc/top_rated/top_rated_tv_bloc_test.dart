@@ -5,9 +5,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:tv/domain/usecases/tv/get_now_airing_tvs.dart';
 import 'package:tv/domain/usecases/tv/get_top_rated_tvs.dart';
-import 'package:tv/presentation/tv/bloc/airing_now/airing_now_tv_bloc.dart';
 import 'package:tv/presentation/tv/bloc/top_rated/top_rated_tv_bloc.dart';
 
 import '../../../../dummy_data/dummy_objects.dart';
@@ -47,13 +45,13 @@ void main() {
     'emits [Loading, Failure] when failure',
     build: () {
       when(mockGetTopRatedTvs.execute())
-          .thenAnswer((_) async => Left(ServerFailure("Error")));
+          .thenAnswer((_) async => const Left(ServerFailure("Error")));
       return topRatedTvBloc;
     },
     act: (bloc) => bloc.add(FetchTopRatedTv()),
     expect: () => <TopRatedTvState>[
       TopRatedTvLoading(),
-      TopRatedTvFailure("Error"),
+      const TopRatedTvFailure("Error"),
     ],
   );
 }

@@ -17,10 +17,10 @@ void main() {
 
   test('save watchlist tv', () async {
     when(repository.saveWatchlist(testTvDetail))
-        .thenAnswer((_) async => Right("Added to Watchlist"));
+        .thenAnswer((_) async => const Right("Added to Watchlist"));
 
     final result = await saveWatchlistTv.execute(testTvDetail);
 
-    expect(result, Right("Added to Watchlist"));
+    expect(result, const Right("Added to Watchlist"));
   });
 }

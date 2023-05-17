@@ -1,10 +1,6 @@
 import 'package:about/about_page.dart';
 import 'package:core/core.dart';
-import 'package:core/styles/colors.dart';
-import 'package:core/styles/text_styles.dart';
-import 'package:core/utils/utils.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/presentation/bloc/movie_detail/movie_detail_bloc.dart';
 import 'package:movie/presentation/bloc/now_playing/bloc/now_playing_movie_bloc.dart';

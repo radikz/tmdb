@@ -3,9 +3,9 @@ import 'package:core/movie/domain/entities/genre.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  final genreModel = GenreModel(id: 28, name: "Action");
+  const genreModel = GenreModel(id: 28, name: "Action");
 
-  final genreEntity = Genre(id: 28, name: "Action");
+  const genreEntity = Genre(id: 28, name: "Action");
 
   test('toEntity', () {
     final entity = genreModel.toEntity();

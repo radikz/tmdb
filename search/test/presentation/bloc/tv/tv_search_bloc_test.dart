@@ -22,10 +22,10 @@ void main() {
 
   final tTv = Tv(
       firstAirDate: DateTime(2023, 2, 2).toIso8601String(),
-      genreIds: [],
+      genreIds: const [],
       id: 1,
       name: "name",
-      originCountry: [],
+      originCountry: const [],
       originalLanguage: "originalLanguage",
       originalName: "originalName",
       overview: "overview",
@@ -33,7 +33,7 @@ void main() {
       voteAverage: 9,
       voteCount: 9);
   final tTvList = <Tv>[tTv];
-  final tQuery = 'spiderman';
+  const tQuery = 'spiderman';
 
   test('initial state should be initial', () {
     expect(searchBloc.state, TvSearchInitial());
@@ -46,7 +46,7 @@ void main() {
           .thenAnswer((_) async => Right(tTvList));
       return searchBloc;
     },
-    act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
+    act: (bloc) => bloc.add(const OnQueryChanged(tQuery)),
     wait: const Duration(milliseconds: 500),
     expect: () => [
       TvSearchLoading(),
@@ -61,10 +61,10 @@ void main() {
     'Should emit [Loading, Empty] when data is empty',
     build: () {
       when(mockSearchTv.execute(tQuery))
-          .thenAnswer((_) async => Right(<Tv>[]));
+          .thenAnswer((_) async => const Right(<Tv>[]));
       return searchBloc;
     },
-    act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
+    act: (bloc) => bloc.add(const OnQueryChanged(tQuery)),
     wait: const Duration(milliseconds: 500),
     expect: () => [
       TvSearchLoading(),
@@ -79,15 +79,15 @@ void main() {
     'Should emit [Loading, Error] when get search is unsuccessful',
     build: () {
       when(mockSearchTv.execute(tQuery))
-          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       return searchBloc;
     },
-    act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
+    act: (bloc) => bloc.add(const OnQueryChanged(tQuery)),
     expect: () => [
       TvSearchLoading(),
-      TvSearchError('Server Failure'),
+      const TvSearchError('Server Failure'),
     ],
-    wait: Duration(milliseconds: 500),
+    wait: const Duration(milliseconds: 500),
     verify: (bloc) {
       verify(mockSearchTv.execute(tQuery));
     },

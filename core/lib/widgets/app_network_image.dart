@@ -21,7 +21,7 @@ class AppNetworkImage extends StatelessWidget {
         height: 200,
         width: 90,
       ),
-      errorWidget: (context, url, error) => Icon(Icons.error),
+      errorWidget: (context, url, error) => const Icon(Icons.error),
     );
   }
 }

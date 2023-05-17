@@ -4,7 +4,7 @@ import 'package:tv/data/models/tv_episode_model.dart';
 import '../../domain/entities/detail_season.dart';
 
 class DetailSeasonModel extends Equatable {
-  DetailSeasonModel({
+  const DetailSeasonModel({
     required this.airDate,
     required this.id,
     required this.name,

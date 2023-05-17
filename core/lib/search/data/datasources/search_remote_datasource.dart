@@ -6,7 +6,6 @@ import 'package:core/tv/data/models/tv_model.dart';
 import 'package:core/tv/data/models/tv_response.dart';
 import 'package:core/utils/constants.dart';
 import 'package:core/utils/exception.dart';
-import 'package:http/http.dart' as http;
 import 'package:http/io_client.dart';
 
 abstract class SearchRemoteDataSource {

@@ -31,7 +31,7 @@ void main() {
           .thenAnswer((_) async => Right(testTvDetail));
       return tvDetailBloc;
     },
-    act: (bloc) => bloc.add(FetchTvDetail(1)),
+    act: (bloc) => bloc.add(const FetchTvDetail(1)),
     expect: () => <TvDetailState>[
       TvDetailLoading(),
       TvDetailLoaded(testTvDetail),
@@ -42,13 +42,13 @@ void main() {
     'emits [Loading, Failure] when failure',
     build: () {
       when(mockGetTvDetails.execute(1))
-          .thenAnswer((_) async => Left(ServerFailure("Error")));
+          .thenAnswer((_) async => const Left(ServerFailure("Error")));
       return tvDetailBloc;
     },
-    act: (bloc) => bloc.add(FetchTvDetail(1)),
+    act: (bloc) => bloc.add(const FetchTvDetail(1)),
     expect: () => <TvDetailState>[
       TvDetailLoading(),
-      TvDetailFailure("Error"),
+      const TvDetailFailure("Error"),
     ],
   );
 }

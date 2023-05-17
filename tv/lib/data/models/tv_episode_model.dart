@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import '../../domain/entities/tv_episode.dart';
 
 class TvEpisodeModel extends Equatable {
-  TvEpisodeModel({
+  const TvEpisodeModel({
     required this.id,
     required this.name,
     required this.overview,

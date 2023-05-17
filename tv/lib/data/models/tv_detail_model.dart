@@ -6,7 +6,7 @@ import 'season_model.dart';
 import 'tv_episode_model.dart';
 
 class TvDetailModel extends Equatable {
-  TvDetailModel({
+  const TvDetailModel({
     required this.backdropPath,
     required this.episodeRunTime,
     required this.firstAirDate,

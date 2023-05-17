@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:core/utils/encrypt.dart';
 import 'package:movie/data/models/movie_table.dart';
 import 'package:sqflite_sqlcipher/sqflite.dart';
 
@@ -15,9 +14,7 @@ class DatabaseHelper {
   static Database? _database;
 
   Future<Database?> get database async {
-    if (_database == null) {
-      _database = await _initDb();
-    }
+    _database ??= await _initDb();
     return _database;
   }
 

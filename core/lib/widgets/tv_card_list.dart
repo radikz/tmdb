@@ -1,14 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/core.dart';
-import 'package:core/styles/text_styles.dart';
-import 'package:core/utils/constants.dart';
 import 'package:core/tv/domain/entities/tv.dart';
 import 'package:flutter/material.dart';
 
 class TvCard extends StatelessWidget {
   final Tv tv;
 
-  TvCard(this.tv);
+  const TvCard(this.tv, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +39,7 @@ class TvCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: kHeading6,
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Text(
                       tv.overview ?? '-',
                       maxLines: 2,
@@ -57,15 +55,15 @@ class TvCard extends StatelessWidget {
                 bottom: 16,
               ),
               child: ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
                 child: CachedNetworkImage(
                   imageUrl: '$BASE_IMAGE_URL${tv.posterPath}',
                   width: 80,
                   placeholder: (context, url) => Container(
-                    color: Color.fromRGBO(255, 0, 0, 0.5),
+                    color: const Color.fromRGBO(255, 0, 0, 0.5),
                   ),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
-                borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
             ),
           ],

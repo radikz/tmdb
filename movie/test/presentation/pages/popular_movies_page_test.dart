@@ -38,7 +38,7 @@ void main() {
     final progressBarFinder = find.byType(CircularProgressIndicator);
     final centerFinder = find.byType(Center);
 
-    await tester.pumpWidget(_makeTestableWidget(PopularMoviesPage()));
+    await tester.pumpWidget(_makeTestableWidget(const PopularMoviesPage()));
 
     expect(centerFinder, findsOneWidget);
     expect(progressBarFinder, findsOneWidget);
@@ -47,11 +47,11 @@ void main() {
   group('when data is loaded', () {
     testWidgets('Page should display ListView when data is loaded',
         (WidgetTester tester) async {
-      when(() => mockBloc.state).thenReturn(PopularMovieLoaded(<Movie>[]));
+      when(() => mockBloc.state).thenReturn(const PopularMovieLoaded(<Movie>[]));
 
       final listViewFinder = find.byType(ListView);
 
-      await tester.pumpWidget(_makeTestableWidget(PopularMoviesPage()));
+      await tester.pumpWidget(_makeTestableWidget(const PopularMoviesPage()));
 
       expect(listViewFinder, findsOneWidget);
     });
@@ -59,11 +59,11 @@ void main() {
     testWidgets('Page should display item when loaded',
         (WidgetTester tester) async {
       when(() => mockBloc.state)
-          .thenReturn(PopularMovieLoaded(<Movie>[testMovie]));
+          .thenReturn(const PopularMovieLoaded(<Movie>[testMovie]));
 
       final itemFinder = find.byType(MovieCard);
 
-      await tester.pumpWidget(_makeTestableWidget(PopularMoviesPage()));
+      await tester.pumpWidget(_makeTestableWidget(const PopularMoviesPage()));
 
       expect(itemFinder, findsOneWidget);
     });
@@ -71,11 +71,11 @@ void main() {
 
   testWidgets('Page should display text with message when Error',
       (WidgetTester tester) async {
-    when(() => mockBloc.state).thenReturn(PopularMovieFailure("Error"));
+    when(() => mockBloc.state).thenReturn(const PopularMovieFailure("Error"));
 
-    final textFinder = find.byKey(Key('error_message'));
+    final textFinder = find.byKey(const Key('error_message'));
 
-    await tester.pumpWidget(_makeTestableWidget(PopularMoviesPage()));
+    await tester.pumpWidget(_makeTestableWidget(const PopularMoviesPage()));
 
     expect(textFinder, findsOneWidget);
   });

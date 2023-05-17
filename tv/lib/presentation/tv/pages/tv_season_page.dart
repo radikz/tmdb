@@ -1,12 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/core.dart';
-import 'package:core/styles/text_styles.dart';
-import 'package:core/utils/constants.dart';
-import 'package:core/utils/state_enum.dart';
 import 'package:core/widgets/app_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
 import 'package:tv/domain/entities/tv_episode.dart';
 import 'package:tv/presentation/tv/bloc/season_detail/season_detail_tv_bloc.dart';
 import 'package:tv/presentation/tv/pages/tv_detail_episode_page.dart';
@@ -32,7 +27,7 @@ class _TvDetailEpisodePageState extends State<TvSeasonPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Season"),
+        title: const Text("Season"),
       ),
       body:
           SafeArea(child: BlocBuilder<SeasonDetailTvBloc, SeasonDetailTvState>(
@@ -48,16 +43,16 @@ class _TvDetailEpisodePageState extends State<TvSeasonPage> {
               itemCount: state.result.episodes.length,
             );
           } else if (state is SeasonDetailTvLoading) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           } else if (state is SeasonDetailTvFailure) {
             return Text(
               state.message,
-              key: ValueKey("__season_error__tv"),
+              key: const ValueKey("__season_error__tv"),
             );
           } else {
-            return SizedBox();
+            return const SizedBox();
           }
         },
       )),
@@ -69,7 +64,7 @@ class SeasonContent extends StatelessWidget {
   final TvEpisode episode;
   final int tvId;
 
-  SeasonContent({required this.episode, required this.tvId});
+  const SeasonContent({super.key, required this.episode, required this.tvId});
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +100,7 @@ class SeasonContent extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: kHeading6,
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Text(
                       episode.overview,
                       maxLines: 2,
@@ -121,13 +116,14 @@ class SeasonContent extends StatelessWidget {
                 bottom: 16,
               ),
               child: ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
                 child: Visibility(
                   visible: episode.stillPath != null,
                   replacement: Container(
                       width: 80,
                       height: 100,
                       color: Colors.grey,
-                      child: Center(
+                      child: const Center(
                         child: Icon(
                           Icons.movie,
                           color: Colors.black,
@@ -139,7 +135,6 @@ class SeasonContent extends StatelessWidget {
                     height: 100,
                   ),
                 ),
-                borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
             ),
           ],
