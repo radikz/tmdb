@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:search/presentation/bloc/movie/movie_search_bloc.dart';
 
-import '../provider/movie_search_notifier.dart';
 
 class SearchPage extends StatelessWidget {
   @override

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:tv/presentation/tv/bloc/top_rated/top_rated_tv_bloc.dart';
-import 'package:tv/presentation/tv/provider/top_rated_tvs_notifier.dart';
 
 class TopRatedTvsPage extends StatefulWidget {
   @override

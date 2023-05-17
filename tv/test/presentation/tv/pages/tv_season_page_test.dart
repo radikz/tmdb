@@ -8,7 +8,6 @@ import 'package:mocktail/mocktail.dart';
 import 'package:provider/provider.dart';
 import 'package:tv/presentation/tv/bloc/season_detail/season_detail_tv_bloc.dart';
 import 'package:tv/presentation/tv/pages/tv_season_page.dart';
-import 'package:tv/presentation/tv/provider/season_detail_tv_notifier.dart';
 
 import '../../../dummy_data/dummy_objects.dart';
 
@@ -16,7 +15,6 @@ class MockSeasonDetailTvBloc
     extends MockBloc<SeasonDetailTvEvent, SeasonDetailTvState>
     implements SeasonDetailTvBloc {}
 
-@GenerateMocks([SeasonDetailTvNotifier])
 void main() {
   late MockSeasonDetailTvBloc mockBloc;
 

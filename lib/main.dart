@@ -16,17 +16,10 @@ import 'package:movie/presentation/pages/movie_detail_page.dart';
 import 'package:movie/presentation/pages/popular_movies_page.dart';
 import 'package:movie/presentation/pages/top_rated_movies_page.dart';
 import 'package:movie/presentation/pages/watchlist_movies_page.dart';
-import 'package:movie/presentation/provider/movie_detail_notifier.dart';
-import 'package:movie/presentation/provider/movie_list_notifier.dart';
-import 'package:movie/presentation/provider/popular_movies_notifier.dart';
-import 'package:movie/presentation/provider/top_rated_movies_notifier.dart';
-import 'package:movie/presentation/provider/watchlist_movie_notifier.dart';
 import 'package:search/presentation/bloc/movie/movie_search_bloc.dart';
 import 'package:search/presentation/bloc/tv/tv_search_bloc.dart';
 import 'package:search/presentation/pages/search_page.dart';
 import 'package:search/presentation/pages/search_tv_page.dart';
-import 'package:search/presentation/provider/movie_search_notifier.dart';
-import 'package:search/presentation/provider/tv_search_notifier.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -47,14 +40,6 @@ import 'package:tv/presentation/tv/pages/tv_detail_episode_page.dart';
 import 'package:tv/presentation/tv/pages/tv_detail_page.dart';
 import 'package:tv/presentation/tv/pages/tv_season_page.dart';
 import 'package:tv/presentation/tv/pages/watchlist_tvs_page.dart';
-import 'package:tv/presentation/tv/provider/airing_now_tvs_notifier.dart';
-import 'package:tv/presentation/tv/provider/episode_detail_tv_notifier.dart';
-import 'package:tv/presentation/tv/provider/popular_tvs_notifier.dart';
-import 'package:tv/presentation/tv/provider/season_detail_tv_notifier.dart';
-import 'package:tv/presentation/tv/provider/top_rated_tvs_notifier.dart';
-import 'package:tv/presentation/tv/provider/tv_detail_notifier.dart';
-import 'package:tv/presentation/tv/provider/tv_list_notifier.dart';
-import 'package:tv/presentation/tv/provider/watchlist_tv_notifier.dart';
 
 import 'firebase_options.dart';
 
@@ -72,51 +57,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieListNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieDetailNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieSearchNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TopRatedMoviesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<PopularMoviesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<WatchlistMovieNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TvListNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TopRatedTvsNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<PopularTvsNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<AiringNowTvsNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TvDetailNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TvSearchNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<EpisodeDetailTvNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<SeasonDetailTvNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<WatchlistTvNotifier>(),
-        ),
         BlocProvider(
           create: (context) => di.locator<MovieSearchBloc>(),
         ),

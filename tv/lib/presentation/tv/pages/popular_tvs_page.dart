@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:tv/presentation/tv/bloc/popular/popular_tv_bloc.dart';
-import 'package:tv/presentation/tv/provider/popular_tvs_notifier.dart';
 
 class PopularTvsPage extends StatefulWidget {
   @override

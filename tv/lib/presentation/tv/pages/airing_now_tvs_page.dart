@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:tv/presentation/tv/bloc/airing_now/airing_now_tv_bloc.dart';
-import 'package:tv/presentation/tv/provider/airing_now_tvs_notifier.dart';
 
 class AiringNowTvsPage extends StatefulWidget {
   @override

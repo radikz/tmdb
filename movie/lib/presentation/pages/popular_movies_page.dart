@@ -3,7 +3,6 @@ import 'package:core/widgets/movie_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/presentation/bloc/popular/popular_movie_bloc.dart';
-import 'package:movie/presentation/provider/popular_movies_notifier.dart';
 import 'package:provider/provider.dart';
 
 class PopularMoviesPage extends StatelessWidget {

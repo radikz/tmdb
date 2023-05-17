@@ -47,7 +47,7 @@ void main() {
     'emits [Loading, Empty] when data is gotten successfully',
     build: () {
       when(mockGetRecommendationTvs.execute(1))
-          .thenAnswer((_) async => Right(tTvList));
+          .thenAnswer((_) async => Right(<Tv>[]));
       return recommendationTvBloc;
     },
     act: (bloc) => bloc.add(FetchRecommendationTv(1)),

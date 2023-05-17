@@ -11,7 +11,6 @@ import 'package:tv/presentation/tv/bloc/recommendation/recommendation_tv_bloc.da
 import 'package:tv/presentation/tv/bloc/tv_detail/tv_detail_bloc.dart';
 import 'package:tv/presentation/tv/bloc/watchlist/watchlist_tv_bloc.dart';
 import 'package:tv/presentation/tv/pages/tv_detail_page.dart';
-import 'package:tv/presentation/tv/provider/tv_detail_notifier.dart';
 
 import '../../../dummy_data/dummy_objects.dart';
 

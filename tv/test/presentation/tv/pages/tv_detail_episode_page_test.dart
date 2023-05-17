@@ -8,7 +8,6 @@ import 'package:mocktail/mocktail.dart';
 import 'package:provider/provider.dart';
 import 'package:tv/presentation/tv/bloc/episode_detail/episode_detail_tv_bloc.dart';
 import 'package:tv/presentation/tv/pages/tv_detail_episode_page.dart';
-import 'package:tv/presentation/tv/provider/episode_detail_tv_notifier.dart';
 
 import '../../../dummy_data/dummy_objects.dart';
 

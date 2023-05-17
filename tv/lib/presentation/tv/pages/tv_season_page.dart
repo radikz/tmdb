@@ -10,7 +10,6 @@ import 'package:provider/provider.dart';
 import 'package:tv/domain/entities/tv_episode.dart';
 import 'package:tv/presentation/tv/bloc/season_detail/season_detail_tv_bloc.dart';
 import 'package:tv/presentation/tv/pages/tv_detail_episode_page.dart';
-import 'package:tv/presentation/tv/provider/season_detail_tv_notifier.dart';
 
 class TvSeasonPage extends StatefulWidget {
   const TvSeasonPage({Key? key, required this.arg}) : super(key: key);

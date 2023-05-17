@@ -11,7 +11,6 @@ import 'package:movie/domain/entities/movie_detail.dart';
 import 'package:movie/presentation/bloc/movie_detail/movie_detail_bloc.dart';
 import 'package:movie/presentation/bloc/recommendation/recommendation_movie_bloc.dart';
 import 'package:movie/presentation/bloc/watchlist/watchlist_movie_bloc.dart';
-import 'package:movie/presentation/provider/movie_detail_notifier.dart';
 import 'package:provider/provider.dart';
 
 class MovieDetailPage extends StatefulWidget {

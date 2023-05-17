@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:tv/presentation/tv/bloc/watchlist/watchlist_tv_bloc.dart';
-import 'package:tv/presentation/tv/provider/watchlist_tv_notifier.dart';
 
 class WatchlistTvsPage extends StatefulWidget {
   @override

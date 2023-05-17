@@ -10,7 +10,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/presentation/bloc/now_playing/bloc/now_playing_movie_bloc.dart';
 import 'package:movie/presentation/bloc/popular/popular_movie_bloc.dart';
 import 'package:movie/presentation/bloc/top_rated/top_rated_movie_bloc.dart';
-import 'package:movie/presentation/provider/movie_list_notifier.dart';
 import 'package:provider/provider.dart';
 
 class HomeMoviePage extends StatefulWidget {

@@ -11,7 +11,6 @@ import 'package:provider/provider.dart';
 import 'package:tv/presentation/tv/bloc/airing_now/airing_now_tv_bloc.dart';
 import 'package:tv/presentation/tv/bloc/popular/popular_tv_bloc.dart';
 import 'package:tv/presentation/tv/bloc/top_rated/top_rated_tv_bloc.dart';
-import 'package:tv/presentation/tv/provider/tv_list_notifier.dart';
 
 class HomeTvPage extends StatefulWidget {
   const HomeTvPage({Key? key}) : super(key: key);

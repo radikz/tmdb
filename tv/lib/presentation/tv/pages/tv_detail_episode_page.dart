@@ -8,7 +8,6 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 import 'package:tv/domain/entities/tv_episode.dart';
 import 'package:tv/presentation/tv/bloc/episode_detail/episode_detail_tv_bloc.dart';
-import 'package:tv/presentation/tv/provider/episode_detail_tv_notifier.dart';
 
 class TvDetailEpisodePage extends StatefulWidget {
   const TvDetailEpisodePage({Key? key, required this.arg}) : super(key: key);

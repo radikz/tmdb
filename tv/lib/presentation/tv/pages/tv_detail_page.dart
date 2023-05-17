@@ -16,7 +16,6 @@ import 'package:tv/presentation/tv/bloc/tv_detail/tv_detail_bloc.dart';
 import 'package:tv/presentation/tv/bloc/watchlist/watchlist_tv_bloc.dart';
 import 'package:tv/presentation/tv/pages/tv_detail_episode_page.dart';
 import 'package:tv/presentation/tv/pages/tv_season_page.dart';
-import 'package:tv/presentation/tv/provider/tv_detail_notifier.dart';
 
 class TvDetailPage extends StatefulWidget {
   final int id;
